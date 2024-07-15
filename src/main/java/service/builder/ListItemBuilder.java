@@ -1,6 +1,9 @@
 package service.builder;
 
+import model.constants.TypeColumn;
+import model.listitem.Column;
 import model.listitem.ListItem;
+import model.listitem.Type;
 
 import java.awt.*;
 
@@ -33,6 +36,11 @@ public class ListItemBuilder {
 
     public ListItemBuilder icon(String iconId) {
         listItem.setIconId(iconId);
+        return this;
+    }
+
+    public ListItemBuilder initDefaultColumn() {
+        listItem.addColumn(new Column(listItem, "Title", new Type(TypeColumn.TEXT), false));
         return this;
     }
 }
