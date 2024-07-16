@@ -1,4 +1,4 @@
-package model.listitem;
+package model.microsoftlist;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,19 +8,19 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class Column {
-    private ListItem listItem;
+    private MicrosoftList list;
     private String name;
     private Type type;
-    private boolean isHidden = false;
+    private boolean isHidden;
 
 
 
 
-    public Column(ListItem listItem, String name, Type type, boolean isHidden) {
-        this.listItem = listItem;
+    public Column(MicrosoftList list, String name, Type type) {
+        this.list = list;
         this.name = name;
         this.type = type;
-        this.isHidden = isHidden;
+        this.isHidden = false;
     }
 
 

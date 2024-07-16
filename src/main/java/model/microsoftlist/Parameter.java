@@ -1,4 +1,4 @@
-package model.listitem;
+package model.microsoftlist;
 
 import lombok.Getter;
 import lombok.Setter;

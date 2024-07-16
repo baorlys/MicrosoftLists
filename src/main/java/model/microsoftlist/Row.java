@@ -1,4 +1,4 @@
-package model.listitem;
+package model.microsoftlist;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,12 +8,12 @@ import java.util.List;
 
 @Getter
 @Setter
-public class Item {
-    private ListItem listItem;
+public class Row {
+    private MicrosoftList list;
     private List<Cell<Column, Object>> cells;
 
-    public Item(ListItem listItem) {
-        this.listItem = listItem;
+    public Row(MicrosoftList list) {
+        this.list = list;
         this.cells = new ArrayList<>();
     }
 

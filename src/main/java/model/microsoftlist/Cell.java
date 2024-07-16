@@ -1,4 +1,4 @@
-package model.listitem;
+package model.microsoftlist;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,11 +9,11 @@ import java.util.UUID;
 @Setter
 public class Cell<T, K> {
     private UUID id;
-    private Item item;
+    private Row item;
     private T column;
     private K value;
 
-    public Cell(Item item, T column, K value) {
+    public Cell(Row item, T column, K value) {
         this.id = UUID.randomUUID();
         this.item = item;
         this.column = column;

@@ -2,7 +2,7 @@ package model.organization;
 
 import lombok.Getter;
 import lombok.Setter;
-import model.listitem.ListItem;
+import model.microsoftlist.MicrosoftList;
 import model.user.User;
 
 import java.util.HashSet;
@@ -13,7 +13,7 @@ public class Organization {
     private String name;
     private String domain;
     private HashSet<User> users;
-    private HashSet<ListItem> lists;
+    private HashSet<MicrosoftList> lists;
 
     public Organization() {
         users = new HashSet<>();

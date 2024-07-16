@@ -1,4 +1,4 @@
-package model.listitem;
+package model.microsoftlist;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,30 +9,30 @@ import java.util.List;
 
 @Getter
 @Setter
-public class ListItem {
+public class MicrosoftList {
     private String name;
     private String description;
     private Color color;
     private String iconId;
     private List<Column> columns;
-    private List<Item> items;
-    public ListItem() {
+    private List<Row> rows;
+    public MicrosoftList() {
         this.columns = new ArrayList<>();
-        this.items = new ArrayList<>();
+        this.rows = new ArrayList<>();
     }
 
     public void addColumn(Column column) {
         this.columns.add(column);
     }
 
-    public void addItem() {
-        Item item = new Item(this);
+    public void addRow() {
+        Row row = new Row(this);
 
         for (Column column : this.columns) {
-            Cell<Column, Object> cell = new Cell<>(item, column, "");
-            item.addCell(cell);
+            Cell<Column, Object> cell = new Cell<>(row, column, "");
+            row.addCell(cell);
         }
 
-        this.items.add(item);
+        this.rows.add(row);
     }
 }

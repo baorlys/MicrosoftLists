@@ -1,8 +1,9 @@
 package service.builder;
 
-import model.listitem.Column;
-import model.listitem.Parameter;
-import model.listitem.Type;
+import model.constants.TypeColumn;
+import model.microsoftlist.Column;
+import model.microsoftlist.Parameter;
+import model.microsoftlist.Type;
 import java.util.List;
 
 public class ColumnBuilder {
@@ -20,8 +21,8 @@ public class ColumnBuilder {
         return this;
     }
 
-    public ColumnBuilder type(Type type) {
-        column.setType(type);
+    public ColumnBuilder type(TypeColumn type) {
+        column.setType(new Type(type));
         return this;
     }
 
