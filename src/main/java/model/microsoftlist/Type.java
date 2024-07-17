@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 import model.constants.DateTime;
 import model.constants.TypeColumn;
+import util.Pair;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,12 +27,16 @@ public class Type {
     public void setConfig(List<Parameter> config) {
         this.config = Optional.ofNullable(config)
                 .orElse(List.of());
-        String defaultVal = String.valueOf(ConfigColumnFactory.configureColumn(typeColumn));
-        Optional<Parameter> optionalParameter = this.config.stream()
-                .filter(parameter -> parameter.getName().equals("defaultVal")
-                        && parameter.getValue().equals(DateTime.CURRENT_DATE))
-                .findFirst();
-        optionalParameter.ifPresent(parameter -> parameter.setValue(defaultVal));
+
+
+        this.config.stream()
+                .filter(para -> para.getName().equals("defaultVal"))
+                .findFirst()
+                .ifPresent(para -> para.setValue(
+                        ConfigColumnFactory.configureColumn(Pair.of(this.typeColumn, Optional.of(para.getValue())))
+                                .orElse(para.getValue()))
+                );
+
     }
 
     public String toJson() {

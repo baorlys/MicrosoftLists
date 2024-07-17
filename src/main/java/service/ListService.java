@@ -1,10 +1,10 @@
 package service;
 
-import model.microsoftlist.Column;
-import model.microsoftlist.Row;
-import model.microsoftlist.MicrosoftList;
+import model.microsoftlist.*;
 
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.UUID;
 
 
@@ -19,7 +19,13 @@ public class ListService {
     }
 
     public static void addColumn(MicrosoftList list, Column column) {
-        list.addColumn(column);
+        Optional<Column> existingColumn = Optional.ofNullable(getColumn(list, column.getName()));
+        existingColumn.ifPresentOrElse(
+                c -> {
+                    throw new IllegalArgumentException("Column already exists");
+                },
+                () -> list.addColumn(column)
+        );
     }
 
     public static Column getColumn(MicrosoftList list, String name) {
@@ -53,5 +59,22 @@ public class ListService {
         return list.getColumns().stream()
                 .filter(col -> col.getName().equals(colName))
                 .findFirst().map(column -> column.getType().toJson()).orElse(null);
+    }
+
+    public static List<Parameter> getConfigColumn(MicrosoftList list, String colName) {
+        return list.getColumns().stream()
+                .filter(col -> col.getName().equals(colName))
+                .findFirst().map(col -> col.getType().getConfig()).orElse(null);
+    }
+
+
+    public static Object getDefaultVal(MicrosoftList list, String colName) {
+        Type type = list.getColumns().stream()
+                .filter(col -> col.getName().equals(colName))
+                .findFirst().map(Column::getType).orElse(null);
+        assert type != null;
+        return type.getConfig().stream()
+                .filter(param -> param.getName().equals("defaultVal"))
+                .findFirst().map(Parameter::getValue).orElse(null);
     }
 }

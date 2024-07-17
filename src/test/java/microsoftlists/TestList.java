@@ -3,6 +3,7 @@ package microsoftlists;
 import model.constants.DateTime;
 import model.constants.NumberSymbol;
 import model.constants.TypeColumn;
+import model.microsoftlist.Column;
 import model.microsoftlist.MicrosoftList;
 import model.microsoftlist.Parameter;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,11 +14,11 @@ import service.builder.ColumnBuilder;
 import service.builder.MicrosoftListBuilder;
 
 import java.awt.*;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 class TestList {
     MicrosoftList list;
@@ -89,28 +90,31 @@ class TestList {
 
         assertEquals(columnsCount + 1, ListService.getColumnsCount(list));
 
-        String date = Date.from(new Date().toInstant()).toString();
-        assertEquals("{\"typeColumn\":\"DATE\",\"config\":[{\"name\":\"defaultVal\",\"value\":\""+date+"\"}]}"
-                , ListService.getColumnConfig(list, "Column Date"));
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String date = currentDate.format(formatter);
+
+        assertEquals(date, ListService.getDefaultVal(list, "Column Date"));
 
     }
 
-    @Test
+
+    @Test()
     void testAddColumnSameName() {
 
         long columnsCount = ListService.getColumnsCount(list);
 
-        ListService.addColumn(list,
-                new ColumnBuilder()
-                        .type(TypeColumn.DATE)
-                        .name("Column Text")
-                        .build());
+        Column columnText = ListService.getColumn(list, "Column Text");
+        assertNotNull(columnText);
+
+        Column newColumn = new ColumnBuilder()
+                .type(TypeColumn.TEXT)
+                .name("Column Text")
+                .build();
+
+        assertThrows(IllegalArgumentException.class, () -> ListService.addColumn(list, newColumn));
 
         assertEquals(columnsCount, ListService.getColumnsCount(list));
-
-        assertEquals("{\"typeColumn\":\"TEXT\",\"config\":[{\"name\":\"defaultVal\",\"value\":\"default text\"}]}"
-                , ListService.getColumnConfig(list, "Column Text"));
-
     }
 
     @Test
