@@ -1,25 +1,26 @@
 package model.microsoftlist;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+import model.microsoftlist.type.AbstractType;
+
+import java.util.List;
 
 @Getter
 @Setter
-@NoArgsConstructor
 public class Column {
+
+    @JsonIgnore
     private MicrosoftList list;
     private String name;
-    private Type type;
+    private AbstractType type;
+
+    private List<Parameter> config;
     private boolean isHidden;
 
 
-
-
-    public Column(MicrosoftList list, String name, Type type) {
-        this.list = list;
-        this.name = name;
-        this.type = type;
+    public Column() {
         this.isHidden = false;
     }
 

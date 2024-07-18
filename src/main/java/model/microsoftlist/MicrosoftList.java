@@ -2,10 +2,13 @@ package model.microsoftlist;
 
 import lombok.Getter;
 import lombok.Setter;
+import service.file.SaveService;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
+
 
 @Getter
 @Setter
@@ -23,16 +26,25 @@ public class MicrosoftList {
 
     public void addColumn(Column column) {
         this.columns.add(column);
+        try {
+            SaveService.saveStructure(this);
+        } catch (Exception e) {
+            Logger.getAnonymousLogger().warning("Failed to save structure");
+        }
     }
 
     public void addRow() {
         Row row = new Row(this);
 
         for (Column column : this.columns) {
-            Cell<Column, Object> cell = new Cell<>(row, column, "");
-            row.addCell(cell);
+            row.addCell(Cell.of(row, column, ""));
         }
 
         this.rows.add(row);
+        try {
+            SaveService.saveData(this);
+        } catch (Exception e) {
+            Logger.getAnonymousLogger().warning("Failed to save data");
+        }
     }
 }

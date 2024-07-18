@@ -3,22 +3,22 @@ package model.microsoftlist;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.UUID;
 
 @Getter
 @Setter
-public class Cell<T, K> {
-    private UUID id;
-    private Row item;
-    private T column;
-    private K value;
+public class Cell {
+    private Row row;
+    private Column column;
+    private Object value;
 
-    public Cell(Row item, T column, K value) {
-        this.id = UUID.randomUUID();
-        this.item = item;
+    public Cell(Row row, Column column, Object value) {
+        this.row = row;
         this.column = column;
         this.value = value;
     }
 
 
+    public static Cell of(Row row, Column column, Object value) {
+        return new Cell(row, column, value);
+    }
 }
