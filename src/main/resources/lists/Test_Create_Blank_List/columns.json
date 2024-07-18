@@ -1,0 +1,124 @@
+[ {
+  "name" : "Title",
+  "type" : {
+    "type" : "TEXT"
+  },
+  "config" : null,
+  "hidden" : false
+}, {
+  "name" : "Column Text",
+  "type" : {
+    "type" : "TEXT"
+  },
+  "config" : [ {
+    "name" : "DEFAULT_VALUE",
+    "value" : [ "default text" ]
+  } ],
+  "hidden" : false
+}, {
+  "name" : "Column Number",
+  "type" : {
+    "type" : "NUMBER"
+  },
+  "config" : [ {
+    "name" : "NUMBER_SYMBOL",
+    "value" : [ "NONE" ]
+  }, {
+    "name" : "DEFAULT_VALUE",
+    "value" : [ 0 ]
+  } ],
+  "hidden" : false
+}, {
+  "name" : "Column Date",
+  "type" : {
+    "type" : "DATE"
+  },
+  "config" : [ {
+    "name" : "DEFAULT_VALUE",
+    "value" : [ "CURRENT_DATE" ]
+  } ],
+  "hidden" : false
+}, {
+  "name" : "Column YesNo",
+  "type" : {
+    "type" : "CHECKBOX"
+  },
+  "config" : [ {
+    "name" : "DEFAULT_VALUE",
+    "value" : [ false ]
+  } ],
+  "hidden" : false
+}, {
+  "name" : "Column Choice",
+  "type" : {
+    "type" : "CHOICE"
+  },
+  "config" : [ {
+    "name" : "DEFAULT_VALUE",
+    "value" : [ "choice 1", "choice 2", "choice 3" ]
+  }, {
+    "name" : "MULTIPLE_SELECTION",
+    "value" : [ true ]
+  } ],
+  "hidden" : false
+}, {
+  "name" : "Column Hyperlink",
+  "type" : {
+    "type" : "HYPERLINK"
+  },
+  "config" : [ {
+    "name" : "DEFAULT_VALUE",
+    "value" : [ "https://www.google.com" ]
+  } ],
+  "hidden" : false
+}, {
+  "name" : "Column Image",
+  "type" : {
+    "type" : "IMAGE"
+  },
+  "config" : [ {
+    "name" : "DEFAULT_VALUE",
+    "value" : [ "https://www.google.com/image.jpg" ]
+  } ],
+  "hidden" : false
+}, {
+  "name" : "Column Person",
+  "type" : {
+    "type" : "PERSON"
+  },
+  "config" : [ {
+    "name" : "DEFAULT_VALUE",
+    "value" : [ "person 1" ]
+  } ],
+  "hidden" : false
+}, {
+  "name" : "Column Multiple Lines of Text",
+  "type" : {
+    "type" : "MULTIPLE_LINES_OF_TEXT"
+  },
+  "config" : [ {
+    "name" : "DEFAULT_VALUE",
+    "value" : [ "default text" ]
+  } ],
+  "hidden" : false
+}, {
+  "name" : "Column Lookup",
+  "type" : {
+    "type" : "LOOKUP"
+  },
+  "config" : [ {
+    "name" : "DEFAULT_VALUE",
+    "value" : [ "lookup 1" ]
+  } ],
+  "hidden" : false
+}, {
+  "name" : "Column Average Rating",
+  "type" : {
+    "type" : "AVERAGE_RATING"
+  },
+  "config" : [ {
+    "name" : "DEFAULT_VALUE",
+    "value" : [ 0 ]
+  } ],
+  "hidden" : false
+} ]

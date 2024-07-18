@@ -1,54 +1,61 @@
 package service.builder;
 
+import config.Configuration;
 import model.constants.TypeColumn;
 import model.microsoftlist.Column;
 import model.microsoftlist.MicrosoftList;
-import model.microsoftlist.Type;
+import service.file.SaveService;
 
 import java.awt.*;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class MicrosoftListBuilder {
-    MicrosoftList listItem;
-    public MicrosoftListBuilder() {
-        listItem = new MicrosoftList();
+    MicrosoftList list;
+    public MicrosoftListBuilder(String name) {
+        list = new MicrosoftList();
+        list.setName(name);
     }
 
 
 
     public MicrosoftList build() {
-        return listItem;
+        try {
+            SaveService.saveStructure(list);
+        } catch (IOException e) {
+            Logger.getAnonymousLogger().warning("Error saving list structure");
+        }
+        return list;
     }
 
-    public MicrosoftListBuilder name(String name) {
-        listItem.setName(name);
-        return this;
-    }
 
     public MicrosoftListBuilder description(String descr) {
-        listItem.setDescription(descr);
+        list.setDescription(descr);
         return this;
     }
 
     public MicrosoftListBuilder color(Color color) {
-        listItem.setColor(color);
+        list.setColor(color);
         return this;
     }
 
     public MicrosoftListBuilder icon(String iconId) {
-        listItem.setIconId(iconId);
+        list.setIconId(iconId);
         return this;
     }
 
     public MicrosoftListBuilder initDefaultColumn() {
-        listItem.addColumn(new Column(listItem, "Title", new Type(TypeColumn.TEXT)));
+        list.addColumn(new ColumnBuilder(TypeColumn.TEXT, Configuration.COLUMN_NAME).build());
         return this;
     }
 
-    public MicrosoftListBuilder addColumns(List<Column> columns) {
-        for (Column column : columns) {
-            listItem.addColumn(column);
-        }
+    public MicrosoftListBuilder addColumns(Column... columns) {
+        List<Column> newColumns = new ArrayList<>(list.getColumns());
+        newColumns.addAll(Arrays.asList(columns));
+        list.setColumns(newColumns);
         return this;
     }
 }
