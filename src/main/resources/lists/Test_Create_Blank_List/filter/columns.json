@@ -1,0 +1,102 @@
+[ {
+  "name" : "Title",
+  "type" : {
+    "type" : "TEXT"
+  },
+  "config" : [ ],
+  "defaultValue" : null,
+  "hidden" : false
+}, {
+  "name" : "Column Date",
+  "type" : {
+    "type" : "DATE"
+  },
+  "config" : [ {
+    "name" : "DEFAULT_VALUE",
+    "value" : "CURRENT_DATE"
+  } ],
+  "defaultValue" : "CURRENT_DATE",
+  "hidden" : false
+}, {
+  "name" : "Column Number",
+  "type" : {
+    "type" : "NUMBER"
+  },
+  "config" : [ {
+    "name" : "NUMBER_SYMBOL",
+    "value" : "NONE"
+  } ],
+  "defaultValue" : null,
+  "hidden" : false
+}, {
+  "name" : "Column YesNo",
+  "type" : {
+    "type" : "CHECKBOX"
+  },
+  "config" : [ ],
+  "defaultValue" : null,
+  "hidden" : false
+}, {
+  "name" : "Column Choice",
+  "type" : {
+    "values" : null,
+    "type" : "CHOICE"
+  },
+  "config" : [ {
+    "name" : "CHOICES",
+    "value" : [ "choice 1", "choice 2", "choice 3" ]
+  } ],
+  "defaultValue" : null,
+  "hidden" : false
+}, {
+  "name" : "Column Hyperlink",
+  "type" : {
+    "type" : "HYPERLINK"
+  },
+  "config" : [ ],
+  "defaultValue" : null,
+  "hidden" : false
+}, {
+  "name" : "Column Image",
+  "type" : {
+    "type" : "IMAGE"
+  },
+  "config" : [ ],
+  "defaultValue" : null,
+  "hidden" : false
+}, {
+  "name" : "Column Person",
+  "type" : {
+    "type" : "PERSON"
+  },
+  "config" : [ ],
+  "defaultValue" : null,
+  "hidden" : false
+}, {
+  "name" : "Column Multiple Lines of Text",
+  "type" : {
+    "type" : "MULTIPLE_LINES_OF_TEXT"
+  },
+  "config" : [ ],
+  "defaultValue" : null,
+  "hidden" : false
+}, {
+  "name" : "Column Lookup",
+  "type" : {
+    "type" : "LOOKUP"
+  },
+  "config" : [ ],
+  "defaultValue" : null,
+  "hidden" : false
+}, {
+  "name" : "Column Average Rating",
+  "type" : {
+    "type" : "AVERAGE_RATING"
+  },
+  "config" : [ {
+    "name" : "DEFAULT_VALUE",
+    "value" : 0
+  } ],
+  "defaultValue" : 0,
+  "hidden" : false
+} ]
