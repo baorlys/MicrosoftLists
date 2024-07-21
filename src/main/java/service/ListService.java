@@ -13,8 +13,6 @@ import model.microsoft.list.value.IValueFactory;
 import model.microsoft.list.value.SingleObject;
 
 import javax.swing.*;
-import java.lang.reflect.GenericDeclaration;
-import java.lang.reflect.TypeVariable;
 import java.util.*;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
