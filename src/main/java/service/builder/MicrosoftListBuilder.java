@@ -1,16 +1,15 @@
 package service.builder;
 
 import config.Configuration;
-import model.constants.TypeColumn;
-import model.microsoftlist.Column;
-import model.microsoftlist.MicrosoftList;
+import model.constants.ColumnType;
+import model.microsoft.list.Column;
+import model.microsoft.list.MicrosoftList;
+import service.ListService;
 import service.file.SaveService;
 
 import java.awt.*;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.logging.Logger;
 
 public class MicrosoftListBuilder {
@@ -48,14 +47,13 @@ public class MicrosoftListBuilder {
     }
 
     public MicrosoftListBuilder initDefaultColumn() {
-        list.addColumn(new ColumnBuilder(TypeColumn.TEXT, Configuration.COLUMN_NAME).build());
+        list.addColumn(new ColumnBuilder(ColumnType.TEXT, Configuration.COLUMN_NAME)
+                .build());
         return this;
     }
 
     public MicrosoftListBuilder addColumns(Column... columns) {
-        List<Column> newColumns = new ArrayList<>(list.getColumns());
-        newColumns.addAll(Arrays.asList(columns));
-        list.setColumns(newColumns);
+        ListService.addColumns(list, Arrays.asList(columns));
         return this;
     }
 }

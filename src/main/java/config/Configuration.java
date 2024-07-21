@@ -5,6 +5,7 @@ import java.util.Optional;
 
 public class Configuration {
 
+
     private static final PropertiesLoader propertyLoader = PropertiesLoader.load();
 
     public static final String DATETIME_FORMAT =
@@ -25,6 +26,18 @@ public class Configuration {
     public static final String DATA_PATH =
             Optional.ofNullable(getProperty(ConfigValue.DATA_PATH.getVariableName()))
                     .orElse("data");
+
+    public static final String VIEW_PATH =
+            Optional.ofNullable(getProperty(ConfigValue.VIEW_PATH.getVariableName()))
+                    .orElse("src/main/resources/view.json");
+
+    public static final int PAGE_SIZE =
+            Integer.parseInt(Optional.ofNullable(getProperty(ConfigValue.PAGE_SIZE.getVariableName()))
+                    .orElse("10"));
+
+    public static final int PAGE_NUMBER =
+            Integer.parseInt(Optional.ofNullable(getProperty(ConfigValue.PAGE_NUMBER.getVariableName()))
+                    .orElse("1"));
 
     private Configuration() {
 

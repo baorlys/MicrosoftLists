@@ -7,7 +7,9 @@ public enum ConfigValue {
     // default values for file name to save columns and directory path
     COLUMNS_PATH("columns.path"),
     DIR_PATH("dir.path"),
-    DATA_PATH("data.path");
+    DATA_PATH("data.path"),
+    PAGE_SIZE("page.size"),
+    PAGE_NUMBER("page.number"), VIEW_PATH("view.path");
 
 
 

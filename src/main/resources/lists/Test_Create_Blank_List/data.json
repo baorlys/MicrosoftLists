@@ -1,16 +1,81 @@
 [ {
   "cells" : {
-    "Column Choice" : "",
-    "Column Date" : "",
-    "Column Average Rating" : "",
-    "Column Number" : "",
-    "Column Text" : "",
-    "Column YesNo" : "",
-    "Column Multiple Lines of Text" : "",
-    "Title" : "",
-    "Column Image" : "",
-    "Column Person" : "",
-    "Column Lookup" : "",
-    "Column Hyperlink" : ""
-  }
+    "Column Choice" : {
+      "object" : "choice 1"
+    },
+    "Column Date" : {
+      "object" : "2021-01-01"
+    },
+    "Column Average Rating" : {
+      "object" : 0
+    },
+    "Column Number" : {
+      "object" : 1
+    },
+    "Column Text" : {
+      "object" : "text"
+    },
+    "Column YesNo" : {
+      "object" : true
+    },
+    "Column Multiple Lines of Text" : {
+      "object" : "default text"
+    },
+    "Title" : {
+      "object" : ""
+    },
+    "Column Image" : {
+      "object" : "https://www.google.com/image.jpg"
+    },
+    "Column Person" : {
+      "object" : "person 1"
+    },
+    "Column Lookup" : {
+      "object" : "lookup 1"
+    },
+    "Column Hyperlink" : {
+      "object" : "https://www.google.com"
+    }
+  },
+  "createdAt" : 1721571724279
+}, {
+  "cells" : {
+    "Column Choice" : {
+      "object" : ""
+    },
+    "Column Date" : {
+      "object" : "CURRENT_DATE"
+    },
+    "Column Average Rating" : {
+      "object" : 0
+    },
+    "Column Number" : {
+      "object" : 1
+    },
+    "Column Text" : {
+      "object" : "text 2"
+    },
+    "Column YesNo" : {
+      "object" : true
+    },
+    "Column Multiple Lines of Text" : {
+      "object" : ""
+    },
+    "Title" : {
+      "object" : ""
+    },
+    "Column Image" : {
+      "object" : ""
+    },
+    "Column Person" : {
+      "object" : ""
+    },
+    "Column Lookup" : {
+      "object" : ""
+    },
+    "Column Hyperlink" : {
+      "object" : ""
+    }
+  },
+  "createdAt" : 1721571724280
 } ]
