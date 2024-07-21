@@ -4,7 +4,6 @@ import config.Configuration;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import model.constants.ViewType;
 import model.microsoft.list.view.AbstractView;
 import service.file.SaveService;
 import model.microsoft.list.value.SingleObject;
@@ -47,7 +46,7 @@ public class MicrosoftList {
         try {
             SaveService.saveStructure(this);
         } catch (Exception e) {
-            Logger.getAnonymousLogger().warning("Failed to save structure");
+            Logger.getAnonymousLogger().warning(e.getMessage());
         }
     }
 
@@ -63,7 +62,7 @@ public class MicrosoftList {
         try {
             SaveService.saveData(this);
         } catch (Exception e) {
-            Logger.getAnonymousLogger().warning("Failed to save data");
+            Logger.getAnonymousLogger().warning(e.getMessage());
         }
     }
 
@@ -72,7 +71,7 @@ public class MicrosoftList {
         try {
             SaveService.saveData(this);
         } catch (Exception e) {
-            Logger.getAnonymousLogger().warning("Failed to save data");
+            Logger.getAnonymousLogger().warning(e.getMessage());
         }
     }
 
@@ -81,7 +80,7 @@ public class MicrosoftList {
         try {
             SaveService.saveStructure(this);
         } catch (Exception e) {
-            Logger.getAnonymousLogger().warning("Failed to save structure");
+            Logger.getAnonymousLogger().warning(e.getMessage());
         }
 
     }
@@ -91,7 +90,7 @@ public class MicrosoftList {
         try {
             SaveService.saveData(this);
         } catch (Exception e) {
-            Logger.getAnonymousLogger().warning("Failed to save data");
+            Logger.getAnonymousLogger().warning(e.getMessage());
         }
     }
 
