@@ -11,25 +11,25 @@ import java.util.List;
 public abstract class AbstractType implements Comparator&lt;Object&gt; {
     private final ColumnType columnType;
 
-<span class="nc" id="L14">    protected AbstractType(ColumnType type) {</span>
-<span class="nc" id="L15">        this.columnType = type;</span>
+<span class="fc" id="L14">    protected AbstractType(ColumnType type) {</span>
+<span class="fc" id="L15">        this.columnType = type;</span>
 
-<span class="nc" id="L17">    }</span>
+<span class="fc" id="L17">    }</span>
     @Override
     public int compare(Object o1, Object o2) {
-<span class="nc" id="L20">        return this.handleCompare(o1, o2);</span>
+<span class="fc" id="L20">        return this.handleCompare(o1, o2);</span>
     }
     protected abstract int handleCompare(Object o1, Object o2);
 
 
 
     public List&lt;Parameter&gt; handle(List&lt;Parameter&gt; config) {
-<span class="nc" id="L27">        return this.handleConfig(config);</span>
+<span class="fc" id="L27">        return this.handleConfig(config);</span>
     }
     protected abstract List&lt;Parameter&gt; handleConfig(List&lt;Parameter&gt; config);
 
     public ColumnType getType() {
-<span class="nc" id="L32">        return columnType;</span>
+<span class="fc" id="L32">        return columnType;</span>
     }
 
 
@@ -39,4 +39,4 @@ public abstract class AbstractType implements Comparator&lt;Object&gt; {
 
     protected abstract boolean handleIsValueValid(List&lt;Parameter&gt; config, Object value);
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -14,47 +14,47 @@ import java.util.logging.Logger;
 
 public class MicrosoftListBuilder {
     MicrosoftList list;
-<span class="nc" id="L17">    public MicrosoftListBuilder(String name) {</span>
-<span class="nc" id="L18">        list = new MicrosoftList();</span>
-<span class="nc" id="L19">        list.setName(name);</span>
-<span class="nc" id="L20">    }</span>
+<span class="fc" id="L17">    public MicrosoftListBuilder(String name) {</span>
+<span class="fc" id="L18">        list = new MicrosoftList();</span>
+<span class="fc" id="L19">        list.setName(name);</span>
+<span class="fc" id="L20">    }</span>
 
 
 
     public MicrosoftList build() {
         try {
-<span class="nc" id="L26">            SaveService.saveStructure(list);</span>
+<span class="fc" id="L26">            SaveService.saveStructure(list);</span>
 <span class="nc" id="L27">        } catch (IOException e) {</span>
 <span class="nc" id="L28">            Logger.getAnonymousLogger().warning(&quot;Error saving list structure&quot;);</span>
-<span class="nc" id="L29">        }</span>
-<span class="nc" id="L30">        return list;</span>
+<span class="fc" id="L29">        }</span>
+<span class="fc" id="L30">        return list;</span>
     }
 
 
     public MicrosoftListBuilder description(String descr) {
-<span class="nc" id="L35">        list.setDescription(descr);</span>
-<span class="nc" id="L36">        return this;</span>
+<span class="fc" id="L35">        list.setDescription(descr);</span>
+<span class="fc" id="L36">        return this;</span>
     }
 
     public MicrosoftListBuilder color(Color color) {
-<span class="nc" id="L40">        list.setColor(color);</span>
-<span class="nc" id="L41">        return this;</span>
+<span class="fc" id="L40">        list.setColor(color);</span>
+<span class="fc" id="L41">        return this;</span>
     }
 
     public MicrosoftListBuilder icon(String iconId) {
-<span class="nc" id="L45">        list.setIconId(iconId);</span>
-<span class="nc" id="L46">        return this;</span>
+<span class="fc" id="L45">        list.setIconId(iconId);</span>
+<span class="fc" id="L46">        return this;</span>
     }
 
     public MicrosoftListBuilder initDefaultColumn() {
-<span class="nc" id="L50">        list.addColumn(new ColumnBuilder(ColumnType.TEXT, Configuration.COLUMN_NAME)</span>
-<span class="nc" id="L51">                .build());</span>
-<span class="nc" id="L52">        return this;</span>
+<span class="fc" id="L50">        list.addColumn(new ColumnBuilder(ColumnType.TEXT, Configuration.COLUMN_NAME)</span>
+<span class="fc" id="L51">                .build());</span>
+<span class="fc" id="L52">        return this;</span>
     }
 
     public MicrosoftListBuilder addColumns(Column... columns) {
-<span class="nc" id="L56">        ListService.addColumns(list, Arrays.asList(columns));</span>
-<span class="nc" id="L57">        return this;</span>
+<span class="fc" id="L56">        ListService.addColumns(list, Arrays.asList(columns));</span>
+<span class="fc" id="L57">        return this;</span>
     }
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

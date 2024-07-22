@@ -6,38 +6,38 @@ import java.util.Optional;
 public class Configuration {
 
 
-<span class="nc" id="L9">    private static final PropertiesLoader propertyLoader = PropertiesLoader.load();</span>
+<span class="fc" id="L9">    private static final PropertiesLoader propertyLoader = PropertiesLoader.load();</span>
 
-<span class="nc" id="L11">    public static final String DATETIME_FORMAT =</span>
-<span class="nc" id="L12">            Optional.ofNullable(getProperty(ConfigValue.DATETIME_FORMAT.getVariableName()))</span>
-<span class="nc" id="L13">                    .orElse(&quot;dd-MM-yyyy&quot;);</span>
+<span class="fc" id="L11">    public static final String DATETIME_FORMAT =</span>
+<span class="fc" id="L12">            Optional.ofNullable(getProperty(ConfigValue.DATETIME_FORMAT.getVariableName()))</span>
+<span class="fc" id="L13">                    .orElse(&quot;dd-MM-yyyy&quot;);</span>
 
-<span class="nc" id="L15">    public static final String COLUMN_NAME =</span>
-<span class="nc" id="L16">            Optional.ofNullable(getProperty(ConfigValue.COLUMN_NAME.getVariableName()))</span>
-<span class="nc" id="L17">                    .orElse(&quot;Temp column name&quot;);</span>
+<span class="fc" id="L15">    public static final String COLUMN_NAME =</span>
+<span class="fc" id="L16">            Optional.ofNullable(getProperty(ConfigValue.COLUMN_NAME.getVariableName()))</span>
+<span class="fc" id="L17">                    .orElse(&quot;Temp column name&quot;);</span>
 
-<span class="nc" id="L19">    public static final String COLS_PATH =</span>
-<span class="nc" id="L20">            Optional.ofNullable(getProperty(ConfigValue.COLUMNS_PATH.getVariableName()))</span>
-<span class="nc" id="L21">                    .orElse(&quot;src/main/resources/cols.json&quot;);</span>
-<span class="nc" id="L22">    public static final String DIR_PATH =</span>
-<span class="nc" id="L23">            Optional.ofNullable(getProperty(ConfigValue.DIR_PATH.getVariableName()))</span>
-<span class="nc" id="L24">                    .orElse(&quot;src/main/resources/lists/&quot;);</span>
+<span class="fc" id="L19">    public static final String COLS_PATH =</span>
+<span class="fc" id="L20">            Optional.ofNullable(getProperty(ConfigValue.COLUMNS_PATH.getVariableName()))</span>
+<span class="fc" id="L21">                    .orElse(&quot;src/main/resources/cols.json&quot;);</span>
+<span class="fc" id="L22">    public static final String DIR_PATH =</span>
+<span class="fc" id="L23">            Optional.ofNullable(getProperty(ConfigValue.DIR_PATH.getVariableName()))</span>
+<span class="fc" id="L24">                    .orElse(&quot;src/main/resources/lists/&quot;);</span>
 
-<span class="nc" id="L26">    public static final String DATA_PATH =</span>
-<span class="nc" id="L27">            Optional.ofNullable(getProperty(ConfigValue.DATA_PATH.getVariableName()))</span>
-<span class="nc" id="L28">                    .orElse(&quot;data&quot;);</span>
+<span class="fc" id="L26">    public static final String DATA_PATH =</span>
+<span class="fc" id="L27">            Optional.ofNullable(getProperty(ConfigValue.DATA_PATH.getVariableName()))</span>
+<span class="fc" id="L28">                    .orElse(&quot;data&quot;);</span>
 
-<span class="nc" id="L30">    public static final String VIEW_PATH =</span>
-<span class="nc" id="L31">            Optional.ofNullable(getProperty(ConfigValue.VIEW_PATH.getVariableName()))</span>
-<span class="nc" id="L32">                    .orElse(&quot;src/main/resources/view.json&quot;);</span>
+<span class="fc" id="L30">    public static final String VIEW_PATH =</span>
+<span class="fc" id="L31">            Optional.ofNullable(getProperty(ConfigValue.VIEW_PATH.getVariableName()))</span>
+<span class="fc" id="L32">                    .orElse(&quot;src/main/resources/view.json&quot;);</span>
 
-<span class="nc" id="L34">    public static final int PAGE_SIZE =</span>
-<span class="nc" id="L35">            Integer.parseInt(Optional.ofNullable(getProperty(ConfigValue.PAGE_SIZE.getVariableName()))</span>
-<span class="nc" id="L36">                    .orElse(&quot;10&quot;));</span>
+<span class="fc" id="L34">    public static final int PAGE_SIZE =</span>
+<span class="fc" id="L35">            Integer.parseInt(Optional.ofNullable(getProperty(ConfigValue.PAGE_SIZE.getVariableName()))</span>
+<span class="fc" id="L36">                    .orElse(&quot;10&quot;));</span>
 
-<span class="nc" id="L38">    public static final int PAGE_NUMBER =</span>
-<span class="nc" id="L39">            Integer.parseInt(Optional.ofNullable(getProperty(ConfigValue.PAGE_NUMBER.getVariableName()))</span>
-<span class="nc" id="L40">                    .orElse(&quot;1&quot;));</span>
+<span class="fc" id="L38">    public static final int PAGE_NUMBER =</span>
+<span class="fc" id="L39">            Integer.parseInt(Optional.ofNullable(getProperty(ConfigValue.PAGE_NUMBER.getVariableName()))</span>
+<span class="fc" id="L40">                    .orElse(&quot;1&quot;));</span>
 
     private Configuration() {
 
@@ -45,11 +45,11 @@ public class Configuration {
 
 
     private static String getProperty(String key) {
-<span class="nc" id="L48">        return propertyLoader.getProperty(key);</span>
+<span class="fc" id="L48">        return propertyLoader.getProperty(key);</span>
     }
 
 
 
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

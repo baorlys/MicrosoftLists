@@ -7,19 +7,18 @@ import model.constants.MessageType;
 import java.util.List;
 
 @Getter
-<span class="nc" id="L10">@Setter</span>
+@Setter
 public class SuccessMessage extends ResultMessage {
 
 <span class="nc" id="L13">    private List&lt;Object&gt; data;</span>
 
-    public SuccessMessage(String message, List&lt;Object&gt; data) {
-<span class="nc" id="L16">        super(message, MessageType.SUCCESS);</span>
-<span class="nc" id="L17">        this.data = data;</span>
-<span class="nc" id="L18">    }</span>
-
 
     public SuccessMessage() {
-<span class="nc" id="L22">        super(&quot;&quot;, MessageType.SUCCESS);</span>
-<span class="nc" id="L23">    }</span>
+<span class="fc" id="L17">        super(&quot;&quot;, MessageType.SUCCESS);</span>
+<span class="fc" id="L18">    }</span>
+
+    public void setData(Object... data) {
+<span class="fc" id="L21">        this.data = List.of(data);</span>
+<span class="fc" id="L22">    }</span>
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

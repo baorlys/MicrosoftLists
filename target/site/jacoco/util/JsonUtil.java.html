@@ -12,23 +12,23 @@ public class JsonUtil {
 <span class="nc" id="L12">    private JsonUtil() {</span>
 <span class="nc" id="L13">        throw new IllegalStateException(&quot;Utility class&quot;);</span>
     }
-<span class="nc" id="L15">    private static final ObjectMapper objectMapper = new ObjectMapper();</span>
+<span class="fc" id="L15">    private static final ObjectMapper objectMapper = new ObjectMapper();</span>
 
     public static String toJson(Object object) throws JsonProcessingException {
-<span class="nc" id="L18">        return objectMapper.writeValueAsString(object);</span>
+<span class="fc" id="L18">        return objectMapper.writeValueAsString(object);</span>
     }
 
     public static &lt;T&gt; T fromJson(String json, Class&lt;T&gt; clazz) throws JsonProcessingException {
-<span class="nc" id="L22">        return objectMapper.readValue(json, clazz);</span>
+<span class="fc" id="L22">        return objectMapper.readValue(json, clazz);</span>
     }
 
     public static void toJsonFile(Object object, String dirPath, String filePath) throws IOException {
-<span class="nc" id="L26">        objectMapper.enable(SerializationFeature.INDENT_OUTPUT);</span>
-<span class="nc" id="L27">        objectMapper.writeValue(new File(dirPath, filePath), object);</span>
-<span class="nc" id="L28">    }</span>
+<span class="fc" id="L26">        objectMapper.enable(SerializationFeature.INDENT_OUTPUT);</span>
+<span class="fc" id="L27">        objectMapper.writeValue(new File(dirPath, filePath), object);</span>
+<span class="fc" id="L28">    }</span>
 
     public static &lt;T&gt; T fromJsonFile(String dirPath, String filePath, Class&lt;T&gt; clazz) throws IOException {
-<span class="nc" id="L31">        return objectMapper.readValue(new File(dirPath, filePath), clazz);</span>
+<span class="fc" id="L31">        return objectMapper.readValue(new File(dirPath, filePath), clazz);</span>
     }
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

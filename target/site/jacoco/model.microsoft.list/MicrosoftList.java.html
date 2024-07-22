@@ -16,94 +16,94 @@ import java.util.logging.Logger;
 
 
 @Getter
-<span class="nc" id="L19">@Setter</span>
+<span class="pc" id="L19">@Setter</span>
 <span class="nc" id="L20">@AllArgsConstructor</span>
 public class MicrosoftList {
-<span class="nc" id="L22">    private String name;</span>
+<span class="fc" id="L22">    private String name;</span>
 <span class="nc" id="L23">    private String description;</span>
 <span class="nc" id="L24">    private Color color;</span>
 <span class="nc" id="L25">    private String iconId;</span>
-<span class="nc" id="L26">    private List&lt;Column&gt; columns;</span>
-<span class="nc" id="L27">    private List&lt;Row&gt; rows;</span>
-<span class="nc" id="L28">    private List&lt;AbstractView&gt; views;</span>
-<span class="nc" id="L29">    private int pageSize = Configuration.PAGE_SIZE;</span>
-<span class="nc" id="L30">    private int pageNumber = Configuration.PAGE_NUMBER;</span>
+<span class="fc" id="L26">    private List&lt;Column&gt; columns;</span>
+<span class="fc" id="L27">    private List&lt;Row&gt; rows;</span>
+<span class="fc" id="L28">    private List&lt;AbstractView&gt; views;</span>
+<span class="pc" id="L29">    private int pageSize = Configuration.PAGE_SIZE;</span>
+<span class="pc" id="L30">    private int pageNumber = Configuration.PAGE_NUMBER;</span>
 
-<span class="nc" id="L32">    public MicrosoftList() {</span>
-<span class="nc" id="L33">        this.columns = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L34">        this.rows = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L35">        this.views = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L36">    }</span>
+<span class="fc" id="L32">    public MicrosoftList() {</span>
+<span class="fc" id="L33">        this.columns = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L34">        this.rows = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L35">        this.views = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L36">    }</span>
 
-<span class="nc" id="L38">    public MicrosoftList(List&lt;Column&gt; columnsFilter, List&lt;Row&gt; rowsFilter) {</span>
-<span class="nc" id="L39">        this.columns = columnsFilter;</span>
-<span class="nc" id="L40">        this.rows = rowsFilter;</span>
-<span class="nc" id="L41">    }</span>
+<span class="fc" id="L38">    public MicrosoftList(List&lt;Column&gt; columnsFilter, List&lt;Row&gt; rowsFilter) {</span>
+<span class="fc" id="L39">        this.columns = columnsFilter;</span>
+<span class="fc" id="L40">        this.rows = rowsFilter;</span>
+<span class="fc" id="L41">    }</span>
 
 
     public void addColumn(Column column) {
-<span class="nc" id="L45">        this.columns.add(column);</span>
+<span class="fc" id="L45">        this.columns.add(column);</span>
         try {
-<span class="nc" id="L47">            SaveService.saveStructure(this);</span>
+<span class="fc" id="L47">            SaveService.saveStructure(this);</span>
 <span class="nc" id="L48">        } catch (Exception e) {</span>
 <span class="nc" id="L49">            Logger.getAnonymousLogger().warning(e.getMessage());</span>
-<span class="nc" id="L50">        }</span>
-<span class="nc" id="L51">    }</span>
+<span class="fc" id="L50">        }</span>
+<span class="fc" id="L51">    }</span>
 
     public void addRow() {
-<span class="nc" id="L54">        Row row = new Row(this);</span>
+<span class="fc" id="L54">        Row row = new Row(this);</span>
 
-<span class="nc bnc" id="L56" title="All 2 branches missed.">        for (Column column : this.columns) {</span>
-<span class="nc" id="L57">            Optional&lt;Object&gt; defaultVal = Optional.ofNullable(column.getDefaultValue());</span>
-<span class="nc" id="L58">            row.addCell(Cell.of(row, column, new SingleObject(defaultVal.orElse(&quot;&quot;))));</span>
-<span class="nc" id="L59">        }</span>
+<span class="fc bfc" id="L56" title="All 2 branches covered.">        for (Column column : this.columns) {</span>
+<span class="fc" id="L57">            Optional&lt;Object&gt; defaultVal = Optional.ofNullable(column.getDefaultValue());</span>
+<span class="fc" id="L58">            row.addCell(Cell.of(row, column, new SingleObject(defaultVal.orElse(&quot;&quot;))));</span>
+<span class="fc" id="L59">        }</span>
 
-<span class="nc" id="L61">        this.rows.add(row);</span>
+<span class="fc" id="L61">        this.rows.add(row);</span>
         try {
-<span class="nc" id="L63">            SaveService.saveData(this);</span>
+<span class="fc" id="L63">            SaveService.saveData(this);</span>
 <span class="nc" id="L64">        } catch (Exception e) {</span>
 <span class="nc" id="L65">            Logger.getAnonymousLogger().warning(e.getMessage());</span>
-<span class="nc" id="L66">        }</span>
-<span class="nc" id="L67">    }</span>
+<span class="fc" id="L66">        }</span>
+<span class="fc" id="L67">    }</span>
 
     public void addRow(Row row) {
-<span class="nc" id="L70">        this.rows.add(row);</span>
+<span class="fc" id="L70">        this.rows.add(row);</span>
         try {
-<span class="nc" id="L72">            SaveService.saveData(this);</span>
+<span class="fc" id="L72">            SaveService.saveData(this);</span>
 <span class="nc" id="L73">        } catch (Exception e) {</span>
 <span class="nc" id="L74">            Logger.getAnonymousLogger().warning(e.getMessage());</span>
-<span class="nc" id="L75">        }</span>
-<span class="nc" id="L76">    }</span>
+<span class="fc" id="L75">        }</span>
+<span class="fc" id="L76">    }</span>
 
     public void setColumns(List&lt;Column&gt; columns) {
-<span class="nc" id="L79">        this.columns = columns;</span>
+<span class="fc" id="L79">        this.columns = columns;</span>
         try {
-<span class="nc" id="L81">            SaveService.saveStructure(this);</span>
+<span class="fc" id="L81">            SaveService.saveStructure(this);</span>
 <span class="nc" id="L82">        } catch (Exception e) {</span>
 <span class="nc" id="L83">            Logger.getAnonymousLogger().warning(e.getMessage());</span>
-<span class="nc" id="L84">        }</span>
+<span class="fc" id="L84">        }</span>
 
-<span class="nc" id="L86">    }</span>
+<span class="fc" id="L86">    }</span>
 
     public void setRows(List&lt;Row&gt; rows) {
-<span class="nc" id="L89">        this.rows = rows;</span>
+<span class="fc" id="L89">        this.rows = rows;</span>
         try {
-<span class="nc" id="L91">            SaveService.saveData(this);</span>
+<span class="fc" id="L91">            SaveService.saveData(this);</span>
 <span class="nc" id="L92">        } catch (Exception e) {</span>
 <span class="nc" id="L93">            Logger.getAnonymousLogger().warning(e.getMessage());</span>
-<span class="nc" id="L94">        }</span>
-<span class="nc" id="L95">    }</span>
+<span class="fc" id="L94">        }</span>
+<span class="fc" id="L95">    }</span>
 
 
 
 
     public void createView(AbstractView view) {
-<span class="nc" id="L101">        this.views.add(view);</span>
+<span class="fc" id="L101">        this.views.add(view);</span>
         try {
-<span class="nc" id="L103">            SaveService.saveView(this);</span>
+<span class="fc" id="L103">            SaveService.saveView(this);</span>
 <span class="nc" id="L104">        } catch (Exception e) {</span>
 <span class="nc" id="L105">            Logger.getAnonymousLogger().warning(&quot;Failed to save view&quot;);</span>
-<span class="nc" id="L106">        }</span>
-<span class="nc" id="L107">    }</span>
+<span class="fc" id="L106">        }</span>
+<span class="fc" id="L107">    }</span>
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -10,17 +10,17 @@ public class MessageFactory {
     private MessageFactory() {
     }
 
-<span class="nc" id="L13">    private static final Map&lt;MessageType, Supplier&lt;ResultMessage&gt;&gt; messageMap = new EnumMap&lt;&gt;(MessageType.class);</span>
+<span class="fc" id="L13">    private static final Map&lt;MessageType, Supplier&lt;ResultMessage&gt;&gt; messageMap = new EnumMap&lt;&gt;(MessageType.class);</span>
     static {
-<span class="nc" id="L15">        messageMap.put(MessageType.ERROR, ErrorMessage::new);</span>
-<span class="nc" id="L16">        messageMap.put(MessageType.SUCCESS, SuccessMessage::new);</span>
-<span class="nc" id="L17">    }</span>
+<span class="fc" id="L15">        messageMap.put(MessageType.ERROR, ErrorMessage::new);</span>
+<span class="fc" id="L16">        messageMap.put(MessageType.SUCCESS, SuccessMessage::new);</span>
+<span class="fc" id="L17">    }</span>
 
     public static ResultMessage getMessage(MessageType type, String msg) {
-<span class="nc" id="L20">        ResultMessage res = messageMap.get(type).get();</span>
-<span class="nc" id="L21">        res.setMsg(msg);</span>
-<span class="nc" id="L22">        return res;</span>
+<span class="fc" id="L20">        ResultMessage res = messageMap.get(type).get();</span>
+<span class="fc" id="L21">        res.setMsg(msg);</span>
+<span class="fc" id="L22">        return res;</span>
     }
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
