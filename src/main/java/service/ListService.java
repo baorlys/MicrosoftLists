@@ -5,6 +5,7 @@ import model.constants.ConfigParameter;
 import model.constants.MessageType;
 import model.microsoft.list.*;
 import model.microsoft.list.view.AbstractView;
+import model.responses.MessageFactory;
 import model.responses.ResultMessage;
 import service.file.SaveService;
 import model.microsoft.list.value.IValue;
@@ -215,10 +216,16 @@ public class ListService {
         List<Row> rows = list.getRows();
         IValue typeVal = IValueFactory.create(value.length == 1);
         typeVal.set(value);
-        Row row = RowService.updateCell(rows.get(rowIndex), colName, typeVal);
-        rows.set(rowIndex, row);
-        list.setRows(rows);
-        return new ResultMessage("Cell updated successfully", MessageType.SUCCESS);
+        Column column = getColumn(list, colName);
+        return Optional.ofNullable(column)
+                .filter(col -> !col.isValueValid(typeVal))
+                .map(col -> MessageFactory.getMessage(MessageType.ERROR,"Invalid value"))
+                .orElseGet(() -> {
+                    Row row = RowService.updateCell(rows.get(rowIndex), colName, typeVal);
+                    rows.set(rowIndex, row);
+                    list.setRows(rows);
+                    return MessageFactory.getMessage(MessageType.SUCCESS,"Cell updated successfully");
+                });
     }
 
 

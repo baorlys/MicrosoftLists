@@ -53,6 +53,9 @@
   "config" : [ {
     "name" : "CHOICES",
     "value" : [ "choice 1", "choice 2", "choice 3" ]
+  }, {
+    "name" : "MULTIPLE_SELECTION",
+    "value" : true
   } ],
   "hidden" : false,
   "defaultValue" : null

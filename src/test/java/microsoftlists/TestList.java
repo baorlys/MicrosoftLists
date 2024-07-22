@@ -55,7 +55,8 @@ class TestList {
 
         var colChoice = new ColumnBuilder(ColumnType.CHOICE, "Column Choice")
                 .configure(
-                        Parameter.of(ConfigParameter.CHOICES, "choice 1","choice 2", "choice 3")
+                        Parameter.of(ConfigParameter.CHOICES, "choice 1","choice 2", "choice 3"),
+                        Parameter.of(ConfigParameter.MULTIPLE_SELECTION, false)
                 )
                 .build();
 
@@ -270,11 +271,14 @@ class TestList {
         assertEquals("choice 1", ListService.getValue(list, rowIndex, "Column Choice"));
 
         // Update the row
-        ListService.updateCellAtRow(list, 0, "Column Choice", "choice 2");
+        var msgResult = ListService.updateCellAtRow(list, 0, "Column Choice", "choice 2");
+        assertEquals(MessageType.SUCCESS, msgResult.getType());
         assertEquals("choice 2", ListService.getValue(list, rowIndex, "Column Choice"));
 
-        // Update the row with choice that not in the choices list
-        ListService.updateCellAtRow(list, rowIndex, "Column Choice",  "choice 4");
+        // Update the row with invalid value
+        msgResult = ListService.updateCellAtRow(list, rowIndex, "Column Choice",  "choice 4", "choice 2");
+        assertEquals(MessageType.ERROR, msgResult.getType());
+        assertEquals("Invalid value", msgResult.getMsg());
 
         // Test multiple choices
         ListService.settingColumn(list, "Column Choice",
@@ -571,7 +575,14 @@ class TestList {
         assertNotNull(view);
         assertEquals("Board View", ListService.getView(list,"Board View").getName());
 
+        // Test create view with invalid organize column
+        var colText = ListService.getColumn(list, "Column Text");
+        assertThrows(IllegalArgumentException.class, () -> new BoardView("Board View 2", colText));
+
+
     }
+
+
 
 
 

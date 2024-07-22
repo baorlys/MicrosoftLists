@@ -1,81 +1,53 @@
 [ {
   "cells" : {
     "Column Choice" : {
-      "object" : "choice 1"
+      "objects" : [ "choice 1", "choice 3" ],
+      "multiple" : true
     },
     "Column Date" : {
-      "object" : "2021-01-01"
+      "object" : "CURRENT_DATE",
+      "multiple" : false
     },
     "Column Average Rating" : {
-      "object" : 0
+      "object" : 0,
+      "multiple" : false
     },
     "Column Number" : {
-      "object" : 1
+      "object" : 1,
+      "multiple" : false
     },
     "Column Text" : {
-      "object" : "text"
+      "object" : "text 2",
+      "multiple" : false
     },
     "Column YesNo" : {
-      "object" : true
+      "object" : true,
+      "multiple" : false
     },
     "Column Multiple Lines of Text" : {
-      "object" : "default text"
+      "object" : "",
+      "multiple" : false
     },
     "Title" : {
-      "object" : ""
+      "object" : "",
+      "multiple" : false
     },
     "Column Image" : {
-      "object" : "https://www.google.com/image.jpg"
+      "object" : "",
+      "multiple" : false
     },
     "Column Person" : {
-      "object" : "person 1"
+      "object" : "",
+      "multiple" : false
     },
     "Column Lookup" : {
-      "object" : "lookup 1"
+      "object" : "",
+      "multiple" : false
     },
     "Column Hyperlink" : {
-      "object" : "https://www.google.com"
+      "object" : "",
+      "multiple" : false
     }
   },
-  "createdAt" : 1721628373836
-}, {
-  "cells" : {
-    "Column Choice" : {
-      "object" : ""
-    },
-    "Column Date" : {
-      "object" : "CURRENT_DATE"
-    },
-    "Column Average Rating" : {
-      "object" : 0
-    },
-    "Column Number" : {
-      "object" : 1
-    },
-    "Column Text" : {
-      "object" : "text 2"
-    },
-    "Column YesNo" : {
-      "object" : true
-    },
-    "Column Multiple Lines of Text" : {
-      "object" : ""
-    },
-    "Title" : {
-      "object" : ""
-    },
-    "Column Image" : {
-      "object" : ""
-    },
-    "Column Person" : {
-      "object" : ""
-    },
-    "Column Lookup" : {
-      "object" : ""
-    },
-    "Column Hyperlink" : {
-      "object" : ""
-    }
-  },
-  "createdAt" : 1721628373837
+  "createdAt" : 1721635341554
 } ]

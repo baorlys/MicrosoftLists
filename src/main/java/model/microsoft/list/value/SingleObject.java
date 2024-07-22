@@ -25,4 +25,9 @@ public class SingleObject implements IValue{
     public void set(Object... object) {
         this.object = object[0];
     }
+
+    @Override
+    public boolean isMultiple() {
+        return false;
+    }
 }

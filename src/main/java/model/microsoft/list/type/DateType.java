@@ -4,6 +4,7 @@ import config.Configuration;
 import model.constants.ConfigParameter;
 import model.constants.ColumnType;
 import model.microsoft.list.Parameter;
+import model.microsoft.list.value.IValue;
 
 
 import java.text.SimpleDateFormat;
@@ -44,7 +45,7 @@ public class DateType extends AbstractType {
     }
 
     @Override
-    protected boolean handleIsValueValid(List<Parameter> config, Object value) {
+    protected boolean handleIsValueValid(List<Parameter> config, IValue value) {
         return false;
     }
 

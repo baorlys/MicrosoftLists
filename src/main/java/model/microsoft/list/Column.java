@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import model.constants.ConfigParameter;
 import model.microsoft.list.type.AbstractType;
+import model.microsoft.list.value.IValue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,7 @@ public class Column {
     }
 
 
-    public boolean isValueValid(Object value) {
+    public boolean isValueValid(IValue value) {
         return this.type.isValueValid(config, value);
     }
 
