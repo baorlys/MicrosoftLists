@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ListService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Microsoft-Lists</a> &gt; <a href="index.source.html" class="el_package">service</a> &gt; <span class="el_source">ListService.java</span></div><h1>ListService.java</h1><pre class="source lang-java linenums">package service;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import model.constants.ConfigParameter;
+import model.constants.MessageType;
+import model.microsoft.list.*;
+import model.microsoft.list.view.AbstractView;
+import model.responses.ResultMessage;
+import service.file.SaveService;
+import model.microsoft.list.value.IValue;
+import util.JsonUtil;
+import model.microsoft.list.value.IValueFactory;
+import model.microsoft.list.value.SingleObject;
+
+import javax.swing.*;
+import java.util.*;
+import java.util.logging.Logger;
+import java.util.stream.Collectors;
+
+
+public class ListService {
+
+<span class="nc" id="L23">    private ListService() {</span>
+<span class="nc" id="L24">        throw new IllegalStateException(&quot;Utility class&quot;);</span>
+    }
+
+    public static long getColumnsCount(MicrosoftList list) {
+<span class="nc bnc" id="L28" title="All 2 branches missed.">        return list.getColumns().stream().filter(column -&gt; !column.isHidden()).count();</span>
+    }
+
+    public static void addColumn(MicrosoftList list, Column column) {
+<span class="nc" id="L32">        Optional&lt;Column&gt; existingColumn = Optional.ofNullable(getColumn(list, column.getName()));</span>
+<span class="nc" id="L33">        existingColumn.ifPresentOrElse(</span>
+                c -&gt; {
+<span class="nc" id="L35">                    throw new IllegalArgumentException(&quot;Column already exists&quot;);</span>
+                },
+<span class="nc" id="L37">                () -&gt; list.addColumn(column)</span>
+        );
+<span class="nc" id="L39">    }</span>
+
+    public static Column getColumn(MicrosoftList list, String name) {
+<span class="nc" id="L42">        return list.getColumns().stream()</span>
+<span class="nc" id="L43">                .filter(column -&gt; column.getName().equals(name))</span>
+<span class="nc" id="L44">                .findFirst().orElse(null);</span>
+    }
+
+    public static void addRow(MicrosoftList list) {
+<span class="nc" id="L48">        list.addRow();</span>
+<span class="nc" id="L49">    }</span>
+
+    public static void addRow(MicrosoftList list, String data) throws JsonProcessingException {
+<span class="nc" id="L52">        Row row = new Row(list);</span>
+<span class="nc" id="L53">        var cells = JsonUtil.fromJson(data, HashMap.class);</span>
+
+<span class="nc" id="L55">        list.getColumns().forEach(column -&gt; {</span>
+<span class="nc" id="L56">            Optional&lt;Object&gt; value = Optional.ofNullable(cells.get(column.getName()));</span>
+<span class="nc" id="L57">            Optional&lt;Object&gt; defaultValue = Optional.ofNullable(column.getDefaultValue());</span>
+<span class="nc" id="L58">            Object val = value.orElse(defaultValue.orElse(&quot;&quot;));</span>
+<span class="nc" id="L59">            row.addCell(Cell.of(row, column, new SingleObject(val)));</span>
+<span class="nc" id="L60">        });</span>
+
+<span class="nc" id="L62">        list.addRow(row);</span>
+<span class="nc" id="L63">    }</span>
+
+    public static Row getRow(MicrosoftList list, int index) {
+<span class="nc" id="L66">        return list.getRows().get(index);</span>
+    }
+
+    public static long getRowsCount(MicrosoftList list) {
+<span class="nc" id="L70">        return list.getRows().size();</span>
+    }
+
+    public static Object getColConfigValue(MicrosoftList list, String colName, ConfigParameter para) {
+<span class="nc" id="L74">        List&lt;Parameter&gt; config = getColConfig(list, colName);</span>
+<span class="nc" id="L75">        Objects.requireNonNull(config);</span>
+<span class="nc" id="L76">        return config.stream()</span>
+<span class="nc" id="L77">                .filter(parameter -&gt; parameter.getName().equals(para))</span>
+<span class="nc" id="L78">                .findFirst()</span>
+<span class="nc" id="L79">                .map(Parameter::getValue)</span>
+<span class="nc" id="L80">                .orElse(null);</span>
+    }
+
+    public static List&lt;Parameter&gt; getColConfig(MicrosoftList list, String colName) {
+<span class="nc" id="L84">        return list.getColumns().stream()</span>
+<span class="nc" id="L85">                .filter(col -&gt; col.getName().equals(colName))</span>
+<span class="nc" id="L86">                .findFirst()</span>
+<span class="nc" id="L87">                .map(col -&gt; col.getType().handle(col.getConfig()))</span>
+<span class="nc" id="L88">                .orElse(null);</span>
+    }
+
+
+    public static List&lt;Row&gt; getPagedRows(MicrosoftList list, int pageNumber, int pageSize) {
+<span class="nc" id="L93">        Objects.requireNonNull(list);</span>
+
+<span class="nc" id="L95">        int fromIndex = pageNumber * pageSize;</span>
+<span class="nc" id="L96">        List&lt;Row&gt; rows = list.getRows();</span>
+
+<span class="nc bnc" id="L98" title="All 2 branches missed.">        if (fromIndex &gt;= rows.size()) {</span>
+<span class="nc" id="L99">            return new ArrayList&lt;&gt;(); // Return empty list if fromIndex is out of bounds</span>
+        }
+
+<span class="nc" id="L102">        int toIndex = Math.min(fromIndex + pageSize, rows.size());</span>
+<span class="nc" id="L103">        return rows.subList(fromIndex, toIndex);</span>
+    }
+
+    public static void deleteRow(MicrosoftList list, int index) {
+<span class="nc" id="L107">        Row row = list.getRows().get(index);</span>
+<span class="nc" id="L108">        List&lt;Row&gt; rows = list.getRows();</span>
+
+<span class="nc" id="L110">        rows.remove(row);</span>
+
+<span class="nc" id="L112">        list.setRows(rows);</span>
+<span class="nc" id="L113">    }</span>
+
+    public static void deleteColumn(MicrosoftList list, String name) {
+<span class="nc" id="L116">        Column column = getColumn(list, name);</span>
+<span class="nc" id="L117">        List&lt;Column&gt; cols = list.getColumns();</span>
+<span class="nc" id="L118">        cols.remove(column);</span>
+<span class="nc" id="L119">        List&lt;Row&gt; rows = list.getRows().stream().filter(row -&gt; row.getCells().containsKey(name))</span>
+<span class="nc" id="L120">                .map(row -&gt; {</span>
+<span class="nc" id="L121">                    row.getCells().remove(name);</span>
+<span class="nc" id="L122">                    return row;</span>
+                })
+<span class="nc" id="L124">                .collect(Collectors.toList());</span>
+<span class="nc" id="L125">        list.setColumns(cols);</span>
+<span class="nc" id="L126">        list.setRows(rows);</span>
+<span class="nc" id="L127">    }</span>
+
+    public static int getRowIndex(MicrosoftList list, Row row) {
+<span class="nc" id="L130">        return list.getRows().indexOf(row);</span>
+    }
+
+    public static void deleteRows(MicrosoftList list, List&lt;Integer&gt; indexRows) {
+<span class="nc" id="L134">        List&lt;Row&gt; rows = list.getRows();</span>
+
+<span class="nc" id="L136">        indexRows.forEach(index -&gt; rows.remove(index.intValue()));</span>
+
+<span class="nc" id="L138">        list.setRows(rows);</span>
+<span class="nc" id="L139">    }</span>
+
+    public static MicrosoftList loadList(MicrosoftList list) {
+        // Filter out hidden columns
+<span class="nc" id="L143">        List&lt;Column&gt; visibleColumns = list.getColumns().stream()</span>
+<span class="nc bnc" id="L144" title="All 2 branches missed.">                .filter(column -&gt; !column.isHidden())</span>
+<span class="nc" id="L145">                .collect(Collectors.toList());</span>
+
+        // Filter rows to include only cells corresponding to visible columns
+<span class="nc" id="L148">        List&lt;Row&gt; filteredRows = list.getRows().stream()</span>
+<span class="nc" id="L149">                .map(row -&gt; {</span>
+<span class="nc" id="L150">                    Map&lt;String, IValue&gt; filteredCells = row.getCells().entrySet().stream()</span>
+<span class="nc" id="L151">                            .filter(entry -&gt; visibleColumns.stream()</span>
+<span class="nc" id="L152">                                    .anyMatch(column -&gt; column.getName().equals(entry.getKey())))</span>
+<span class="nc" id="L153">                            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));</span>
+
+<span class="nc" id="L155">                    Row newRow = new Row(list);</span>
+<span class="nc" id="L156">                    newRow.setCells(filteredCells);</span>
+<span class="nc" id="L157">                    return newRow;</span>
+                })
+<span class="nc" id="L159">                .collect(Collectors.toList());</span>
+
+        // Create a new MicrosoftList with the filtered columns and rows
+<span class="nc" id="L162">        MicrosoftList filteredList = new MicrosoftList(visibleColumns, filteredRows);</span>
+<span class="nc" id="L163">        filteredList.setName(list.getName());</span>
+
+        try {
+<span class="nc" id="L166">            SaveService.saveFilterList(filteredList);</span>
+<span class="nc" id="L167">            return filteredList;</span>
+<span class="nc" id="L168">        } catch (Exception e) {</span>
+<span class="nc" id="L169">            Logger.getAnonymousLogger().warning(&quot;Failed to save list: &quot; + e.getMessage());</span>
+        }
+
+<span class="nc" id="L172">        return null;</span>
+    }
+
+    public static void settingColumn(MicrosoftList list, String colName, Column setting) {
+<span class="nc" id="L176">        Column column = getColumn(list, colName);</span>
+<span class="nc" id="L177">        List&lt;Column&gt; cols = list.getColumns();</span>
+<span class="nc" id="L178">        int index = cols.indexOf(column);</span>
+<span class="nc" id="L179">        cols.set(index, setting);</span>
+<span class="nc" id="L180">        list.setColumns(cols);</span>
+<span class="nc" id="L181">    }</span>
+
+    public static Object getValue(MicrosoftList list, int rowIndex, String colName) {
+<span class="nc" id="L184">        Row row = getRow(list, rowIndex);</span>
+<span class="nc" id="L185">        return Optional.ofNullable(row.getCells().get(colName))</span>
+<span class="nc" id="L186">                .map(IValue::get)</span>
+<span class="nc" id="L187">                .orElse(null);</span>
+    }
+
+    public static List&lt;Row&gt; search(MicrosoftList list, String query) {
+<span class="nc" id="L191">        return list.getRows().stream()</span>
+<span class="nc" id="L192">                .filter(row -&gt; row.getCells().values().stream()</span>
+<span class="nc" id="L193">                        .anyMatch(cell -&gt; cell.get().toString().toLowerCase()</span>
+<span class="nc" id="L194">                                .contains(query.toLowerCase())))</span>
+<span class="nc" id="L195">                .collect(Collectors.toList());</span>
+    }
+
+    public static List&lt;Row&gt; sort(MicrosoftList list, String colName, SortOrder order) {
+
+<span class="nc" id="L200">        Column column = getColumn(list, colName);</span>
+<span class="nc" id="L201">        List&lt;Row&gt; rows = list.getRows();</span>
+
+<span class="nc" id="L203">        list.getRows().sort((row1, row2) -&gt; {</span>
+<span class="nc" id="L204">            Object cell1 = row1.getCells().get(colName).get();</span>
+<span class="nc" id="L205">            Object cell2 = row2.getCells().get(colName).get();</span>
+<span class="nc bnc" id="L206" title="All 2 branches missed.">            return Optional.of(order).filter(o -&gt; o == SortOrder.ASCENDING)</span>
+<span class="nc" id="L207">                    .map(o -&gt; column.compare(cell1, cell2))</span>
+<span class="nc" id="L208">                    .orElseGet(() -&gt; column.compare(cell2, cell1));</span>
+        });
+
+<span class="nc" id="L211">        return rows;</span>
+    }
+
+    public static ResultMessage updateCellAtRow(MicrosoftList list, int rowIndex, String colName, Object... value) {
+<span class="nc" id="L215">        List&lt;Row&gt; rows = list.getRows();</span>
+<span class="nc bnc" id="L216" title="All 2 branches missed.">        IValue typeVal = IValueFactory.create(value.length == 1);</span>
+<span class="nc" id="L217">        typeVal.set(value);</span>
+<span class="nc" id="L218">        Row row = RowService.updateCell(rows.get(rowIndex), colName, typeVal);</span>
+<span class="nc" id="L219">        rows.set(rowIndex, row);</span>
+<span class="nc" id="L220">        list.setRows(rows);</span>
+<span class="nc" id="L221">        return new ResultMessage(&quot;Cell updated successfully&quot;, MessageType.SUCCESS);</span>
+    }
+
+
+    public static void addColumns(MicrosoftList list, List&lt;Column&gt; cols) {
+<span class="nc" id="L226">        cols.forEach(col -&gt; addColumn(list, col));</span>
+<span class="nc" id="L227">    }</span>
+
+
+    public static ResultMessage createView(MicrosoftList list, AbstractView view) {
+<span class="nc" id="L231">        list.createView(view);</span>
+<span class="nc" id="L232">        return new ResultMessage(&quot;View created successfully&quot;, MessageType.SUCCESS);</span>
+    }
+
+    public static AbstractView getView(MicrosoftList list,String viewName) {
+<span class="nc" id="L236">        return list.getViews().stream()</span>
+<span class="nc" id="L237">                .filter(view -&gt; view.getName().equals(viewName))</span>
+<span class="nc" id="L238">                .findFirst()</span>
+<span class="nc" id="L239">                .orElse(null);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
