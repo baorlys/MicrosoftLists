@@ -4,8 +4,8 @@
     "type" : "TEXT"
   },
   "config" : [ ],
-  "defaultValue" : null,
-  "hidden" : false
+  "hidden" : false,
+  "defaultValue" : null
 }, {
   "name" : "Column Date",
   "type" : {
@@ -15,16 +15,16 @@
     "name" : "DEFAULT_VALUE",
     "value" : "CURRENT_DATE"
   } ],
-  "defaultValue" : "CURRENT_DATE",
-  "hidden" : false
+  "hidden" : false,
+  "defaultValue" : "CURRENT_DATE"
 }, {
   "name" : "Column Text",
   "type" : {
     "type" : "TEXT"
   },
   "config" : [ ],
-  "defaultValue" : null,
-  "hidden" : false
+  "hidden" : false,
+  "defaultValue" : null
 }, {
   "name" : "Column Number",
   "type" : {
@@ -34,16 +34,16 @@
     "name" : "NUMBER_SYMBOL",
     "value" : "NONE"
   } ],
-  "defaultValue" : null,
-  "hidden" : false
+  "hidden" : false,
+  "defaultValue" : null
 }, {
   "name" : "Column YesNo",
   "type" : {
     "type" : "CHECKBOX"
   },
   "config" : [ ],
-  "defaultValue" : null,
-  "hidden" : false
+  "hidden" : false,
+  "defaultValue" : null
 }, {
   "name" : "Column Choice",
   "type" : {
@@ -54,48 +54,48 @@
     "name" : "CHOICES",
     "value" : [ "choice 1", "choice 2", "choice 3" ]
   } ],
-  "defaultValue" : null,
-  "hidden" : false
+  "hidden" : false,
+  "defaultValue" : null
 }, {
   "name" : "Column Hyperlink",
   "type" : {
     "type" : "HYPERLINK"
   },
   "config" : [ ],
-  "defaultValue" : null,
-  "hidden" : false
+  "hidden" : false,
+  "defaultValue" : null
 }, {
   "name" : "Column Image",
   "type" : {
     "type" : "IMAGE"
   },
   "config" : [ ],
-  "defaultValue" : null,
-  "hidden" : false
+  "hidden" : false,
+  "defaultValue" : null
 }, {
   "name" : "Column Person",
   "type" : {
     "type" : "PERSON"
   },
   "config" : [ ],
-  "defaultValue" : null,
-  "hidden" : false
+  "hidden" : false,
+  "defaultValue" : null
 }, {
   "name" : "Column Multiple Lines of Text",
   "type" : {
     "type" : "MULTIPLE_LINES_OF_TEXT"
   },
   "config" : [ ],
-  "defaultValue" : null,
-  "hidden" : false
+  "hidden" : false,
+  "defaultValue" : null
 }, {
   "name" : "Column Lookup",
   "type" : {
     "type" : "LOOKUP"
   },
   "config" : [ ],
-  "defaultValue" : null,
-  "hidden" : false
+  "hidden" : false,
+  "defaultValue" : null
 }, {
   "name" : "Column Average Rating",
   "type" : {
@@ -105,6 +105,6 @@
     "name" : "DEFAULT_VALUE",
     "value" : 0
   } ],
-  "defaultValue" : 0,
-  "hidden" : false
+  "hidden" : false,
+  "defaultValue" : 0
 } ]
