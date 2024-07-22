@@ -10,24 +10,24 @@ public class TypeFactory {
 
     private TypeFactory() {
     }
-<span class="nc" id="L13">    private static final Map&lt;ColumnType, Supplier&lt;AbstractType&gt;&gt; typeMap = new EnumMap&lt;&gt;(ColumnType.class);</span>
+<span class="fc" id="L13">    private static final Map&lt;ColumnType, Supplier&lt;AbstractType&gt;&gt; typeMap = new EnumMap&lt;&gt;(ColumnType.class);</span>
 
     static {
-<span class="nc" id="L16">        typeMap.put(ColumnType.TEXT, TextType::new);</span>
-<span class="nc" id="L17">        typeMap.put(ColumnType.NUMBER, NumberType::new);</span>
-<span class="nc" id="L18">        typeMap.put(ColumnType.DATE, DateType::new);</span>
-<span class="nc" id="L19">        typeMap.put(ColumnType.CHOICE, ChoiceType::new);</span>
-<span class="nc" id="L20">        typeMap.put(ColumnType.CHECKBOX, CheckBoxType::new);</span>
-<span class="nc" id="L21">        typeMap.put(ColumnType.PERSON, PersonType::new);</span>
-<span class="nc" id="L22">        typeMap.put(ColumnType.IMAGE,  ImageType::new);</span>
-<span class="nc" id="L23">        typeMap.put(ColumnType.MULTIPLE_LINES_OF_TEXT, MultipleLinesOfTextType::new);</span>
-<span class="nc" id="L24">        typeMap.put(ColumnType.LOOKUP, LookupType::new);</span>
-<span class="nc" id="L25">        typeMap.put(ColumnType.HYPERLINK, HyperlinkType::new);</span>
-<span class="nc" id="L26">        typeMap.put(ColumnType.AVERAGE_RATING, AverageRatingType::new);</span>
-<span class="nc" id="L27">    }</span>
+<span class="fc" id="L16">        typeMap.put(ColumnType.TEXT, TextType::new);</span>
+<span class="fc" id="L17">        typeMap.put(ColumnType.NUMBER, NumberType::new);</span>
+<span class="fc" id="L18">        typeMap.put(ColumnType.DATE, DateType::new);</span>
+<span class="fc" id="L19">        typeMap.put(ColumnType.CHOICE, ChoiceType::new);</span>
+<span class="fc" id="L20">        typeMap.put(ColumnType.CHECKBOX, CheckBoxType::new);</span>
+<span class="fc" id="L21">        typeMap.put(ColumnType.PERSON, PersonType::new);</span>
+<span class="fc" id="L22">        typeMap.put(ColumnType.IMAGE,  ImageType::new);</span>
+<span class="fc" id="L23">        typeMap.put(ColumnType.MULTIPLE_LINES_OF_TEXT, MultipleLinesOfTextType::new);</span>
+<span class="fc" id="L24">        typeMap.put(ColumnType.LOOKUP, LookupType::new);</span>
+<span class="fc" id="L25">        typeMap.put(ColumnType.HYPERLINK, HyperlinkType::new);</span>
+<span class="fc" id="L26">        typeMap.put(ColumnType.AVERAGE_RATING, AverageRatingType::new);</span>
+<span class="fc" id="L27">    }</span>
 
     public static AbstractType getType(ColumnType type) {
-<span class="nc" id="L30">        return typeMap.get(type).get();</span>
+<span class="fc" id="L30">        return typeMap.get(type).get();</span>
     }
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

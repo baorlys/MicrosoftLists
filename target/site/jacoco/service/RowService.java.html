@@ -10,7 +10,7 @@ public class RowService {
 <span class="nc" id="L10">        throw new IllegalStateException(&quot;Utility class&quot;);</span>
     }
     public static Object getCell(Row row, String colName) {
-<span class="nc" id="L13">        return row.getCells().get(colName).get();</span>
+<span class="fc" id="L13">        return row.getCells().get(colName).get();</span>
     }
 
     public static Map&lt;String, IValue&gt; getCells(Row row) {
@@ -18,8 +18,8 @@ public class RowService {
     }
 
     public static Row updateCell(Row row, String colName, IValue value) {
-<span class="nc" id="L21">        row.getCells().put(colName, value);</span>
-<span class="nc" id="L22">        return row;</span>
+<span class="fc" id="L21">        row.getCells().put(colName, value);</span>
+<span class="fc" id="L22">        return row;</span>
     }
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

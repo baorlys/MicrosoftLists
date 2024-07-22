@@ -3,16 +3,15 @@
 
 
 public class ExceptionUtils {
-<span class="nc" id="L6">    private ExceptionUtils() {</span>
-<span class="nc" id="L7">        throw new IllegalStateException(&quot;Utility class&quot;);</span>
+    private ExceptionUtils() {
     }
     @SuppressWarnings(&quot;unchecked&quot;)
     private static &lt;T extends Throwable&gt; void sneakyThrowInternal(Throwable t) throws T {
-<span class="nc" id="L11">        throw (T) t;</span>
+<span class="fc" id="L10">        throw (T) t;</span>
     }
 
     public static void sneakyThrow(Throwable t) {
-<span class="nc" id="L15">        ExceptionUtils.sneakyThrowInternal(t);</span>
-<span class="nc" id="L16">    }</span>
+<span class="nc" id="L14">        ExceptionUtils.sneakyThrowInternal(t);</span>
+<span class="nc" id="L15">    }</span>
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

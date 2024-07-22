@@ -9,32 +9,32 @@ import java.util.Objects;
 import java.util.Properties;
 
 public class PropertiesLoader {
-<span class="nc" id="L12">    private final Properties properties = new Properties();</span>
+<span class="fc" id="L12">    private final Properties properties = new Properties();</span>
 
-<span class="nc" id="L14">    private PropertiesLoader(String propertiesFileName) {</span>
-<span class="nc" id="L15">        Objects.requireNonNull(propertiesFileName);</span>
-<span class="nc" id="L16">        InputStream input = getClass().getClassLoader().getResourceAsStream(propertiesFileName);</span>
+<span class="fc" id="L14">    private PropertiesLoader(String propertiesFileName) {</span>
+<span class="fc" id="L15">        Objects.requireNonNull(propertiesFileName);</span>
+<span class="fc" id="L16">        InputStream input = getClass().getClassLoader().getResourceAsStream(propertiesFileName);</span>
         try {
-<span class="nc" id="L18">            properties.load(input);</span>
+<span class="fc" id="L18">            properties.load(input);</span>
 <span class="nc" id="L19">        } catch (IOException e) {</span>
 <span class="nc" id="L20">            ExceptionUtils.sneakyThrow(e);</span>
-<span class="nc" id="L21">        }</span>
-<span class="nc" id="L22">    }</span>
+<span class="fc" id="L21">        }</span>
+<span class="fc" id="L22">    }</span>
 
     public static PropertiesLoader load(String propertiesFileName) {
 <span class="nc" id="L25">        return new PropertiesLoader(propertiesFileName);</span>
     }
 
     public static PropertiesLoader load() {
-<span class="nc" id="L29">        return new PropertiesLoader(ConfigValue.CONFIG_FILE.getVariableName());</span>
+<span class="fc" id="L29">        return new PropertiesLoader(ConfigValue.CONFIG_FILE.getVariableName());</span>
     }
 
     public String getProperty(String key) {
-<span class="nc" id="L33">        return properties.getProperty(key);</span>
+<span class="fc" id="L33">        return properties.getProperty(key);</span>
     }
 
     public String getProperty(String key, String defaultValue) {
 <span class="nc" id="L37">        return properties.getProperty(key, defaultValue);</span>
     }
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

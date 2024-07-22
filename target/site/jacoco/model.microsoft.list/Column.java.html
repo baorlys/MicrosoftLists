@@ -10,23 +10,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-<span class="nc" id="L13">@Setter</span>
+<span class="pc" id="L13">@Setter</span>
 public class Column {
 
     @JsonIgnore
 <span class="nc" id="L17">    private MicrosoftList list;</span>
-<span class="nc" id="L18">    private String name;</span>
-<span class="nc" id="L19">    private AbstractType type;</span>
+<span class="fc" id="L18">    private String name;</span>
+<span class="fc" id="L19">    private AbstractType type;</span>
 
-<span class="nc" id="L21">    private List&lt;Parameter&gt; config;</span>
-<span class="nc" id="L22">    private boolean isHidden;</span>
+<span class="fc" id="L21">    private List&lt;Parameter&gt; config;</span>
+<span class="fc" id="L22">    private boolean isHidden;</span>
 
 
 
-<span class="nc" id="L26">    public Column() {</span>
-<span class="nc" id="L27">        this.config = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L28">        this.isHidden = false;</span>
-<span class="nc" id="L29">    }</span>
+<span class="fc" id="L26">    public Column() {</span>
+<span class="fc" id="L27">        this.config = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L28">        this.isHidden = false;</span>
+<span class="fc" id="L29">    }</span>
 
 
     public boolean isValueValid(Object value) {
@@ -34,14 +34,14 @@ public class Column {
     }
 
     public Object getDefaultValue() {
-<span class="nc" id="L37">        return this.config.stream()</span>
-<span class="nc" id="L38">                .filter(para -&gt; para.getName().equals(ConfigParameter.DEFAULT_VALUE))</span>
-<span class="nc" id="L39">                .findFirst().map(Parameter::getValue).orElse(null);</span>
+<span class="fc" id="L37">        return this.config.stream()</span>
+<span class="fc" id="L38">                .filter(para -&gt; para.getName().equals(ConfigParameter.DEFAULT_VALUE))</span>
+<span class="fc" id="L39">                .findFirst().map(Parameter::getValue).orElse(null);</span>
     }
 
     public int compare(Object o1, Object o2) {
-<span class="nc" id="L43">        return this.type.compare(o1, o2);</span>
+<span class="fc" id="L43">        return this.type.compare(o1, o2);</span>
     }
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

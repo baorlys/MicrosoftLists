@@ -15,22 +15,22 @@ public class ValueTypeFactory {
 <span class="nc" id="L15">        throw new IllegalStateException(&quot;Utility class&quot;);</span>
     }
 
-<span class="nc" id="L18">    private static final Map&lt;Object, Supplier&lt;Object&gt;&gt; valueMap = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L18">    private static final Map&lt;Object, Supplier&lt;Object&gt;&gt; valueMap = new HashMap&lt;&gt;();</span>
 
     static {
 
-<span class="nc" id="L22">        valueMap.put(DateTime.CURRENT_DATE, () -&gt; {</span>
-<span class="nc" id="L23">            LocalDate currentDate = LocalDate.now();</span>
-<span class="nc" id="L24">            DateTimeFormatter formatter = DateTimeFormatter.ofPattern(Configuration.DATETIME_FORMAT);</span>
+<span class="fc" id="L22">        valueMap.put(DateTime.CURRENT_DATE, () -&gt; {</span>
+<span class="fc" id="L23">            LocalDate currentDate = LocalDate.now();</span>
+<span class="fc" id="L24">            DateTimeFormatter formatter = DateTimeFormatter.ofPattern(Configuration.DATETIME_FORMAT);</span>
 
-<span class="nc" id="L26">            return currentDate.format(formatter);</span>
+<span class="fc" id="L26">            return currentDate.format(formatter);</span>
         });
 
 
-<span class="nc" id="L30">    }</span>
+<span class="fc" id="L30">    }</span>
 
     public static Optional&lt;Object&gt; getValue(Object type) {
-<span class="nc" id="L33">        return Optional.ofNullable(valueMap.get(type)).map(Supplier::get);</span>
+<span class="fc" id="L33">        return Optional.ofNullable(valueMap.get(type)).map(Supplier::get);</span>
     }
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

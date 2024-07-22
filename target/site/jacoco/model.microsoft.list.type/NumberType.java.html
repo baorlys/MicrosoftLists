@@ -8,14 +8,14 @@ import java.util.List;
 
 public class NumberType extends AbstractType {
     public NumberType() {
-<span class="nc" id="L11">        super(ColumnType.NUMBER);</span>
-<span class="nc" id="L12">    }</span>
+<span class="fc" id="L11">        super(ColumnType.NUMBER);</span>
+<span class="fc" id="L12">    }</span>
 
     @Override
     protected int handleCompare(Object o1, Object o2) {
-<span class="nc" id="L16">        BigDecimal numberO1 = new BigDecimal((Integer) o1);</span>
-<span class="nc" id="L17">        BigDecimal numberO2 = new BigDecimal((Integer) o2);</span>
-<span class="nc" id="L18">        return numberO1.compareTo(numberO2);</span>
+<span class="fc" id="L16">        BigDecimal numberO1 = new BigDecimal((Integer) o1);</span>
+<span class="fc" id="L17">        BigDecimal numberO2 = new BigDecimal((Integer) o2);</span>
+<span class="fc" id="L18">        return numberO1.compareTo(numberO2);</span>
     }
 
     @Override
@@ -30,4 +30,4 @@ public class NumberType extends AbstractType {
 
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

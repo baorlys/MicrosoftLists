@@ -12,49 +12,49 @@ public class SaveService {
 <span class="nc" id="L12">    private SaveService() {</span>
 <span class="nc" id="L13">        throw new IllegalStateException(&quot;Utility class&quot;);</span>
     }
-<span class="nc" id="L15">    private static final String DIR_PATH = Configuration.DIR_PATH;</span>
-<span class="nc" id="L16">    private static final String COLS_PATH = Configuration.COLS_PATH;</span>
+<span class="fc" id="L15">    private static final String DIR_PATH = Configuration.DIR_PATH;</span>
+<span class="fc" id="L16">    private static final String COLS_PATH = Configuration.COLS_PATH;</span>
 
-<span class="nc" id="L18">    private static final String VIEW_PATH = Configuration.VIEW_PATH;</span>
-<span class="nc" id="L19">    private static final String DATA_PATH = Configuration.DATA_PATH;</span>
+<span class="fc" id="L18">    private static final String VIEW_PATH = Configuration.VIEW_PATH;</span>
+<span class="fc" id="L19">    private static final String DATA_PATH = Configuration.DATA_PATH;</span>
 
     public static void saveStructure(MicrosoftList list) throws IOException {
-<span class="nc" id="L22">        String dirPath = DIR_PATH + list.getName().replace(&quot; &quot;,&quot;_&quot;);</span>
-<span class="nc" id="L23">        File directory = new File(dirPath);</span>
+<span class="fc" id="L22">        String dirPath = DIR_PATH + list.getName().replace(&quot; &quot;,&quot;_&quot;);</span>
+<span class="fc" id="L23">        File directory = new File(dirPath);</span>
         // Create directories if they do not exist
-<span class="nc" id="L25">        boolean isDirCreated = directory.mkdirs();</span>
+<span class="fc" id="L25">        boolean isDirCreated = directory.mkdirs();</span>
 
         // Log if the directory was successfully created
-<span class="nc bnc" id="L28" title="All 2 branches missed.">        if (isDirCreated) {</span>
+<span class="pc bpc" id="L28" title="1 of 2 branches missed.">        if (isDirCreated) {</span>
 <span class="nc" id="L29">            Logger.getAnonymousLogger().info(&quot;Success creating folder&quot;);</span>
         }
-<span class="nc" id="L31">        JsonUtil.toJsonFile(list.getColumns(),dirPath, COLS_PATH);</span>
+<span class="fc" id="L31">        JsonUtil.toJsonFile(list.getColumns(),dirPath, COLS_PATH);</span>
 
-<span class="nc" id="L33">    }</span>
+<span class="fc" id="L33">    }</span>
 
     public static void saveView(MicrosoftList list) throws IOException {
-<span class="nc" id="L36">        String dirPath = DIR_PATH + list.getName().replace(&quot; &quot;,&quot;_&quot;);</span>
-<span class="nc" id="L37">        JsonUtil.toJsonFile(list.getViews(),dirPath, VIEW_PATH);</span>
-<span class="nc" id="L38">    }</span>
+<span class="fc" id="L36">        String dirPath = DIR_PATH + list.getName().replace(&quot; &quot;,&quot;_&quot;);</span>
+<span class="fc" id="L37">        JsonUtil.toJsonFile(list.getViews(),dirPath, VIEW_PATH);</span>
+<span class="fc" id="L38">    }</span>
 
     public static void saveData(MicrosoftList list) throws IOException {
-<span class="nc" id="L41">        String dirPath = DIR_PATH + list.getName().replace(&quot; &quot;,&quot;_&quot;);</span>
-<span class="nc" id="L42">        JsonUtil.toJsonFile(list.getRows(),dirPath, DATA_PATH);</span>
-<span class="nc" id="L43">    }</span>
+<span class="fc" id="L41">        String dirPath = DIR_PATH + list.getName().replace(&quot; &quot;,&quot;_&quot;);</span>
+<span class="fc" id="L42">        JsonUtil.toJsonFile(list.getRows(),dirPath, DATA_PATH);</span>
+<span class="fc" id="L43">    }</span>
 
     public static void saveFilterList(MicrosoftList list) throws IOException {
-<span class="nc" id="L46">        String dirPath = DIR_PATH + list.getName().replace(&quot; &quot;,&quot;_&quot;) + &quot;/filter&quot;;</span>
-<span class="nc" id="L47">        File directory = new File(dirPath);</span>
+<span class="fc" id="L46">        String dirPath = DIR_PATH + list.getName().replace(&quot; &quot;,&quot;_&quot;) + &quot;/filter&quot;;</span>
+<span class="fc" id="L47">        File directory = new File(dirPath);</span>
         // Create directories if they do not exist
-<span class="nc" id="L49">        boolean isDirCreated = directory.mkdirs();</span>
+<span class="fc" id="L49">        boolean isDirCreated = directory.mkdirs();</span>
 
         // Log if the directory was successfully created
-<span class="nc bnc" id="L52" title="All 2 branches missed.">        if (isDirCreated) {</span>
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">        if (isDirCreated) {</span>
 <span class="nc" id="L53">            Logger.getAnonymousLogger().info(&quot;Success creating folder&quot;);</span>
         }
-<span class="nc" id="L55">        JsonUtil.toJsonFile(list.getColumns(),dirPath, COLS_PATH);</span>
-<span class="nc" id="L56">        JsonUtil.toJsonFile(list.getRows(),dirPath, DATA_PATH);</span>
+<span class="fc" id="L55">        JsonUtil.toJsonFile(list.getColumns(),dirPath, COLS_PATH);</span>
+<span class="fc" id="L56">        JsonUtil.toJsonFile(list.getRows(),dirPath, DATA_PATH);</span>
 
-<span class="nc" id="L58">    }</span>
+<span class="fc" id="L58">    }</span>
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

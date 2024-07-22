@@ -16,16 +16,16 @@ import java.util.stream.Collectors;
 public class DateType extends AbstractType {
     private final SimpleDateFormat format;
     public DateType() {
-<span class="nc" id="L19">        super(ColumnType.DATE);</span>
-<span class="nc" id="L20">        this.format = new SimpleDateFormat(Configuration.DATETIME_FORMAT);</span>
-<span class="nc" id="L21">    }</span>
+<span class="fc" id="L19">        super(ColumnType.DATE);</span>
+<span class="fc" id="L20">        this.format = new SimpleDateFormat(Configuration.DATETIME_FORMAT);</span>
+<span class="fc" id="L21">    }</span>
 
     @Override
     protected int handleCompare(Object o1, Object o2) {
         try {
-<span class="nc" id="L26">            Date date1 = format.parse((String) o1);</span>
-<span class="nc" id="L27">            Date date2 = format.parse((String) o2);</span>
-<span class="nc" id="L28">            return date1.compareTo(date2);</span>
+<span class="fc" id="L26">            Date date1 = format.parse((String) o1);</span>
+<span class="fc" id="L27">            Date date2 = format.parse((String) o2);</span>
+<span class="fc" id="L28">            return date1.compareTo(date2);</span>
 <span class="nc" id="L29">        } catch (Exception e) {</span>
 <span class="nc" id="L30">            Logger.getAnonymousLogger().warning(&quot;Failed to parse date&quot;);</span>
         }
@@ -34,13 +34,13 @@ public class DateType extends AbstractType {
 
     @Override
     protected List&lt;Parameter&gt; handleConfig(List&lt;Parameter&gt; config) {
-<span class="nc" id="L37">        List&lt;Parameter&gt; configList = config.stream()</span>
-<span class="nc bnc" id="L38" title="All 2 branches missed.">                .filter(para -&gt; !para.getName().equals(ConfigParameter.DEFAULT_VALUE))</span>
-<span class="nc" id="L39">                .collect(Collectors.toList());</span>
-<span class="nc" id="L40">        Parameter defaultValue = handleDefault(config);</span>
-<span class="nc" id="L41">        Optional.ofNullable(defaultValue)</span>
-<span class="nc" id="L42">                .ifPresent(configList::add);</span>
-<span class="nc" id="L43">        return configList;</span>
+<span class="fc" id="L37">        List&lt;Parameter&gt; configList = config.stream()</span>
+<span class="pc bpc" id="L38" title="1 of 2 branches missed.">                .filter(para -&gt; !para.getName().equals(ConfigParameter.DEFAULT_VALUE))</span>
+<span class="fc" id="L39">                .collect(Collectors.toList());</span>
+<span class="fc" id="L40">        Parameter defaultValue = handleDefault(config);</span>
+<span class="fc" id="L41">        Optional.ofNullable(defaultValue)</span>
+<span class="fc" id="L42">                .ifPresent(configList::add);</span>
+<span class="fc" id="L43">        return configList;</span>
     }
 
     @Override
@@ -49,15 +49,15 @@ public class DateType extends AbstractType {
     }
 
     private Parameter handleDefault(List&lt;Parameter&gt; config) {
-<span class="nc" id="L52">        Parameter defaultValue = config.stream()</span>
-<span class="nc" id="L53">                .filter(para -&gt; para.getName().equals(ConfigParameter.DEFAULT_VALUE))</span>
-<span class="nc" id="L54">                .findFirst().orElse(null);</span>
-<span class="nc" id="L55">        Optional.ofNullable(defaultValue)</span>
-<span class="nc" id="L56">                .ifPresent(para -&gt; {</span>
-<span class="nc" id="L57">                    Optional&lt;Object&gt; result = ValueTypeFactory.getValue(para.getValue());</span>
-<span class="nc" id="L58">                    para.setValue(result.orElse(para.getValue()));</span>
-<span class="nc" id="L59">                });</span>
-<span class="nc" id="L60">        return defaultValue;</span>
+<span class="fc" id="L52">        Parameter defaultValue = config.stream()</span>
+<span class="fc" id="L53">                .filter(para -&gt; para.getName().equals(ConfigParameter.DEFAULT_VALUE))</span>
+<span class="fc" id="L54">                .findFirst().orElse(null);</span>
+<span class="fc" id="L55">        Optional.ofNullable(defaultValue)</span>
+<span class="fc" id="L56">                .ifPresent(para -&gt; {</span>
+<span class="fc" id="L57">                    Optional&lt;Object&gt; result = ValueTypeFactory.getValue(para.getValue());</span>
+<span class="fc" id="L58">                    para.setValue(result.orElse(para.getValue()));</span>
+<span class="fc" id="L59">                });</span>
+<span class="fc" id="L60">        return defaultValue;</span>
     }
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

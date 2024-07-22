@@ -3,7 +3,6 @@
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 import model.microsoft.list.value.IValue;
 
 import java.util.Date;
@@ -11,25 +10,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Getter
-<span class="nc" id="L14">@Setter</span>
-<span class="nc" id="L15">@ToString</span>
+<span class="pc" id="L13">@Setter</span>
 public class Row {
     @JsonIgnore
-<span class="nc" id="L18">    private MicrosoftList list;</span>
-<span class="nc" id="L19">    private Map&lt;String, IValue&gt; cells; // Column, Value</span>
+<span class="nc" id="L16">    private MicrosoftList list;</span>
+<span class="fc" id="L17">    private Map&lt;String, IValue&gt; cells; // Column, Value</span>
 
-<span class="nc" id="L21">    private Date createdAt;</span>
+<span class="fc" id="L19">    private Date createdAt;</span>
 
 
-<span class="nc" id="L24">    public Row(MicrosoftList list) {</span>
-<span class="nc" id="L25">        this.list = list;</span>
-<span class="nc" id="L26">        this.cells = new HashMap&lt;&gt;();</span>
-<span class="nc" id="L27">        this.createdAt = new Date();</span>
-<span class="nc" id="L28">    }</span>
+<span class="fc" id="L22">    public Row(MicrosoftList list) {</span>
+<span class="fc" id="L23">        this.list = list;</span>
+<span class="fc" id="L24">        this.cells = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L25">        this.createdAt = new Date();</span>
+<span class="fc" id="L26">    }</span>
 
     public void addCell(Cell cell) {
-<span class="nc" id="L31">        this.cells.put(cell.getColumn().getName(), cell.getValue());</span>
-<span class="nc" id="L32">    }</span>
+<span class="fc" id="L29">        this.cells.put(cell.getColumn().getName(), cell.getValue());</span>
+<span class="fc" id="L30">    }</span>
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
