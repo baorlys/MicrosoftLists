@@ -14,8 +14,8 @@
       "name" : "DEFAULT_VALUE",
       "value" : "CURRENT_DATE"
     } ],
-    "defaultValue" : "CURRENT_DATE",
-    "hidden" : false
+    "hidden" : false,
+    "defaultValue" : "CURRENT_DATE"
   },
   "endDate" : {
     "name" : "Column Date",
@@ -26,8 +26,8 @@
       "name" : "DEFAULT_VALUE",
       "value" : "CURRENT_DATE"
     } ],
-    "defaultValue" : "CURRENT_DATE",
-    "hidden" : false
+    "hidden" : false,
+    "defaultValue" : "CURRENT_DATE"
   }
 }, {
   "name" : "Gallery View",
@@ -45,7 +45,7 @@
       "name" : "CHOICES",
       "value" : [ "choice 1", "choice 2", "choice 3" ]
     } ],
-    "defaultValue" : null,
-    "hidden" : false
+    "hidden" : false,
+    "defaultValue" : null
   }
 } ]

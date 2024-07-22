@@ -3,7 +3,6 @@ package model.microsoft.list;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 import model.microsoft.list.value.IValue;
 
 import java.util.Date;
@@ -12,7 +11,6 @@ import java.util.Map;
 
 @Getter
 @Setter
-@ToString
 public class Row {
     @JsonIgnore
     private MicrosoftList list;
