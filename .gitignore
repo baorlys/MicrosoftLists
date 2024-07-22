@@ -1,3 +1,7 @@
+# Ensure target/site is not ignored
+!target/site/
+!target/jacoco.exec
+# General ignore rules for target directories
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/

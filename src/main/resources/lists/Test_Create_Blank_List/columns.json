@@ -3,31 +3,9 @@
   "type" : {
     "type" : "TEXT"
   },
-  "config" : null,
-  "hidden" : false
-}, {
-  "name" : "Column Text",
-  "type" : {
-    "type" : "TEXT"
-  },
-  "config" : [ {
-    "name" : "DEFAULT_VALUE",
-    "value" : [ "default text" ]
-  } ],
-  "hidden" : false
-}, {
-  "name" : "Column Number",
-  "type" : {
-    "type" : "NUMBER"
-  },
-  "config" : [ {
-    "name" : "NUMBER_SYMBOL",
-    "value" : [ "NONE" ]
-  }, {
-    "name" : "DEFAULT_VALUE",
-    "value" : [ 0 ]
-  } ],
-  "hidden" : false
+  "config" : [ ],
+  "hidden" : false,
+  "defaultValue" : null
 }, {
   "name" : "Column Date",
   "type" : {
@@ -35,82 +13,89 @@
   },
   "config" : [ {
     "name" : "DEFAULT_VALUE",
-    "value" : [ "CURRENT_DATE" ]
+    "value" : "CURRENT_DATE"
   } ],
-  "hidden" : false
+  "hidden" : false,
+  "defaultValue" : "CURRENT_DATE"
+}, {
+  "name" : "Column Text",
+  "type" : {
+    "type" : "TEXT"
+  },
+  "config" : [ ],
+  "hidden" : false,
+  "defaultValue" : null
+}, {
+  "name" : "Column Number",
+  "type" : {
+    "type" : "NUMBER"
+  },
+  "config" : [ {
+    "name" : "NUMBER_SYMBOL",
+    "value" : "NONE"
+  } ],
+  "hidden" : false,
+  "defaultValue" : null
 }, {
   "name" : "Column YesNo",
   "type" : {
     "type" : "CHECKBOX"
   },
-  "config" : [ {
-    "name" : "DEFAULT_VALUE",
-    "value" : [ false ]
-  } ],
-  "hidden" : false
+  "config" : [ ],
+  "hidden" : false,
+  "defaultValue" : null
 }, {
   "name" : "Column Choice",
   "type" : {
+    "values" : null,
     "type" : "CHOICE"
   },
   "config" : [ {
-    "name" : "DEFAULT_VALUE",
+    "name" : "CHOICES",
     "value" : [ "choice 1", "choice 2", "choice 3" ]
-  }, {
-    "name" : "MULTIPLE_SELECTION",
-    "value" : [ true ]
   } ],
-  "hidden" : false
+  "hidden" : false,
+  "defaultValue" : null
 }, {
   "name" : "Column Hyperlink",
   "type" : {
     "type" : "HYPERLINK"
   },
-  "config" : [ {
-    "name" : "DEFAULT_VALUE",
-    "value" : [ "https://www.google.com" ]
-  } ],
-  "hidden" : false
+  "config" : [ ],
+  "hidden" : false,
+  "defaultValue" : null
 }, {
   "name" : "Column Image",
   "type" : {
     "type" : "IMAGE"
   },
-  "config" : [ {
-    "name" : "DEFAULT_VALUE",
-    "value" : [ "https://www.google.com/image.jpg" ]
-  } ],
-  "hidden" : false
+  "config" : [ ],
+  "hidden" : false,
+  "defaultValue" : null
 }, {
   "name" : "Column Person",
   "type" : {
     "type" : "PERSON"
   },
-  "config" : [ {
-    "name" : "DEFAULT_VALUE",
-    "value" : [ "person 1" ]
-  } ],
-  "hidden" : false
+  "config" : [ ],
+  "hidden" : false,
+  "defaultValue" : null
 }, {
   "name" : "Column Multiple Lines of Text",
   "type" : {
     "type" : "MULTIPLE_LINES_OF_TEXT"
   },
-  "config" : [ {
-    "name" : "DEFAULT_VALUE",
-    "value" : [ "default text" ]
-  } ],
-  "hidden" : false
+  "config" : [ ],
+  "hidden" : false,
+  "defaultValue" : null
 }, {
   "name" : "Column Lookup",
   "type" : {
     "type" : "LOOKUP"
   },
-  "config" : [ {
-    "name" : "DEFAULT_VALUE",
-    "value" : [ "lookup 1" ]
-  } ],
-  "hidden" : false
+  "config" : [ ],
+  "hidden" : false,
+  "defaultValue" : null
 }, {
   "name" : "Column Average Rating",
   "type" : {
@@ -118,7 +103,8 @@
   },
   "config" : [ {
     "name" : "DEFAULT_VALUE",
-    "value" : [ 0 ]
+    "value" : 0
   } ],
-  "hidden" : false
+  "hidden" : false,
+  "defaultValue" : 0
 } ]

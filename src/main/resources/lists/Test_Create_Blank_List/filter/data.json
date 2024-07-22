@@ -1,0 +1,38 @@
+[ {
+  "cells" : {
+    "Column Choice" : {
+      "object" : ""
+    },
+    "Column Date" : {
+      "object" : "CURRENT_DATE"
+    },
+    "Column Average Rating" : {
+      "object" : 0
+    },
+    "Column Number" : {
+      "object" : ""
+    },
+    "Column YesNo" : {
+      "object" : ""
+    },
+    "Column Multiple Lines of Text" : {
+      "object" : ""
+    },
+    "Title" : {
+      "object" : ""
+    },
+    "Column Image" : {
+      "object" : ""
+    },
+    "Column Person" : {
+      "object" : ""
+    },
+    "Column Lookup" : {
+      "object" : ""
+    },
+    "Column Hyperlink" : {
+      "object" : ""
+    }
+  },
+  "createdAt" : 1721628373597
+} ]
