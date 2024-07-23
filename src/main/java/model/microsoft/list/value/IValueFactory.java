@@ -13,7 +13,10 @@ public class IValueFactory {
         typeValue.put(false, ListObject::new);
     }
 
-    public static IValue create(Boolean isSingle) {
-        return typeValue.get(isSingle).get();
+    public static IValue create(Object... objects) {
+        boolean isSingle = objects.length == 1;
+        IValue value = typeValue.get(isSingle).get();
+        value.set(objects);
+        return value;
     }
 }

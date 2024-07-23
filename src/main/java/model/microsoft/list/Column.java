@@ -30,7 +30,7 @@ public class Column {
     }
 
 
-    public boolean isValueValid(IValue value) {
+    public boolean isValidValue(IValue value) {
         return this.type.isValueValid(config, value);
     }
 

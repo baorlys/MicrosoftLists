@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Name",
+    "type": {
+      "type": "TEXT"
+    },
+    "config": [],
+    "hidden": false,
+    "defaultValue": null
+  },
+  {
+    "name": "Price",
+    "type": {
+      "type": "NUMBER"
+    },
+    "config": [],
+    "hidden": false,
+    "defaultValue": null
+  }
+]

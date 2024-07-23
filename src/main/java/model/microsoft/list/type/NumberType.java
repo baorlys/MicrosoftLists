@@ -26,7 +26,7 @@ public class NumberType extends AbstractType {
 
     @Override
     protected boolean handleIsValueValid(List<Parameter> config, IValue value) {
-        return false;
+       return value.get() instanceof Integer || value.get() instanceof BigDecimal;
     }
 
 

@@ -26,8 +26,6 @@ Z
 *src/test/java/microsoftlists/TestList.java,8\5\850c5d27a1a7ad882447ad4c971adb67169b2032
 [
 +src/main/java/model/constants/DateTime.java,b\c\bcdf1b0f5b6256ba349e2fb2bc50392ca89fea2e
-L
-src/main/java/util/Pair.java,0\7\070ade146c4a78b18359d645faba494f2253e1a4
 V
 &src/main/java/util/ExceptionUtils.java,6\f\6f7a5933e711b6bd2e167d104cf3a8df99353e14
 b
@@ -138,3 +136,13 @@ w
 G.idea/sonarlint/issuestore/9/7/97a8b15d77c529260a80495f95be8194e0c8fbe0,c\0\c020d745f347e23891c07723d8836efdfa6107e0
 w
 G.idea/sonarlint/issuestore/8/2/8289b6af4f1f135a3686614dbe712d902d933884,f\6\f65c4af431cef25c9319ab2ff525a52c1e68bdf8
+j
+:src/main/java/model/microsoft/list/value/SingleObject.java,1\7\171d658e9f381bb12b30c61ebb4c7e6b4f5a75ca
+h
+8src/main/java/model/microsoft/list/value/ListObject.java,3\a\3ad3c7416d2bb8b19bc0f1c5697860be291b4116
+d
+4src/main/java/model/microsoft/list/value/IValue.java,e\9\e90e72898ed5ae4a5e22bd0db169a677085907ff
+k
+;src/main/java/model/microsoft/list/value/IValueFactory.java,e\f\ef4cf30bbce1d088af325d50bcd870292fa91fdc
+\
+,src/test/java/microsoftlists/TestColumn.java,9\1\91690fb5f9c708442c874f6867f59cbb2c528de5

@@ -3,7 +3,7 @@ package model.microsoft.list.type;
 import config.Configuration;
 import model.constants.DateTime;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +20,7 @@ public class ValueTypeFactory {
     static {
 
         valueMap.put(DateTime.CURRENT_DATE, () -> {
-            LocalDate currentDate = LocalDate.now();
+            LocalDateTime currentDate = LocalDateTime.now();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern(Configuration.DATETIME_FORMAT);
 
             return currentDate.format(formatter);

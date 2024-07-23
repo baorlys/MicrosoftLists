@@ -19,8 +19,7 @@ public class Parameter {
 
 
     public static Parameter of(ConfigParameter defaultValue, Object... value) {
-        IValue iValue = IValueFactory.create(value.length == 1);
-        iValue.set(value);
+        IValue iValue = IValueFactory.create(value);
         return new Parameter(defaultValue, iValue);
     }
 
@@ -29,9 +28,7 @@ public class Parameter {
     }
 
     public void setValue(Object... value) {
-        IValue iValue = IValueFactory.create(value.length == 1);
-        iValue.set(value);
-        this.value = iValue;
+        this.value = IValueFactory.create(value);
     }
 
     @Override

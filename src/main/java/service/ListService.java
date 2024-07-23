@@ -29,14 +29,14 @@ public class ListService {
         return list.getColumns().stream().filter(column -> !column.isHidden()).count();
     }
 
-    public static void addColumn(MicrosoftList list, Column column) {
+    public static ResultMessage addColumn(MicrosoftList list, Column column) {
         Optional<Column> existingColumn = Optional.ofNullable(getColumn(list, column.getName()));
-        existingColumn.ifPresentOrElse(
-                c -> {
-                    throw new IllegalArgumentException("Column already exists");
-                },
-                () -> list.addColumn(column)
-        );
+        return existingColumn.map(c -> MessageFactory.getMessage(MessageType.ERROR,"Column already exists"))
+                .orElseGet(() -> {
+                    list.addColumn(column);
+                    return MessageFactory.getMessage(MessageType.SUCCESS,"Column added successfully");
+                });
+
     }
 
     public static Column getColumn(MicrosoftList list, String name) {
@@ -214,11 +214,10 @@ public class ListService {
 
     public static ResultMessage updateCellAtRow(MicrosoftList list, int rowIndex, String colName, Object... value) {
         List<Row> rows = list.getRows();
-        IValue typeVal = IValueFactory.create(value.length == 1);
-        typeVal.set(value);
+        IValue typeVal = IValueFactory.create(value);
         Column column = getColumn(list, colName);
         return Optional.ofNullable(column)
-                .filter(col -> !col.isValueValid(typeVal))
+                .filter(col -> !col.isValidValue(typeVal))
                 .map(col -> MessageFactory.getMessage(MessageType.ERROR,"Invalid value"))
                 .orElseGet(() -> {
                     Row row = RowService.updateCell(rows.get(rowIndex), colName, typeVal);

@@ -1,5 +1,6 @@
 package model.microsoft.list.type;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import model.constants.ColumnType;
 import model.microsoft.list.Parameter;
 import model.microsoft.list.value.IValue;
@@ -10,6 +11,7 @@ import java.util.List;
 
 
 public abstract class AbstractType implements Comparator<Object> {
+    @JsonIgnore
     private final ColumnType columnType;
 
     protected AbstractType(ColumnType type) {

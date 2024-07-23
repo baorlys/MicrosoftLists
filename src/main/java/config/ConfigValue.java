@@ -9,7 +9,8 @@ public enum ConfigValue {
     DIR_PATH("dir.path"),
     DATA_PATH("data.path"),
     PAGE_SIZE("page.size"),
-    PAGE_NUMBER("page.number"), VIEW_PATH("view.path");
+    PAGE_NUMBER("page.number"), VIEW_PATH("view.path"),
+    DIR_TEMPLATE_PATH("dir.template.path");
 
 
 

@@ -19,7 +19,7 @@ public class TextType extends AbstractType {
 
     @Override
     protected boolean handleIsValueValid(List<Parameter> config, IValue value) {
-        return false;
+        return true;
     }
 
     @Override

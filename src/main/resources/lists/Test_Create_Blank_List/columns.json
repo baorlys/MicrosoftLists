@@ -47,7 +47,6 @@
 }, {
   "name" : "Column Choice",
   "type" : {
-    "values" : null,
     "type" : "CHOICE"
   },
   "config" : [ {
@@ -55,7 +54,7 @@
     "value" : [ "choice 1", "choice 2", "choice 3" ]
   }, {
     "name" : "MULTIPLE_SELECTION",
-    "value" : true
+    "value" : false
   } ],
   "hidden" : false,
   "defaultValue" : null

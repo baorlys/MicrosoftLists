@@ -21,7 +21,7 @@ import util.JsonUtil;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
@@ -108,9 +108,11 @@ class TestList {
         assertNotNull(ListService.getColumn(list, "Column Date"));
 
         // Get current date
-        var currDate = LocalDate.now();
+        var currDateTime = LocalDateTime.now();
+        // Define the desired format
         var format = DateTimeFormatter.ofPattern(Configuration.DATETIME_FORMAT);
-        var date = currDate.format(format);
+        // Format the current date and time
+        var date = currDateTime.format(format);
 
         var defaultValues =
                 ListService.getColConfigValue(list, "Column Date", ConfigParameter.DEFAULT_VALUE);
@@ -151,8 +153,9 @@ class TestList {
                 .build();
 
         // Check if adding a column with the same name as an existing column throws an exception
-        assertThrows(IllegalArgumentException.class, () -> ListService.addColumn(list, newCol));
-
+        var resultMessage = ListService.addColumn(list, newCol);
+        assertEquals(MessageType.ERROR, resultMessage.getType());
+        assertEquals("Column already exists", resultMessage.getMsg());
         // Check if the number of columns has not changed
         var currColsCount = ListService.getColumnsCount(list);
         assertEquals(colsCount, currColsCount);
@@ -291,7 +294,6 @@ class TestList {
         ListService.updateCellAtRow(list, rowIndex, "Column Choice",  "choice 1", "choice 3");
         assertEquals(List.of("choice 1", "choice 3"), ListService.getValue(list, rowIndex, "Column Choice"));
     }
-
 
     @Test
     // Test paging of rows
@@ -486,7 +488,7 @@ class TestList {
         var input = new HashMap<>(Map.of(
                 "Column Text", "F",
                 "Column Number", 1,
-                "Column Date", "05-01-2024",
+                "Column Date", "05-01-2024 00:00 AM",
                 "Column YesNo", true
         ));
         var inputJson = JsonUtil.toJson(input);
@@ -495,7 +497,7 @@ class TestList {
         input = new HashMap<>(Map.of(
                 "Column Text", "C",
                 "Column Number", 2,
-                "Column Date", "02-01-2024",
+                "Column Date", "02-01-2024 00:00 AM",
                 "Column YesNo", true
         ));
         inputJson = JsonUtil.toJson(input);
@@ -504,7 +506,7 @@ class TestList {
         input = new HashMap<>(Map.of(
                 "Column Text", "D",
                 "Column Number", 1,
-                "Column Date", "01-01-2024",
+                "Column Date", "01-01-2024 00:00 AM",
                 "Column YesNo", true
         ));
         inputJson = JsonUtil.toJson(input);
@@ -513,7 +515,7 @@ class TestList {
         input = new HashMap<>(Map.of(
                 "Column Text", "A",
                 "Column Number", 4,
-                "Column Date", "09-01-2024",
+                "Column Date", "09-01-2024 00:00 AM",
                 "Column YesNo", true
         ));
         inputJson = JsonUtil.toJson(input);
@@ -522,7 +524,7 @@ class TestList {
         input = new HashMap<>(Map.of(
                 "Column Text", "B",
                 "Column Number", 2,
-                "Column Date", "01-01-2024",
+                "Column Date", "01-01-2024 00:00 AM",
                 "Column YesNo", true
         ));
         inputJson = JsonUtil.toJson(input);
@@ -544,10 +546,10 @@ class TestList {
         assertEquals(4, RowService.getCell(sortedRows.get(0), "Column Number"));
 
         sortedRows = ListService.sort(list, "Column Date", SortOrder.ASCENDING);
-        assertEquals("01-01-2024", RowService.getCell(sortedRows.get(0), "Column Date"));
+        assertEquals("01-01-2024 00:00 AM", RowService.getCell(sortedRows.get(0), "Column Date"));
 
         sortedRows = ListService.sort(list, "Column Date", SortOrder.DESCENDING);
-        assertEquals("09-01-2024", RowService.getCell(sortedRows.get(0), "Column Date"));
+        assertEquals("09-01-2024 00:00 AM", RowService.getCell(sortedRows.get(0), "Column Date"));
     }
 
     @Test

@@ -38,7 +38,6 @@
   "organize" : {
     "name" : "Column Choice",
     "type" : {
-      "values" : null,
       "type" : "CHOICE"
     },
     "config" : [ {

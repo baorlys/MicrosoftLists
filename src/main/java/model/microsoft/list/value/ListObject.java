@@ -1,5 +1,6 @@
 package model.microsoft.list.value;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +10,8 @@ import java.util.List;
 @Setter
 public class ListObject implements IValue {
     private List<Object> objects;
+    @JsonIgnore
+    private static final boolean IS_MULTIPLE = true;
     public ListObject() {
         this.objects = new ArrayList<>();
     }
@@ -28,7 +31,7 @@ public class ListObject implements IValue {
 
     @Override
     public boolean isMultiple() {
-        return true;
+        return IS_MULTIPLE;
     }
 
 }

@@ -1,38 +1,49 @@
 [ {
   "cells" : {
     "Column Choice" : {
-      "object" : ""
+      "object" : "",
+      "multiple" : false
     },
     "Column Date" : {
-      "object" : "CURRENT_DATE"
+      "object" : "CURRENT_DATE",
+      "multiple" : false
     },
     "Column Average Rating" : {
-      "object" : 0
+      "object" : 0,
+      "multiple" : false
     },
     "Column Number" : {
-      "object" : ""
+      "object" : "",
+      "multiple" : false
     },
     "Column YesNo" : {
-      "object" : ""
+      "object" : "",
+      "multiple" : false
     },
     "Column Multiple Lines of Text" : {
-      "object" : ""
+      "object" : "",
+      "multiple" : false
     },
     "Title" : {
-      "object" : ""
+      "object" : "",
+      "multiple" : false
     },
     "Column Image" : {
-      "object" : ""
+      "object" : "",
+      "multiple" : false
     },
     "Column Person" : {
-      "object" : ""
+      "object" : "",
+      "multiple" : false
     },
     "Column Lookup" : {
-      "object" : ""
+      "object" : "",
+      "multiple" : false
     },
     "Column Hyperlink" : {
-      "object" : ""
+      "object" : "",
+      "multiple" : false
     }
   },
-  "createdAt" : 1721631287352
+  "createdAt" : 1721704951100
 } ]
