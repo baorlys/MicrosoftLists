@@ -1,12 +1,12 @@
 package microsoftlists;
 
-import model.constants.ColumnType;
-import model.microsoft.list.Column;
-import model.microsoft.list.Template;
+import org.example.microsoftlists.model.constants.ColumnType;
+import org.example.microsoftlists.model.microsoft.list.Column;
+import org.example.microsoftlists.model.microsoft.list.Template;
 import org.junit.jupiter.api.Test;
-import service.TemplateService;
-import service.builder.ColumnBuilder;
-import service.file.SaveService;
+import org.example.microsoftlists.service.TemplateService;
+import org.example.microsoftlists.service.builder.ColumnBuilder;
+import org.example.microsoftlists.service.file.SaveService;
 
 import java.io.IOException;
 import java.util.List;

@@ -1,22 +1,24 @@
 package microsoftlists;
 
+import org.example.microsoftlists.model.constants.CalendarLayout;
+import org.example.microsoftlists.model.constants.ColumnType;
+import org.example.microsoftlists.model.constants.ConfigParameter;
+import org.example.microsoftlists.model.constants.MessageType;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import config.Configuration;
-import model.constants.*;
-import model.microsoft.list.MicrosoftList;
-import model.microsoft.list.Parameter;
-import model.microsoft.list.view.BoardView;
-import model.microsoft.list.view.CalendarView;
-import model.microsoft.list.view.GalleryView;
-import model.microsoft.list.view.ListView;
+import org.example.microsoftlists.config.Configuration;
+import org.example.microsoftlists.model.microsoft.list.MicrosoftList;
+import org.example.microsoftlists.model.microsoft.list.Parameter;
+import org.example.microsoftlists.model.microsoft.list.view.BoardView;
+import org.example.microsoftlists.model.microsoft.list.view.CalendarView;
+import org.example.microsoftlists.model.microsoft.list.view.GalleryView;
+import org.example.microsoftlists.model.microsoft.list.view.ListView;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import service.ListService;
-import service.MicrosoftListService;
-import service.RowService;
-import service.builder.ColumnBuilder;
-import service.builder.MicrosoftListBuilder;
-import service.file.JsonService;
+import org.example.microsoftlists.service.ListService;
+import org.example.microsoftlists.service.RowService;
+import org.example.microsoftlists.service.builder.ColumnBuilder;
+import org.example.microsoftlists.service.builder.MicrosoftListBuilder;
+import org.example.microsoftlists.service.file.JsonService;
 
 import javax.swing.*;
 import java.awt.*;
@@ -36,8 +38,13 @@ class TestList {
 //     Set up before each test
     @BeforeEach
     void setUp() throws IOException {
-        List<MicrosoftList> lists = MicrosoftListService.loadLists();
-        list = MicrosoftListService.findList(lists, "Blank List");
+        // Create a list
+        list = new MicrosoftListBuilder("Test List")
+                .color(Color.BLUE)
+                .icon("ICON")
+                .initDefaultColumn()
+                .build();
+
     }
     @Test
         // Add row with values

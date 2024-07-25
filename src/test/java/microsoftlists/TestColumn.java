@@ -1,13 +1,13 @@
 package microsoftlists;
 
-import model.constants.ColumnType;
-import model.constants.ConfigParameter;
-import model.constants.DateTime;
-import model.constants.NumberSymbol;
-import model.microsoft.list.Parameter;
-import model.microsoft.list.value.ValueFactory;
+import org.example.microsoftlists.model.constants.ColumnType;
+import org.example.microsoftlists.model.constants.ConfigParameter;
+import org.example.microsoftlists.model.constants.DateTime;
+import org.example.microsoftlists.model.constants.NumberSymbol;
+import org.example.microsoftlists.model.microsoft.list.Parameter;
+import org.example.microsoftlists.model.microsoft.list.value.ValueFactory;
 import org.junit.jupiter.api.Test;
-import service.builder.ColumnBuilder;
+import org.example.microsoftlists.service.builder.ColumnBuilder;
 
 import java.math.BigDecimal;
 
