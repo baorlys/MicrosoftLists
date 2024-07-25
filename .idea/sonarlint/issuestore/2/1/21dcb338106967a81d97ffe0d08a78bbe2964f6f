@@ -1,0 +1,17 @@
+
+g
+java:S1128"JRemove this unused import 'com.fasterxml.jackson.annotation.JsonProperty'.(ËÃ§Ï8Ü¯ûû2
+x
+java:S1128"VRemove this unused import 'com.fasterxml.jackson.databind.annotation.JsonDeserialize'.(Úˆ×øÿÿÿÿ8İÅ†‚2
+v
+java:S1128"TRemove this unused import 'com.fasterxml.jackson.databind.annotation.JsonSerialize'.(ÖÎèöúÿÿÿÿ8Ü¯ûû2
+q
+java:S1128"ORemove this unused import 'model.microsoft.list.deserializer.TypeDeserializer'.(ÍÖ³˜şÿÿÿÿ8Ş¯ûû2
+r
+java:S1128"PRemove this unused import 'model.microsoft.list.deserializer.ValueDeserializer'.(Ëšï´úÿÿÿÿ8İÅ†‚2
+d
+java:S1128"BRemove this unused import 'model.microsoft.list.type.TypeFactory'.( ¿Äøÿÿÿÿ8Ş¯ûû2
+[
+java:S1128">Remove this unused import 'model.microsoft.list.value.IValue'.(¯ùÛ²8Ş¯ûû2
+f
+java:S1128"DRemove this unused import 'model.microsoft.list.value.ValueFactory'.(òê´ûÿÿÿÿ8Ş¯ûû2

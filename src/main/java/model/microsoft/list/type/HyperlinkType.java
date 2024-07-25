@@ -6,23 +6,25 @@ import model.microsoft.list.value.IValue;
 
 import java.util.List;
 
-public class HyperlinkType extends AbstractType {
-    public HyperlinkType() {
-        super(ColumnType.HYPERLINK);
+public class HyperlinkType implements IType {
+
+    @Override
+    public ColumnType getType() {
+        return ColumnType.HYPERLINK;
     }
 
     @Override
-    protected int handleCompare(Object o1, Object o2) {
-        return 0;
-    }
-
-    @Override
-    protected List<Parameter> handleConfig(List<Parameter> config) {
+    public List<Parameter> handleConfig(List<Parameter> config) {
         return config;
     }
 
     @Override
-    protected boolean handleIsValueValid(List<Parameter> config, IValue value) {
-        return false;
+    public boolean isValueValid(List<Parameter> config, IValue value) {
+        return true;
+    }
+
+    @Override
+    public int compare(Object o1, Object o2) {
+        return 0;
     }
 }

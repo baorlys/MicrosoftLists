@@ -2,7 +2,7 @@ package service.file;
 
 import config.Configuration;
 import model.microsoft.list.MicrosoftList;
-import util.JsonUtil;
+import model.microsoft.list.Template;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,7 +19,7 @@ public class SaveService {
     private static final String DATA_PATH = Configuration.DATA_PATH;
 
     public static void saveStructure(MicrosoftList list) throws IOException {
-        String dirPath = DIR_PATH + list.getName().replace(" ","_");
+        String dirPath = DIR_PATH + list.getName();
         File directory = new File(dirPath);
         // Create directories if they do not exist
         boolean isDirCreated = directory.mkdirs();
@@ -28,32 +28,23 @@ public class SaveService {
         if (isDirCreated) {
             Logger.getAnonymousLogger().info("Success creating folder");
         }
-        JsonUtil.toJsonFile(list.getColumns(),dirPath, COLS_PATH);
+        JsonService.toJsonFile(list.getColumns(),dirPath, COLS_PATH);
 
     }
 
     public static void saveView(MicrosoftList list) throws IOException {
-        String dirPath = DIR_PATH + list.getName().replace(" ","_");
-        JsonUtil.toJsonFile(list.getViews(),dirPath, VIEW_PATH);
+        String dirPath = DIR_PATH + list.getName();
+        JsonService.toJsonFile(list.getViews(),dirPath, VIEW_PATH);
     }
 
     public static void saveData(MicrosoftList list) throws IOException {
-        String dirPath = DIR_PATH + list.getName().replace(" ","_");
-        JsonUtil.toJsonFile(list.getRows(),dirPath, DATA_PATH);
+        String dirPath = DIR_PATH + list.getName();
+        JsonService.toJsonFile(list.getRows(),dirPath, DATA_PATH);
     }
 
-    public static void saveFilterList(MicrosoftList list) throws IOException {
-        String dirPath = DIR_PATH + list.getName().replace(" ","_") + "/filter";
-        File directory = new File(dirPath);
-        // Create directories if they do not exist
-        boolean isDirCreated = directory.mkdirs();
 
-        // Log if the directory was successfully created
-        if (isDirCreated) {
-            Logger.getAnonymousLogger().info("Success creating folder");
-        }
-        JsonUtil.toJsonFile(list.getColumns(),dirPath, COLS_PATH);
-        JsonUtil.toJsonFile(list.getRows(),dirPath, DATA_PATH);
-
+    public static void saveTemplate(Template template) throws IOException {
+        String dirPath = Configuration.DIR_TEMPLATE_PATH;
+        JsonService.toJsonFile(template.getColumns(),dirPath, template.getDisplayName());
     }
 }

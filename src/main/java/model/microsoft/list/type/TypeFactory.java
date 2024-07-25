@@ -1,16 +1,21 @@
 package model.microsoft.list.type;
 
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
 import model.constants.ColumnType;
 
+import java.io.IOException;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
-public class TypeFactory {
-
+public class TypeFactory  {
     private TypeFactory() {
+        // Empty constructor
     }
-    private static final Map<ColumnType, Supplier<AbstractType>> typeMap = new EnumMap<>(ColumnType.class);
+
+    private static final Map<ColumnType, Supplier<IType>> typeMap = new EnumMap<>(ColumnType.class);
 
     static {
         typeMap.put(ColumnType.TEXT, TextType::new);
@@ -26,7 +31,7 @@ public class TypeFactory {
         typeMap.put(ColumnType.AVERAGE_RATING, AverageRatingType::new);
     }
 
-    public static AbstractType getType(ColumnType type) {
+    public static IType getType(ColumnType type) {
         return typeMap.get(type).get();
     }
 }

@@ -18,6 +18,14 @@
   "hidden" : false,
   "defaultValue" : "CURRENT_DATE"
 }, {
+  "name" : "Column Text",
+  "type" : {
+    "type" : "TEXT"
+  },
+  "config" : [ ],
+  "hidden" : false,
+  "defaultValue" : null
+}, {
   "name" : "Column Number",
   "type" : {
     "type" : "NUMBER"

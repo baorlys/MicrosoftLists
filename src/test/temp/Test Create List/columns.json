@@ -1,0 +1,112 @@
+[ {
+  "name" : "Title",
+  "type" : {
+    "type" : "TEXT"
+  },
+  "config" : [ ],
+  "hidden" : false,
+  "defaultValue" : null
+}, {
+  "name" : "Column Date",
+  "type" : {
+    "type" : "DATE"
+  },
+  "config" : [ {
+    "name" : "DEFAULT_VALUE",
+    "value" : "CURRENT_DATE"
+  } ],
+  "hidden" : false,
+  "defaultValue" : "CURRENT_DATE"
+}, {
+  "name" : "Column Text",
+  "type" : {
+    "type" : "TEXT"
+  },
+  "config" : [ ],
+  "hidden" : false,
+  "defaultValue" : null
+}, {
+  "name" : "Column Number",
+  "type" : {
+    "type" : "NUMBER"
+  },
+  "config" : [ {
+    "name" : "NUMBER_SYMBOL",
+    "value" : "NONE"
+  } ],
+  "hidden" : false,
+  "defaultValue" : null
+}, {
+  "name" : "Column YesNo",
+  "type" : {
+    "type" : "CHECKBOX"
+  },
+  "config" : [ ],
+  "hidden" : false,
+  "defaultValue" : null
+}, {
+  "name" : "Column Choice",
+  "type" : {
+    "type" : "CHOICE"
+  },
+  "config" : [ {
+    "name" : "CHOICES",
+    "value" : [ "choice 1", "choice 2", "choice 3" ]
+  }, {
+    "name" : "MULTIPLE_SELECTION",
+    "value" : false
+  } ],
+  "hidden" : false,
+  "defaultValue" : null
+}, {
+  "name" : "Column Hyperlink",
+  "type" : {
+    "type" : "HYPERLINK"
+  },
+  "config" : [ ],
+  "hidden" : false,
+  "defaultValue" : null
+}, {
+  "name" : "Column Image",
+  "type" : {
+    "type" : "IMAGE"
+  },
+  "config" : [ ],
+  "hidden" : false,
+  "defaultValue" : null
+}, {
+  "name" : "Column Person",
+  "type" : {
+    "type" : "PERSON"
+  },
+  "config" : [ ],
+  "hidden" : false,
+  "defaultValue" : null
+}, {
+  "name" : "Column Multiple Lines of Text",
+  "type" : {
+    "type" : "MULTIPLE_LINES_OF_TEXT"
+  },
+  "config" : [ ],
+  "hidden" : false,
+  "defaultValue" : null
+}, {
+  "name" : "Column Lookup",
+  "type" : {
+    "type" : "LOOKUP"
+  },
+  "config" : [ ],
+  "hidden" : false,
+  "defaultValue" : null
+}, {
+  "name" : "Column Average Rating",
+  "type" : {
+    "type" : "AVERAGE_RATING"
+  },
+  "config" : [ {
+    "name" : "DEFAULT_VALUE",
+    "value" : 0
+  } ],
+  "hidden" : false,
+  "defaultValue" : 0
+} ]

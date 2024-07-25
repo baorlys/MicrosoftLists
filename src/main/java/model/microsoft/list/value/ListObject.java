@@ -29,9 +29,6 @@ public class ListObject implements IValue {
         this.objects = List.of(object);
     }
 
-    @Override
-    public boolean isMultiple() {
-        return IS_MULTIPLE;
-    }
+
 
 }

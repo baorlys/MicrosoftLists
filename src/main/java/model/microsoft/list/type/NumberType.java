@@ -7,27 +7,32 @@ import model.microsoft.list.value.IValue;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class NumberType extends AbstractType {
-    public NumberType() {
-        super(ColumnType.NUMBER);
+public class NumberType implements IType {
+
+    @Override
+    public ColumnType getType() {
+        return ColumnType.NUMBER;
     }
 
     @Override
-    protected int handleCompare(Object o1, Object o2) {
+    public List<Parameter> handleConfig(List<Parameter> config) {
+        return config;
+    }
+
+
+    @Override
+    public boolean isValueValid(List<Parameter> config, IValue value) {
+        return value.get() instanceof Integer || value.get() instanceof BigDecimal;
+
+    }
+
+    @Override
+    public int compare(Object o1, Object o2) {
         BigDecimal numberO1 = new BigDecimal((Integer) o1);
         BigDecimal numberO2 = new BigDecimal((Integer) o2);
         return numberO1.compareTo(numberO2);
     }
 
-    @Override
-    protected List<Parameter> handleConfig(List<Parameter> config) {
-        return config;
-    }
-
-    @Override
-    protected boolean handleIsValueValid(List<Parameter> config, IValue value) {
-       return value.get() instanceof Integer || value.get() instanceof BigDecimal;
-    }
 
 
 }

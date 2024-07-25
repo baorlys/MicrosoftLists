@@ -1,0 +1,13 @@
+[ {
+  "name" : "Title",
+  "type" : "TEXT",
+  "config" : [ ],
+  "defaultValue" : null,
+  "hidden" : false
+}, {
+  "name" : "Column Date",
+  "type" : "DATE",
+  "config" : [ ],
+  "defaultValue" : "CURRENT_DATE",
+  "hidden" : false
+} ]

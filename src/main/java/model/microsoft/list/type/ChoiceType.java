@@ -10,28 +10,34 @@ import java.util.List;
 import java.util.function.Predicate;
 
 @Getter
-public class ChoiceType extends AbstractType {
-    public ChoiceType() {
-        super(ColumnType.CHOICE);
+public class ChoiceType implements IType {
+
+
+
+    @Override
+    public ColumnType getType() {
+        return ColumnType.CHOICE;
     }
 
     @Override
-    protected int handleCompare(Object o1, Object o2) {
-        return 0;
-    }
-
-    @Override
-    protected List<Parameter> handleConfig(List<Parameter> config) {
+    public List<Parameter> handleConfig(List<Parameter> config) {
         return config;
     }
 
+
     @Override
-    protected boolean handleIsValueValid(List<Parameter> config, IValue value) {
+    public boolean isValueValid(List<Parameter> config, IValue value) {
         Predicate<Parameter> isMultiSelect = para -> para.getName().equals(ConfigParameter.MULTIPLE_SELECTION)
                 && para.getValue().equals(true);
-        return !(config.stream().noneMatch(isMultiSelect) && value.isMultiple());
-
+        return !(config.stream().noneMatch(isMultiSelect) && value.get() instanceof List);
     }
+
+    @Override
+    public int compare(Object o1, Object o2) {
+        return 0;
+    }
+
+
 
 
 }

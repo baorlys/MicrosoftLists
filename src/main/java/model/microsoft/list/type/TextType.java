@@ -6,26 +6,29 @@ import model.microsoft.list.value.IValue;
 
 import java.util.List;
 
-public class TextType extends AbstractType {
-    public TextType() {
-        super(ColumnType.TEXT);
-    }
-
+public class TextType implements IType {
 
     @Override
-    protected List<Parameter> handleConfig(List<Parameter> config) {
+    public ColumnType getType() {
+        return ColumnType.TEXT;
+    }
+
+    @Override
+    public List<Parameter> handleConfig(List<Parameter> config) {
         return config;
     }
 
     @Override
-    protected boolean handleIsValueValid(List<Parameter> config, IValue value) {
+    public boolean isValueValid(List<Parameter> config, IValue value) {
         return true;
     }
 
     @Override
-    public int handleCompare(Object o1, Object o2) {
+    public int compare(Object o1, Object o2) {
         String strO1 = (String) o1;
         String strO2 = (String) o2;
         return strO1.compareTo(strO2);
     }
+
+
 }

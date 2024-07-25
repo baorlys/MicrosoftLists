@@ -36,8 +36,6 @@ U
 %src/main/java/config/ConfigValue.java,d\c\dcd9b5b829beb41c67cec12b833b3019d3a198d0
 W
 'src/main/java/config/Configuration.java,7\f\7f9a1455549e9958f1cfe6993a695569484b133b
-P
- src/main/java/util/JsonUtil.java,e\2\e2e95e18dba8da9b792f65a8a9c86bb809b52d65
 [
 +src/main/java/service/file/OpenService.java,b\8\b8cdfa82306d9af9a4036194dc72b4dd344f38f0
 [
@@ -60,8 +58,6 @@ a
 1src/main/java/model/responses/SuccessMessage.java,d\b\dbb5dca7d445681d26cceb00a7887cb27c3aecf5
 a
 1src/main/java/model/responses/MessageFactory.java,0\5\0523c4b7ed7bbe8ac25412554c70bf754cefea6c
-i
-9src/main/java/model/microsoft/list/type/AbstractType.java,e\c\ec8235d464be3a263ce266690078b73fe8dac317
 n
 >src/main/java/model/microsoft/list/type/AverageRatingType.java,3\5\354f6461b60a01f846db1489044580917ff374b9
 i
@@ -142,7 +138,47 @@ h
 8src/main/java/model/microsoft/list/value/ListObject.java,3\a\3ad3c7416d2bb8b19bc0f1c5697860be291b4116
 d
 4src/main/java/model/microsoft/list/value/IValue.java,e\9\e90e72898ed5ae4a5e22bd0db169a677085907ff
-k
-;src/main/java/model/microsoft/list/value/IValueFactory.java,e\f\ef4cf30bbce1d088af325d50bcd870292fa91fdc
 \
 ,src/test/java/microsoftlists/TestColumn.java,9\1\91690fb5f9c708442c874f6867f59cbb2c528de5
+Z
+*src/test/java/util/ExceptionUtilsTest.java,d\b\dbd67d1a498cda97038acf7d4c7e41c4cac4581d
+Z
+*src/main/java/service/TemplateService.java,3\c\3c32c77f6ea5bfca7ca2e2bad12cfb83f43a535b
+`
+0src/main/java/model/microsoft/list/Template.java,1\a\1a197c072e00dafd639b8358c3e61a7d36e592ea
+^
+.src/test/java/microsoftlists/TestTemplate.java,b\b\bb7fd47e55917a5d5cd6bf9e6c17246e30be2a91
+U
+%src/test/temp/List three/columns.json,7\7\77ea64180d86c0c630eaf0ba8ad1c76b12bedd46
+R
+"src/test/temp/List three/data.json,1\5\1579e672343d80b25e886e842cf8b0df61e57ab4
+S
+#src/test/temp/List one/columns.json,a\d\adc696631d572c286c673cf0c2f34550eb5d8eed
+b
+2src/main/java/model/microsoft/list/type/IType.java,b\8\b886a435db4e579a984154d94cd56c61421950cc
+j
+:src/main/java/model/microsoft/list/value/ValueFactory.java,3\a\3a6f1cd646ae59b68071d84e53dbb5c36510b00c
+\
+,src/test/mock.data/Test Create List/row.json,d\1\d1c5f44f0883a6c6fa2f56d795881c5728e171ae
+`
+0src/test/mock.data/Test Create List/columns.json,0\4\04115822ea5f4bb2d6146ff6a681c0cee550641b
+W
+'src/test/mock.data/Blank List/view.json,a\3\a35afd60f64e2ff447edc352dbfe7e3ca1c77880
+s
+Csrc/main/java/model/microsoft/list/serializer/ColumnSerializer.java,5\6\56d4c7f9df5633f2a95e50faaaf60976a5d10cd3
+r
+Bsrc/main/java/model/microsoft/list/serializer/ValueSerializer.java,8\5\853f78addd31be10351ad685a5d40219d294bd9e
+[
++src/main/java/service/file/JsonService.java,e\f\ef509a31fcb1c34c2510fe90751ee9227eeee87c
+_
+/src/main/java/service/MicrosoftListService.java,b\9\b909f823d737525121f089e86bbfc66d87b3a905
+v
+Fsrc/main/java/model/microsoft/list/deserializer/ValueDeserializer.java,9\5\95e412a22395af0b6593618f66ac96e9ed09d831
+u
+Esrc/main/java/model/microsoft/list/deserializer/TypeDeserializer.java,1\d\1d756a4b4b3a5a1623bc13ed0f02d410e63c88f3
+Z
+*src/test/mock.data/Blank List/columns.json,0\a\0a608b1b3508368cb51f4d5cb8341f1e185cd5e2
+V
+&src/test/mock.data/Blank List/row.json,4\0\40e36d45d5d8a5ca1469b049e6f7083c83c87b7b
+q
+Asrc/main/java/model/microsoft/list/serializer/TypeSerializer.java,b\3\b3bc4f6d76ff969c99d761967b15d26ecf3a792b

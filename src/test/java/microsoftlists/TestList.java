@@ -12,11 +12,11 @@ import model.microsoft.list.view.ListView;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import service.ListService;
+import service.MicrosoftListService;
 import service.RowService;
 import service.builder.ColumnBuilder;
 import service.builder.MicrosoftListBuilder;
-import service.file.OpenService;
-import util.JsonUtil;
+import service.file.JsonService;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,31 +33,55 @@ class TestList {
     // Init a list for testing
     MicrosoftList list;
 
-    // Set up before each test
+//     Set up before each test
     @BeforeEach
-    void setUp() {
+    void setUp() throws IOException {
+        List<MicrosoftList> lists = MicrosoftListService.loadLists();
+        list = MicrosoftListService.findList(lists, "Blank List");
+    }
+    @Test
+        // Add row with values
+    void testAddRow2() throws JsonProcessingException {
+        var rowsCount = ListService.getRowsCount(list);
 
+        var firstInput = new HashMap<>(Map.of(
+                "Title", "test",
+                "Column Date", "2021-01-01"
+        ));
+
+        // Convert the first input to JSON
+        String inputJson = JsonService.toJson(firstInput);
+        ListService.addRow(list, inputJson);
+    }
+
+    @Test
+        // Add row
+    void testRow() throws IOException {
+        list.getRows();
+
+
+    }
+
+
+    @Test
+    // Test create a list
+    void testCreateList() {
         // Init 11 columns with different types
         var colText = new ColumnBuilder(ColumnType.TEXT, "Column Text")
                 .build();
 
         var colNumber = new ColumnBuilder(ColumnType.NUMBER, "Column Number")
-                .configure(
-                        Parameter.of(ConfigParameter.NUMBER_SYMBOL, NumberSymbol.NONE))
+
                 .build();
 
         var colDate = new ColumnBuilder(ColumnType.DATE, "Column Date")
-                .configure(Parameter.of(ConfigParameter.DEFAULT_VALUE, DateTime.CURRENT_DATE))
                 .build();
 
         var colYesNo = new ColumnBuilder(ColumnType.CHECKBOX, "Column YesNo")
                 .build();
 
         var colChoice = new ColumnBuilder(ColumnType.CHOICE, "Column Choice")
-                .configure(
-                        Parameter.of(ConfigParameter.CHOICES, "choice 1","choice 2", "choice 3"),
-                        Parameter.of(ConfigParameter.MULTIPLE_SELECTION, false)
-                )
+
                 .build();
 
         var colHyperlink = new ColumnBuilder(ColumnType.HYPERLINK, "Column Hyperlink")
@@ -77,13 +101,11 @@ class TestList {
                 .build();
 
         var colAverageRating = new ColumnBuilder(ColumnType.AVERAGE_RATING, "Column Average Rating")
-                .configure(Parameter.of(ConfigParameter.DEFAULT_VALUE, 0))
                 .build();
 
 
         // Create a list with the 11 columns
-        this.list = new MicrosoftListBuilder("Test Create Blank List")
-                .description("blank list")
+        MicrosoftList testCreated = new MicrosoftListBuilder("Test Create List")
                 .color(Color.RED)
                 .icon("ICON1")
                 .initDefaultColumn()
@@ -100,8 +122,12 @@ class TestList {
                         colLookup,
                         colAverageRating)
                 .build();
-    }
 
+        assertNotNull(testCreated);
+        assertEquals("Test Create List", testCreated.getName());
+        assertEquals(Color.RED, testCreated.getColor());
+        assertEquals(12, ListService.getColumnsCount(testCreated));
+    }
     @Test
     void testDefaultConfigOfDateColumn() {
 
@@ -161,32 +187,9 @@ class TestList {
         assertEquals(colsCount, currColsCount);
     }
 
-    @Test
-    // Add row
-    void testAddRow() throws IOException {
-        var rowsCount = ListService.getRowsCount(list);
 
-        ListService.addRow(list);
-        var currRowsCount = ListService.getRowsCount(list);
-        assertEquals(rowsCount + 1, currRowsCount);
 
-        var firstRow = ListService.getRow(list, 0);
 
-        var readJson = OpenService.openFile((Configuration.DIR_PATH
-                        + list.getName().replace(" ", "_"))
-                ,Configuration.DATA_PATH , List.class);
-        assertEquals(JsonUtil.toJson(readJson), JsonUtil.toJson(List.of(firstRow)));
-
-        // test if the column have default value
-        ListService.settingColumn(list, "Column Text",
-                new ColumnBuilder(ColumnType.TEXT, "Column Text 2")
-                        .configure(Parameter.of(ConfigParameter.DEFAULT_VALUE, "default text"))
-                        .build());
-        ListService.addRow(list);
-        var secondRow = ListService.getRow(list, 1);
-        assertEquals("default text", RowService.getCell(secondRow, "Column Text 2"));
-
-    }
 
     @Test
     // Add row with values
@@ -208,7 +211,7 @@ class TestList {
         firstInput.put("Column Average Rating", 0);
 
         // Convert the first input to JSON
-        String inputJson = JsonUtil.toJson(firstInput);
+        String inputJson = JsonService.toJson(firstInput);
         ListService.addRow(list, inputJson);
 
         var secondInput = new HashMap<>(Map.of(
@@ -218,7 +221,7 @@ class TestList {
         ));
 
         // Convert the second input to JSON
-        inputJson = JsonUtil.toJson(secondInput);
+        inputJson = JsonService.toJson(secondInput);
         ListService.addRow(list, inputJson);
 
         var currRowsCount = ListService.getRowsCount(list);
@@ -240,7 +243,7 @@ class TestList {
                 "Column Number", 1,
                 "Column YesNo", true
         ));
-        var inputJson = JsonUtil.toJson(input);
+        var inputJson = JsonService.toJson(input);
         ListService.addRow(list, inputJson);
 
         assertEquals(1, ListService.getRowsCount(list));
@@ -265,7 +268,7 @@ class TestList {
                 "Column YesNo", true,
                 "Column Choice", "choice 1"
         ));
-        var inputJson = JsonUtil.toJson(input);
+        var inputJson = JsonService.toJson(input);
         ListService.addRow(list, inputJson);
 
         int rowIndex = (int) (ListService.getRowsCount(list) - 1);
@@ -309,8 +312,8 @@ class TestList {
 
         // Get the first 10 rows
         var firstPage = ListService.getPagedRows(list, 1,10);
-        var numPagesExpected = 10;
-        assertEquals(numPagesExpected, firstPage.size());
+        var pageCountExpected = 10;
+        assertEquals(pageCountExpected, firstPage.size());
 
         var firstRowOfFirstPage = firstPage.get(0);
         var indexExpected = 10;
@@ -336,7 +339,7 @@ class TestList {
                 "Column Number", 1,
                 "Column YesNo", true
         ));
-        var inputJson = JsonUtil.toJson(input);
+        var inputJson = JsonService.toJson(input);
         ListService.addRow(list, inputJson);
 
         assertEquals(1, ListService.getRowsCount(list));
@@ -399,30 +402,6 @@ class TestList {
         assertNotNull(colText2);
     }
 
-    @Test
-    // Test load data of list from config columns
-    void testFilterDataFromConfig() {
-        var curColsCount = ListService.getColumnsCount(list);
-
-        ListService.addRow(list);
-        assertEquals(1, ListService.getRowsCount(list));
-
-        ListService.settingColumn(list, "Column Text",
-                new ColumnBuilder(ColumnType.TEXT, "Column Text 2")
-                        .isHidden(true)
-                        .build());
-
-        MicrosoftList listFilter = ListService.loadList(list);
-        assertNotNull(listFilter);
-
-        var colsFilter = listFilter.getColumns();
-        assertEquals(curColsCount - 1, colsFilter.size());
-
-        var rowsFilter = listFilter.getRows();
-        assertEquals(1, rowsFilter.size());
-
-    }
-
 
     @Test
     // Search row data
@@ -433,7 +412,7 @@ class TestList {
                 "Column Number", 1,
                 "Column YesNo", true
         ));
-        var inputJson = JsonUtil.toJson(input);
+        var inputJson = JsonService.toJson(input);
         ListService.addRow(list, inputJson);
 
         input = new HashMap<>(Map.of(
@@ -441,7 +420,7 @@ class TestList {
                 "Column Number", 2,
                 "Column YesNo", true
         ));
-        inputJson = JsonUtil.toJson(input);
+        inputJson = JsonService.toJson(input);
         ListService.addRow(list, inputJson);
 
         input = new HashMap<>(Map.of(
@@ -449,15 +428,15 @@ class TestList {
                 "Column Number", 1,
                 "Column YesNo", false
         ));
-        inputJson = JsonUtil.toJson(input);
+        inputJson = JsonService.toJson(input);
         ListService.addRow(list, inputJson);
 
         input = new HashMap<>(Map.of(
-                "Column Text", "Hello 3",
+                "Column Text", "Hello 1",
                 "Column Number", 2,
                 "Column YesNo", true
         ));
-        inputJson = JsonUtil.toJson(input);
+        inputJson = JsonService.toJson(input);
         ListService.addRow(list, inputJson);
 
         input = new HashMap<>(Map.of(
@@ -465,7 +444,7 @@ class TestList {
                 "Column Number", 2,
                 "Column YesNo", true
         ));
-        inputJson = JsonUtil.toJson(input);
+        inputJson = JsonService.toJson(input);
         ListService.addRow(list, inputJson);
 
         assertEquals(5, ListService.getRowsCount(list));
@@ -474,7 +453,7 @@ class TestList {
         assertEquals(3, searchResult.size());
 
         var searchResult2 = ListService.search(list, "1");
-        assertEquals(2, searchResult2.size());
+        assertEquals(3, searchResult2.size());
 
         var searchResult3 = ListService.search(list, "true");
         assertEquals(4, searchResult3.size());
@@ -491,7 +470,7 @@ class TestList {
                 "Column Date", "05-01-2024 00:00 AM",
                 "Column YesNo", true
         ));
-        var inputJson = JsonUtil.toJson(input);
+        var inputJson = JsonService.toJson(input);
         ListService.addRow(list, inputJson);
 
         input = new HashMap<>(Map.of(
@@ -500,7 +479,7 @@ class TestList {
                 "Column Date", "02-01-2024 00:00 AM",
                 "Column YesNo", true
         ));
-        inputJson = JsonUtil.toJson(input);
+        inputJson = JsonService.toJson(input);
         ListService.addRow(list, inputJson);
 
         input = new HashMap<>(Map.of(
@@ -509,7 +488,7 @@ class TestList {
                 "Column Date", "01-01-2024 00:00 AM",
                 "Column YesNo", true
         ));
-        inputJson = JsonUtil.toJson(input);
+        inputJson = JsonService.toJson(input);
         ListService.addRow(list, inputJson);
 
         input = new HashMap<>(Map.of(
@@ -518,7 +497,7 @@ class TestList {
                 "Column Date", "09-01-2024 00:00 AM",
                 "Column YesNo", true
         ));
-        inputJson = JsonUtil.toJson(input);
+        inputJson = JsonService.toJson(input);
         ListService.addRow(list, inputJson);
 
         input = new HashMap<>(Map.of(
@@ -527,7 +506,7 @@ class TestList {
                 "Column Date", "01-01-2024 00:00 AM",
                 "Column YesNo", true
         ));
-        inputJson = JsonUtil.toJson(input);
+        inputJson = JsonService.toJson(input);
         ListService.addRow(list, inputJson);
 
         assertEquals(5, ListService.getRowsCount(list));

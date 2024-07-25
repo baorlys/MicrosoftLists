@@ -5,7 +5,7 @@ import model.constants.ConfigParameter;
 import model.constants.DateTime;
 import model.constants.NumberSymbol;
 import model.microsoft.list.Parameter;
-import model.microsoft.list.value.IValueFactory;
+import model.microsoft.list.value.ValueFactory;
 import org.junit.jupiter.api.Test;
 import service.builder.ColumnBuilder;
 
@@ -24,19 +24,19 @@ class TestColumn {
                 .configure(
                         Parameter.of(ConfigParameter.NUMBER_SYMBOL, NumberSymbol.NONE))
                 .build();
-        assertTrue(colNumber.isValidValue(IValueFactory.create(BigDecimal.valueOf(3.42113))));
-        assertTrue(colNumber.isValidValue(IValueFactory.create(3)));
-        assertFalse(colNumber.isValidValue(IValueFactory.create("text")));
+        assertTrue(colNumber.isValidValue(ValueFactory.create(BigDecimal.valueOf(3.42113))));
+        assertTrue(colNumber.isValidValue(ValueFactory.create(3)));
+        assertFalse(colNumber.isValidValue(ValueFactory.create("text")));
 
         // test valid value for date column
         var colDate = new ColumnBuilder(ColumnType.DATE, "Column Date")
                 .configure(Parameter.of(ConfigParameter.DEFAULT_VALUE, DateTime.CURRENT_DATE))
                 .build();
-        assertTrue(colDate.isValidValue(IValueFactory.create("01-01-2024")));
-        assertTrue(colDate.isValidValue(IValueFactory.create("01-01-2024 02:40 PM")));
+        assertTrue(colDate.isValidValue(ValueFactory.create("01-01-2024")));
+        assertTrue(colDate.isValidValue(ValueFactory.create("01-01-2024 02:40 PM")));
 
-        assertFalse(colDate.isValidValue(IValueFactory.create("text")));
-        assertFalse(colDate.isValidValue(IValueFactory.create(3)));
+        assertFalse(colDate.isValidValue(ValueFactory.create("text")));
+        assertFalse(colDate.isValidValue(ValueFactory.create(3)));
 //
 //        var colYesNo = new ColumnBuilder(ColumnType.CHECKBOX, "Column YesNo")
 //                .build();

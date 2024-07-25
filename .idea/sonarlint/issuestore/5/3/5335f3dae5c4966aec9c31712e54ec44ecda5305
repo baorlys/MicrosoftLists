@@ -1,0 +1,14 @@
+
+x
+java:S1128"VRemove this unused import 'com.fasterxml.jackson.databind.annotation.JsonDeserialize'.(Úˆ×øÿÿÿÿ8Ò‹†‚2
+v
+java:S1128"TRemove this unused import 'com.fasterxml.jackson.databind.annotation.JsonSerialize'.(ÖÎèöúÿÿÿÿ8Ò‹†‚2
+r
+java:S1128	"PRemove this unused import 'model.microsoft.list.deserializer.ValueDeserializer'.(Ëšï´úÿÿÿÿ8Ó‹†‚2
+j
+java:S1128
+"MRemove this unused import 'model.microsoft.list.serializer.ColumnSerializer'.(¾í¼È8ğ˜Öû2
+i
+java:S1128"LRemove this unused import 'model.microsoft.list.serializer.ValueSerializer'.(ùâîÀ8Ó‹†‚2
+f
+java:S1128"DRemove this unused import 'model.microsoft.list.value.ValueFactory'.(òê´ûÿÿÿÿ8äÔÉû2

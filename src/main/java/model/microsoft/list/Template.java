@@ -3,6 +3,7 @@ package model.microsoft.list;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -14,5 +15,11 @@ public class Template {
     public Template(List<Column> columns, String displayName) {
         this.columns = columns;
         this.displayName = displayName;
+    }
+
+
+    public Template(String displayName) {
+        this.displayName = displayName;
+        this.columns = new ArrayList<>();
     }
 }

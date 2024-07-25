@@ -7,15 +7,13 @@ import model.microsoft.list.*;
 import model.microsoft.list.view.AbstractView;
 import model.responses.MessageFactory;
 import model.responses.ResultMessage;
-import service.file.SaveService;
 import model.microsoft.list.value.IValue;
-import util.JsonUtil;
-import model.microsoft.list.value.IValueFactory;
+import service.file.JsonService;
+import model.microsoft.list.value.ValueFactory;
 import model.microsoft.list.value.SingleObject;
 
 import javax.swing.*;
 import java.util.*;
-import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 
@@ -51,7 +49,7 @@ public class ListService {
 
     public static void addRow(MicrosoftList list, String data) throws JsonProcessingException {
         Row row = new Row(list);
-        var cells = JsonUtil.fromJson(data, HashMap.class);
+        var cells = JsonService.fromJson(data, HashMap.class);
 
         list.getColumns().forEach(column -> {
             Optional<Object> value = Optional.ofNullable(cells.get(column.getName()));
@@ -85,7 +83,7 @@ public class ListService {
         return list.getColumns().stream()
                 .filter(col -> col.getName().equals(colName))
                 .findFirst()
-                .map(col -> col.getType().handle(col.getConfig()))
+                .map(col -> col.getType().handleConfig(col.getConfig()))
                 .orElse(null);
     }
 
@@ -117,11 +115,7 @@ public class ListService {
         Column column = getColumn(list, name);
         List<Column> cols = list.getColumns();
         cols.remove(column);
-        List<Row> rows = list.getRows().stream().filter(row -> row.getCells().containsKey(name))
-                .map(row -> {
-                    row.getCells().remove(name);
-                    return row;
-                })
+        List<Row> rows = list.getRows().stream().filter(row -> row.getCells().stream().noneMatch(cell -> cell.getColumn().getName().equals(name)))
                 .collect(Collectors.toList());
         list.setColumns(cols);
         list.setRows(rows);
@@ -139,39 +133,6 @@ public class ListService {
         list.setRows(rows);
     }
 
-    public static MicrosoftList loadList(MicrosoftList list) {
-        // Filter out hidden columns
-        List<Column> visibleColumns = list.getColumns().stream()
-                .filter(column -> !column.isHidden())
-                .collect(Collectors.toList());
-
-        // Filter rows to include only cells corresponding to visible columns
-        List<Row> filteredRows = list.getRows().stream()
-                .map(row -> {
-                    Map<String, IValue> filteredCells = row.getCells().entrySet().stream()
-                            .filter(entry -> visibleColumns.stream()
-                                    .anyMatch(column -> column.getName().equals(entry.getKey())))
-                            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-
-                    Row newRow = new Row(list);
-                    newRow.setCells(filteredCells);
-                    return newRow;
-                })
-                .collect(Collectors.toList());
-
-        // Create a new MicrosoftList with the filtered columns and rows
-        MicrosoftList filteredList = new MicrosoftList(visibleColumns, filteredRows);
-        filteredList.setName(list.getName());
-
-        try {
-            SaveService.saveFilterList(filteredList);
-            return filteredList;
-        } catch (Exception e) {
-            Logger.getAnonymousLogger().warning("Failed to save list: " + e.getMessage());
-        }
-
-        return null;
-    }
 
     public static void settingColumn(MicrosoftList list, String colName, Column setting) {
         Column column = getColumn(list, colName);
@@ -183,16 +144,14 @@ public class ListService {
 
     public static Object getValue(MicrosoftList list, int rowIndex, String colName) {
         Row row = getRow(list, rowIndex);
-        return Optional.ofNullable(row.getCells().get(colName))
-                .map(IValue::get)
+        return Optional.of(row.getCells().stream().filter(cell -> cell.getColumn().getName().equals(colName)).findFirst())
+                .map(cell -> cell.get().getValue())
                 .orElse(null);
     }
 
     public static List<Row> search(MicrosoftList list, String query) {
         return list.getRows().stream()
-                .filter(row -> row.getCells().values().stream()
-                        .anyMatch(cell -> cell.get().toString().toLowerCase()
-                                .contains(query.toLowerCase())))
+                .filter(row -> row.getCells().stream().anyMatch(cell -> cell.getValue().toString().contains(query)))
                 .collect(Collectors.toList());
     }
 
@@ -202,8 +161,8 @@ public class ListService {
         List<Row> rows = list.getRows();
 
         list.getRows().sort((row1, row2) -> {
-            Object cell1 = row1.getCells().get(colName).get();
-            Object cell2 = row2.getCells().get(colName).get();
+            Object cell1 = row1.getCells().stream().filter(cell -> cell.getColumn().getName().equals(colName)).findFirst().get().getValue().get();
+            Object cell2 = row2.getCells().stream().filter(cell -> cell.getColumn().getName().equals(colName)).findFirst().get().getValue().get();
             return Optional.of(order).filter(o -> o == SortOrder.ASCENDING)
                     .map(o -> column.compare(cell1, cell2))
                     .orElseGet(() -> column.compare(cell2, cell1));
@@ -214,7 +173,7 @@ public class ListService {
 
     public static ResultMessage updateCellAtRow(MicrosoftList list, int rowIndex, String colName, Object... value) {
         List<Row> rows = list.getRows();
-        IValue typeVal = IValueFactory.create(value);
+        IValue typeVal = ValueFactory.create(value);
         Column column = getColumn(list, colName);
         return Optional.ofNullable(column)
                 .filter(col -> !col.isValidValue(typeVal))

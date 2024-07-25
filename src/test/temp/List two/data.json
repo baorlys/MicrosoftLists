@@ -1,0 +1,105 @@
+[ {
+  "cells" : {
+    "Column Choice" : {
+      "object" : "choice 1",
+      "multiple" : false
+    },
+    "Column Date" : {
+      "object" : "2021-01-01",
+      "multiple" : false
+    },
+    "Column Average Rating" : {
+      "object" : 0,
+      "multiple" : false
+    },
+    "Column Number" : {
+      "object" : 1,
+      "multiple" : false
+    },
+    "Column Text" : {
+      "object" : "text",
+      "multiple" : false
+    },
+    "Column YesNo" : {
+      "object" : true,
+      "multiple" : false
+    },
+    "Column Multiple Lines of Text" : {
+      "object" : "default text",
+      "multiple" : false
+    },
+    "Title" : {
+      "object" : "",
+      "multiple" : false
+    },
+    "Column Image" : {
+      "object" : "https://www.google.com/image.jpg",
+      "multiple" : false
+    },
+    "Column Person" : {
+      "object" : "person 1",
+      "multiple" : false
+    },
+    "Column Lookup" : {
+      "object" : "lookup 1",
+      "multiple" : false
+    },
+    "Column Hyperlink" : {
+      "object" : "https://www.google.com",
+      "multiple" : false
+    }
+  },
+  "createdAt" : 1721714938034
+}, {
+  "cells" : {
+    "Column Choice" : {
+      "object" : "",
+      "multiple" : false
+    },
+    "Column Date" : {
+      "object" : "CURRENT_DATE",
+      "multiple" : false
+    },
+    "Column Average Rating" : {
+      "object" : 0,
+      "multiple" : false
+    },
+    "Column Number" : {
+      "object" : 1,
+      "multiple" : false
+    },
+    "Column Text" : {
+      "object" : "text 2",
+      "multiple" : false
+    },
+    "Column YesNo" : {
+      "object" : true,
+      "multiple" : false
+    },
+    "Column Multiple Lines of Text" : {
+      "object" : "",
+      "multiple" : false
+    },
+    "Title" : {
+      "object" : "",
+      "multiple" : false
+    },
+    "Column Image" : {
+      "object" : "",
+      "multiple" : false
+    },
+    "Column Person" : {
+      "object" : "",
+      "multiple" : false
+    },
+    "Column Lookup" : {
+      "object" : "",
+      "multiple" : false
+    },
+    "Column Hyperlink" : {
+      "object" : "",
+      "multiple" : false
+    }
+  },
+  "createdAt" : 1721714938035
+} ]

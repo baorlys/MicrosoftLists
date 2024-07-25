@@ -6,24 +6,26 @@ import model.microsoft.list.value.IValue;
 
 import java.util.List;
 
-public class PersonType extends AbstractType {
-    public PersonType() {
-        super(ColumnType.PERSON);
+public class PersonType implements IType {
+
+
+    @Override
+    public ColumnType getType() {
+        return ColumnType.PERSON;
     }
 
     @Override
-    protected int handleCompare(Object o1, Object o2) {
-        return 0;
-    }
-
-    @Override
-    protected List<Parameter> handleConfig(List<Parameter> config) {
+    public List<Parameter> handleConfig(List<Parameter> config) {
         return config;
     }
 
     @Override
-    protected boolean handleIsValueValid(List<Parameter> config, IValue value) {
-        return false;
+    public boolean isValueValid(List<Parameter> config, IValue value) {
+        return true;
     }
 
+    @Override
+    public int compare(Object o1, Object o2) {
+        return 0;
+    }
 }

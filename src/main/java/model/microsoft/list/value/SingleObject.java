@@ -7,11 +7,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class SingleObject implements IValue{
+public class SingleObject implements IValue {
     private Object object;
 
-    @JsonIgnore
-    private static final boolean IS_MULTIPLE = false;
 
     public SingleObject(Object object) {
         this.object = object;
@@ -30,8 +28,5 @@ public class SingleObject implements IValue{
         this.object = object[0];
     }
 
-    @Override
-    public boolean isMultiple() {
-        return IS_MULTIPLE;
-    }
+
 }

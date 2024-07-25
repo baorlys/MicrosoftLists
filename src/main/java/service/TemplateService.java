@@ -1,6 +1,7 @@
 package service;
 
 import config.Configuration;
+import model.microsoft.list.Column;
 import model.microsoft.list.Template;
 import service.file.OpenService;
 
@@ -21,7 +22,8 @@ public class TemplateService {
             for (Path entry : stream) {
                 if (Files.isRegularFile(entry)) {
                     String fileName = entry.getFileName().toString();
-                    Template template = OpenService.openFile(DIR_TEMPLATE_PATH, fileName, Template.class);
+                    List<Column> columns = OpenService.openFile(DIR_TEMPLATE_PATH, fileName, List.class);
+                    Template template = new Template(columns, fileName);
                     templates.add(template);
                 }
             }

@@ -1,13 +1,15 @@
 package model.microsoft.list;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import model.constants.ConfigParameter;
 import model.microsoft.list.value.IValue;
-import model.microsoft.list.value.IValueFactory;
+import model.microsoft.list.value.ValueFactory;
 
 @Setter
 @Getter
+@NoArgsConstructor
 public class Parameter {
     private ConfigParameter name;
     private IValue value;
@@ -19,7 +21,7 @@ public class Parameter {
 
 
     public static Parameter of(ConfigParameter defaultValue, Object... value) {
-        IValue iValue = IValueFactory.create(value);
+        IValue iValue = ValueFactory.create(value);
         return new Parameter(defaultValue, iValue);
     }
 
@@ -28,7 +30,7 @@ public class Parameter {
     }
 
     public void setValue(Object... value) {
-        this.value = IValueFactory.create(value);
+        this.value = ValueFactory.create(value);
     }
 
     @Override

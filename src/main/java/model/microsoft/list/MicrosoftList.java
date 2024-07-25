@@ -35,9 +35,9 @@ public class MicrosoftList {
         this.views = new ArrayList<>();
     }
 
-    public MicrosoftList(List<Column> columnsFilter, List<Row> rowsFilter) {
-        this.columns = columnsFilter;
-        this.rows = rowsFilter;
+    public MicrosoftList(String name) {
+        this();
+        this.name = name;
     }
 
 

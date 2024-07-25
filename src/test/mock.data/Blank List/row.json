@@ -1,0 +1,1810 @@
+[ {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "05-01-2024 00:00 AM"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:19"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "01-01-2024 00:00 AM"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:19"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "09-01-2024 00:00 AM"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:19"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "01-01-2024 00:00 AM"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:19"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "test"
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "2021-01-01"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:19"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "2021-01-01"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : ""
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "CURRENT_DATE"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:10:20"
+}, {
+  "cells" : [ {
+    "column" : {
+      "name" : "Title",
+      "type" : "TEXT",
+      "config" : [ ],
+      "defaultValue" : null,
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "test"
+    }
+  }, {
+    "column" : {
+      "name" : "Column Date",
+      "type" : "DATE",
+      "config" : [ ],
+      "defaultValue" : "CURRENT_DATE",
+      "hidden" : false
+    },
+    "value" : {
+      "type" : "SingleObject",
+      "object" : "2021-01-01"
+    }
+  } ],
+  "createdAt" : "2024-07-23 23:12:18"
+} ]

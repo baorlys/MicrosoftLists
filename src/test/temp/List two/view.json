@@ -1,0 +1,53 @@
+[ {
+  "name" : "View 1",
+  "type" : "LIST"
+}, {
+  "name" : "Calendar View",
+  "type" : "CALENDAR",
+  "layout" : "MONTH",
+  "startDate" : {
+    "name" : "Column Date",
+    "type" : {
+      "type" : "DATE"
+    },
+    "config" : [ {
+      "name" : "DEFAULT_VALUE",
+      "value" : "CURRENT_DATE"
+    } ],
+    "hidden" : false,
+    "defaultValue" : "CURRENT_DATE"
+  },
+  "endDate" : {
+    "name" : "Column Date",
+    "type" : {
+      "type" : "DATE"
+    },
+    "config" : [ {
+      "name" : "DEFAULT_VALUE",
+      "value" : "CURRENT_DATE"
+    } ],
+    "hidden" : false,
+    "defaultValue" : "CURRENT_DATE"
+  }
+}, {
+  "name" : "Gallery View",
+  "type" : "GALLERY"
+}, {
+  "name" : "Board View",
+  "type" : "BOARD",
+  "organize" : {
+    "name" : "Column Choice",
+    "type" : {
+      "type" : "CHOICE"
+    },
+    "config" : [ {
+      "name" : "CHOICES",
+      "value" : [ "choice 1", "choice 2", "choice 3" ]
+    }, {
+      "name" : "MULTIPLE_SELECTION",
+      "value" : false
+    } ],
+    "hidden" : false,
+    "defaultValue" : null
+  }
+} ]
