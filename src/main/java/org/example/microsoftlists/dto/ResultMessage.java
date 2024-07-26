@@ -1,4 +1,4 @@
-package org.example.microsoftlists.dto.response;
+package org.example.microsoftlists.dto;
 
 import org.example.microsoftlists.model.constants.MessageType;
 import lombok.Getter;

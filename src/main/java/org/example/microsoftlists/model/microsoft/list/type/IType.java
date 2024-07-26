@@ -7,7 +7,7 @@ import org.example.microsoftlists.model.microsoft.list.value.IValue;
 import java.util.List;
 
 public interface IType {
-    ColumnType getType();
+    ColumnType getColumnType();
 
     List<Parameter> handleConfig(List<Parameter> config);
     boolean isValueValid(List<Parameter> config, IValue value);

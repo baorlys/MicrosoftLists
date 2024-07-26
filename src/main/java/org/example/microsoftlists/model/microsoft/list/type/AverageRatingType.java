@@ -11,7 +11,7 @@ public class AverageRatingType implements IType {
 
 
     @Override
-    public ColumnType getType() {
+    public ColumnType getColumnType() {
         return ColumnType.AVERAGE_RATING;
     }
 

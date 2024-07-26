@@ -1,1 +1,12 @@
-[ ]
+[ {
+  "typeIdentify" : "COLUMN",
+  "id" : "e53f6c9e-0c32-41bd-b24f-e02b287c65a3",
+  "list" : {
+    "id" : "3a85f87f-9fb3-4c34-a55c-bdb289ef1c71",
+    "name" : "list 3"
+  },
+  "name" : "Column Test API",
+  "type" : "NUMBER",
+  "defaultValue" : null,
+  "hidden" : false
+} ]

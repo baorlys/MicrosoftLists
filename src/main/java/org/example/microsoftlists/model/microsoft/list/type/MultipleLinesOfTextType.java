@@ -8,7 +8,7 @@ import java.util.List;
 
 public class MultipleLinesOfTextType implements IType {
     @Override
-    public ColumnType getType() {
+    public ColumnType getColumnType() {
         return ColumnType.MULTIPLE_LINES_OF_TEXT;
     }
 

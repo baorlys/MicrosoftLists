@@ -32,12 +32,12 @@ public class ColumnService {
     public void deleteAllOfList(String listId) throws IOException {
         List<Column> columns = colRepository.findAllByListId(listId);
         for (Column column : columns) {
-            colRepository.delete(column);
+            colRepository.delete(column.getId().toString());
         }
     }
 
-    public void deleteColumn(Column column) throws IOException {
-        colRepository.delete(column);
+    public void deleteColumn(String id) throws IOException {
+        colRepository.delete(id);
     }
 
     public void updateColumn(String id, Column column) throws IOException {

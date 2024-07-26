@@ -1,6 +1,7 @@
 package org.example.microsoftlists.service;
 
 import org.example.microsoftlists.dto.request.ListDTO;
+import org.example.microsoftlists.dto.response.ListResponse;
 import org.example.microsoftlists.model.microsoft.list.Column;
 import org.example.microsoftlists.model.microsoft.list.MicrosoftList;
 import org.example.microsoftlists.repository.MicrosoftListRepository;
@@ -47,9 +48,10 @@ public class MicrosoftListService {
         return list;
     }
 
-    public boolean delete(MicrosoftList list) throws IOException {
-        colService.deleteAllOfList(list.getId().toString());
-        listRepository.delete(list);
+    public boolean delete(String id) throws IOException {
+        colService.deleteAllOfList(id);
+
+        listRepository.delete(id);
         return true;
     }
 
@@ -58,8 +60,16 @@ public class MicrosoftListService {
         // maybe update columns
     }
 
-    public MicrosoftList findById(String id) throws IOException {
-        return listRepository.findById(id);
+    public ListResponse findById(String id) throws IOException {
+        MicrosoftList list = listRepository.findById(id);
+        ListResponse listResponse = new ListResponse(list);
+
+        List<Column> columns = colService.findAllOfList(id);
+        listResponse.setColumns(columns);
+
+        return listResponse;
+
+
     }
 
     public MicrosoftList findByName(String listName) throws IOException {

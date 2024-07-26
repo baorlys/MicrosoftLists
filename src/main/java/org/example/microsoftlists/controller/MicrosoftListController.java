@@ -1,6 +1,7 @@
 package org.example.microsoftlists.controller;
 
 import org.example.microsoftlists.dto.request.ListDTO;
+import org.example.microsoftlists.dto.response.ListResponse;
 import org.example.microsoftlists.model.microsoft.list.MicrosoftList;
 import org.example.microsoftlists.service.MicrosoftListService;
 import lombok.extern.slf4j.Slf4j;
@@ -13,8 +14,8 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/list-management")
-public class ListController {
+@RequestMapping("/api/lists-management")
+public class MicrosoftListController {
     MicrosoftListService microsoftListService = new MicrosoftListService();
 
     @GetMapping("/lists")
@@ -28,16 +29,7 @@ public class ListController {
         }
     }
 
-    @GetMapping("/lists/{id}")
-    public ResponseEntity<MicrosoftList> getListById(@PathVariable String id) {
-        try {
-            MicrosoftList list = microsoftListService.findById(id);
-            return ResponseEntity.ok(list);
-        } catch (IOException e) {
-            log.error("Error loading list", e);
-            return ResponseEntity.badRequest().build();
-        }
-    }
+
 
     @PostMapping("/lists")
     public ResponseEntity<MicrosoftList> createList(ListDTO request) {
@@ -46,6 +38,17 @@ public class ListController {
             return ResponseEntity.ok(list);
         } catch (IOException e) {
             log.error("Error creating list", e);
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @GetMapping("/lists/{id}")
+    public ResponseEntity<ListResponse> getListById(@PathVariable String id) {
+        try {
+            ListResponse list = microsoftListService.findById(id);
+            return ResponseEntity.ok(list);
+        } catch (IOException e) {
+            log.error("Error loading list", e);
             return ResponseEntity.badRequest().build();
         }
     }
@@ -61,14 +64,19 @@ public class ListController {
         }
     }
 
+
+
+
     @DeleteMapping("/lists/{id}")
     public ResponseEntity<Boolean> deleteList(@PathVariable String id) {
         try {
-            MicrosoftList list = microsoftListService.findById(id);
-            return ResponseEntity.ok(microsoftListService.delete(list));
+            return ResponseEntity.ok(microsoftListService.delete(id));
         } catch (IOException e) {
             log.error("Error deleting list", e);
             return ResponseEntity.badRequest().build();
         }
     }
+
+
+
 }

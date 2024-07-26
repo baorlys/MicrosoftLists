@@ -36,10 +36,10 @@ public abstract class Repository<T extends Identifiable> {
         JsonService.toJsonFile(data, dirPath, filePath);
     }
 
-    public void delete(T column) throws IOException {
+    public void delete(String id) throws IOException {
         List<T> data = findAll();
         data = data.stream()
-                .filter(c -> !c.getId().equals(column.getId()))
+                .filter(c -> !c.getId().toString().equals(id))
                 .collect(Collectors.toList());
         JsonService.toJsonFile(data, dirPath, filePath);
     }

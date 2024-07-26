@@ -9,7 +9,7 @@ import java.util.List;
 public class HyperlinkType implements IType {
 
     @Override
-    public ColumnType getType() {
+    public ColumnType getColumnType() {
         return ColumnType.HYPERLINK;
     }
 

@@ -30,28 +30,6 @@ public class DateType implements IType {
         this.dateFormat = new SimpleDateFormat(Configuration.DATETIME_FORMAT);
     }
 
-//    @Override
-//    protected int handleCompare(Object o1, Object o2) {
-//
-//    }
-
-//    @Override
-//    protected List<Parameter> handleConfig(List<Parameter> config) {
-//        List<Parameter> configList = config.stream()
-//                .filter(para -> !para.getName().equals(ConfigParameter.DEFAULT_VALUE))
-//                .collect(Collectors.toList());
-//        Parameter defaultValue = handleDefault(config);
-//        Optional.ofNullable(defaultValue)
-//                .ifPresent(configList::add);
-//        return configList;
-//    }
-
-//    @Override
-//    protected boolean handleIsValueValid(List<Parameter> config, IValue value) {
-//        Predicate<Object> isDate = obj -> obj instanceof String && isDateValid((String) obj);
-//        return isDate.test(value.get());
-//    }
-
     private Parameter handleDefault(List<Parameter> config) {
         Parameter defaultValue = config.stream()
                 .filter(para -> para.getName().equals(ConfigParameter.DEFAULT_VALUE))
@@ -90,7 +68,7 @@ public class DateType implements IType {
 
 
     @Override
-    public ColumnType getType() {
+    public ColumnType getColumnType() {
         return ColumnType.DATE;
     }
 

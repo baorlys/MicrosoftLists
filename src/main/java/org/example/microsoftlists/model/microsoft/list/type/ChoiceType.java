@@ -15,7 +15,7 @@ public class ChoiceType implements IType {
 
 
     @Override
-    public ColumnType getType() {
+    public ColumnType getColumnType() {
         return ColumnType.CHOICE;
     }
 

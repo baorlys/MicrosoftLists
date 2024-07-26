@@ -10,6 +10,6 @@ import java.io.IOException;
 public class TypeSerializer extends JsonSerializer<IType> {
     @Override
     public void serialize(IType iType, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
-        jsonGenerator.writeString(iType.getType().name());
+        jsonGenerator.writeString(iType.getColumnType().name());
     }
 }

@@ -10,7 +10,7 @@ public class CheckBoxType implements IType {
 
 
     @Override
-    public ColumnType getType() {
+    public ColumnType getColumnType() {
         return ColumnType.CHECKBOX;
     }
 

@@ -23,15 +23,15 @@ class ColumnRepositoryTest {
 
     @BeforeEach
     void setUp() throws IOException {
-        microsoftList = new MicrosoftListRepository(DIR_PATH, Configuration.LISTS_PATH).findById("ebe4375d-0a57-43a3-aa8f-50def3b823a9");
+        microsoftList = new MicrosoftListRepository(DIR_PATH, Configuration.LISTS_PATH).findById("3a85f87f-9fb3-4c34-a55c-bdb289ef1c71");
 
     }
 
-//
+
 //    @Test
 //    void testSave() throws IOException {
 //        ColumnRepository columnRepository = new ColumnRepository(DIR_PATH, FILE_PATH);
-//        Column column = new ColumnBuilder(ColumnType.NUMBER, "Column Number")
+//        Column column = new ColumnBuilder(ColumnType.NUMBER, "Column Test API")
 //                .configure(new Parameter(ConfigParameter.NUMBER_SYMBOL, ValueFactory.create(NumberSymbol.DOLLAR)))
 //                .build();
 //        column.setList(microsoftList);

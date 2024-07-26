@@ -40,8 +40,6 @@ class TestList {
     void setUp() throws IOException {
         // Create a list
         list = new MicrosoftListBuilder("Test List")
-                .color(Color.BLUE)
-                .icon("ICON")
                 .initDefaultColumn()
                 .build();
 
@@ -113,8 +111,6 @@ class TestList {
 
         // Create a list with the 11 columns
         MicrosoftList testCreated = new MicrosoftListBuilder("Test Create List")
-                .color(Color.RED)
-                .icon("ICON1")
                 .initDefaultColumn()
                 .addColumns(
                         colDate,
@@ -132,7 +128,6 @@ class TestList {
 
         assertNotNull(testCreated);
         assertEquals("Test Create List", testCreated.getName());
-        assertEquals(Color.RED, testCreated.getColor());
         assertEquals(12, ListService.getColumnsCount(testCreated));
     }
     @Test

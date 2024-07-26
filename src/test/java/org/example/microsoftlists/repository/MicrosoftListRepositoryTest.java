@@ -17,14 +17,7 @@ class MicrosoftListRepositoryTest {
 //         microsoftListRepository.save(microsoftList);
 //    }
 
-    @Test
-    void testDelete() throws IOException {
-         MicrosoftListRepository microsoftListRepository = new MicrosoftListRepository(DIR_PATH, FILE_PATH);
-//         id : aea1f2a5-4f64-499d-9b27-752c80394032
-         String id = "";
-         MicrosoftList microsoftList = microsoftListRepository.findById(id);
-         microsoftListRepository.delete(microsoftList);
-    }
+
 
     @Test
     void testUpdate() throws IOException {
