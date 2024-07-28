@@ -1,36 +1,6 @@
 [ {
   "typeIdentify" : "LIST",
-  "id" : "3a85f87f-9fb3-4c34-a55c-bdb289ef1c71",
-  "name" : "list 3",
-  "description" : null
-}, {
-  "typeIdentify" : "LIST",
-  "id" : "1af9e352-c0aa-482d-aa08-c9e82a13b46f",
-  "name" : "List updated 4",
-  "description" : null
-}, {
-  "typeIdentify" : "LIST",
-  "id" : "9ecd4e31-2920-4557-9592-dedf25cdf532",
-  "name" : "list 3",
-  "description" : null
-}, {
-  "typeIdentify" : "LIST",
-  "id" : "70705b77-8625-4f95-a907-4cc904a08e57",
-  "name" : "list 3",
-  "description" : null
-}, {
-  "typeIdentify" : "LIST",
-  "id" : "2085f7cc-4fb3-4ddd-a3a4-8490760e6495",
-  "name" : "list 3",
-  "description" : null
-}, {
-  "typeIdentify" : "LIST",
-  "id" : "cadffb12-1c7a-4688-9edf-7af218bc71d8",
-  "name" : "Test API",
-  "description" : "api work"
-}, {
-  "typeIdentify" : "LIST",
-  "id" : "66ca313f-90bd-4f44-aebf-0c79675a6939",
-  "name" : "Test API 2",
-  "description" : "api work"
+  "id" : "e278ad52-45e8-4c68-9f72-1965c8528086",
+  "name" : "List API",
+  "description" : "working"
 } ]

@@ -4,8 +4,8 @@ import org.example.microsoftlists.model.constants.ColumnType;
 import org.example.microsoftlists.model.constants.ConfigParameter;
 import org.example.microsoftlists.model.constants.DateTime;
 import org.example.microsoftlists.model.constants.NumberSymbol;
-import org.example.microsoftlists.model.microsoft.list.Parameter;
-import org.example.microsoftlists.model.microsoft.list.value.ValueFactory;
+import org.example.microsoftlists.model.Parameter;
+import org.example.microsoftlists.model.value.ValueFactory;
 import org.junit.jupiter.api.Test;
 import org.example.microsoftlists.service.builder.ColumnBuilder;
 

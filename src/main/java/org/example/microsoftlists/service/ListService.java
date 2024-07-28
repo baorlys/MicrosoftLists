@@ -1,27 +1,94 @@
 package org.example.microsoftlists.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import org.example.microsoftlists.dto.request.ColumnRequest;
+import org.example.microsoftlists.dto.response.ListResponse;
+import org.example.microsoftlists.dto.response.RowResponse;
+import org.example.microsoftlists.model.*;
 import org.example.microsoftlists.model.constants.ConfigParameter;
 import org.example.microsoftlists.model.constants.MessageType;
-import org.example.microsoftlists.model.microsoft.list.*;
-import org.example.microsoftlists.model.microsoft.list.view.AbstractView;
+import org.example.microsoftlists.model.view.AbstractView;
 import org.example.microsoftlists.dto.MessageFactory;
 import org.example.microsoftlists.dto.ResultMessage;
-import org.example.microsoftlists.model.microsoft.list.value.IValue;
 import org.example.microsoftlists.service.file.JsonService;
-import org.example.microsoftlists.model.microsoft.list.value.ValueFactory;
-import org.example.microsoftlists.model.microsoft.list.value.SingleObject;
+import org.example.microsoftlists.model.value.SingleObject;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.util.*;
 import java.util.stream.Collectors;
 
 
 public class ListService {
 
-    private ListService() {
-        throw new IllegalStateException("Utility class");
+
+    private final MicrosoftListService listsService;
+    private final ColumnService colService;
+
+    private final RowService rowService;
+
+    public ListService() {
+        this.listsService = new MicrosoftListService();
+        this.colService = new ColumnService();
+        this.rowService = new RowService();
     }
+
+
+    public ListResponse createColumn(String id, ColumnRequest column) throws IOException {
+        ListResponse list = listsService.findById(id);
+
+        Column col = colService.generateColumn(column);
+
+        MicrosoftList listObj = new MicrosoftList();
+        listObj.setId(UUID.fromString(list.getId()));
+        listObj.setName(list.getName());
+        col.setList(listObj);
+
+        colService.save(col);
+
+        return list;
+    }
+
+    public ListResponse updateColumn(String id, String columnId, ColumnRequest column) throws IOException {
+        Column col = colService.findColumnById(columnId);
+        ListResponse list = listsService.findById(id);
+
+        Column updatedCol = colService.generateColumn(column);
+
+        updatedCol.setId(UUID.fromString(columnId));
+        updatedCol.setList(col.getList());
+
+        colService.updateColumn(columnId, updatedCol);
+
+        return list;
+
+    }
+
+    public ListResponse deleteColumn(String id, String columnId) throws IOException {
+        colService.deleteColumn(columnId);
+
+        return listsService.findById(id);
+    }
+
+
+    public ListResponse createRow(String id) throws IOException {
+        ListResponse list = listsService.findById(id);
+        List<RowResponse> rows = list.getRows();
+
+        Row row = rowService.generateRow(list);
+        rowService.save(row);
+
+        rows.add(new RowResponse(row));
+
+        return list;
+    }
+
+    public ListResponse updateRow(String id, String rowId, String columnId, Object value) throws IOException {
+        rowService.updateCell(rowId, columnId, value);
+        return listsService.findById(id);
+    }
+
+
 
     public static long getColumnsCount(MicrosoftList list) {
         return list.getColumns().stream().filter(column -> !column.isHidden()).count();
@@ -36,6 +103,8 @@ public class ListService {
                 });
 
     }
+
+
 
     public static Column getColumn(MicrosoftList list, String name) {
         return list.getColumns().stream()
@@ -111,15 +180,7 @@ public class ListService {
         list.setRows(rows);
     }
 
-    public static void deleteColumn(MicrosoftList list, String name) {
-        Column column = getColumn(list, name);
-        List<Column> cols = list.getColumns();
-        cols.remove(column);
-        List<Row> rows = list.getRows().stream().filter(row -> row.getCells().stream().noneMatch(cell -> cell.getColumn().getName().equals(name)))
-                .collect(Collectors.toList());
-        list.setColumns(cols);
-        list.setRows(rows);
-    }
+
 
     public static int getRowIndex(MicrosoftList list, Row row) {
         return list.getRows().indexOf(row);
@@ -171,20 +232,7 @@ public class ListService {
         return rows;
     }
 
-    public static ResultMessage updateCellAtRow(MicrosoftList list, int rowIndex, String colName, Object... value) {
-        List<Row> rows = list.getRows();
-        IValue typeVal = ValueFactory.create(value);
-        Column column = getColumn(list, colName);
-        return Optional.ofNullable(column)
-                .filter(col -> !col.isValidValue(typeVal))
-                .map(col -> MessageFactory.getMessage(MessageType.ERROR,"Invalid value"))
-                .orElseGet(() -> {
-                    Row row = RowService.updateCell(rows.get(rowIndex), colName, typeVal);
-                    rows.set(rowIndex, row);
-                    list.setRows(rows);
-                    return MessageFactory.getMessage(MessageType.SUCCESS,"Cell updated successfully");
-                });
-    }
+
 
 
     public static void addColumns(MicrosoftList list, List<Column> cols) {
@@ -203,4 +251,7 @@ public class ListService {
                 .findFirst()
                 .orElse(null);
     }
+
+
+
 }

@@ -1,6 +1,6 @@
 package org.example.microsoftlists.repository;
 
-import org.example.microsoftlists.model.microsoft.list.Identifiable;
+import org.example.microsoftlists.model.Identifiable;
 import org.example.microsoftlists.service.file.JsonService;
 import com.fasterxml.jackson.core.type.TypeReference;
 
@@ -36,6 +36,17 @@ public abstract class Repository<T extends Identifiable> {
         JsonService.toJsonFile(data, dirPath, filePath);
     }
 
+    public void saveAll(List<T> objects) throws IOException {
+        List<T> data = findAll();
+        data.addAll(objects);
+
+        for (T object : objects) {
+            save(object);
+        }
+
+    }
+
+
     public void delete(String id) throws IOException {
         List<T> data = findAll();
         data = data.stream()
@@ -47,8 +58,15 @@ public abstract class Repository<T extends Identifiable> {
     public void update(String id, T object) throws IOException {
         List<T> data = findAll();
         data = data.stream()
-                .map(c -> c.getId().toString().equals(id) ? object : c)
+                        .map(c -> {
+                            if (c.getId().toString().equals(id)) {
+                                object.setId(c.getId());
+                                return object;
+                            }
+                            return c;
+                        })
                 .collect(Collectors.toList());
+
         JsonService.toJsonFile(data, dirPath, filePath);
 
     }

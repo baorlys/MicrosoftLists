@@ -1,6 +1,6 @@
 package org.example.microsoftlists.repository;
 
-import org.example.microsoftlists.model.microsoft.list.MicrosoftList;
+import org.example.microsoftlists.model.MicrosoftList;
 
 
 public class MicrosoftListRepository extends Repository<MicrosoftList> {

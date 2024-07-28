@@ -1,15 +1,17 @@
 package org.example.microsoftlists.controller;
-
-import org.example.microsoftlists.dto.request.ColumnDTO;
-import org.springframework.web.bind.annotation.PostMapping;
+import io.swagger.v3.oas.annotations.Hidden;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+
 @RestController
+@Hidden
 public class HomeController {
     @RequestMapping("/")
-    public String home() {
-        return "Api is working!";
+    public void home(HttpServletResponse response) throws IOException {
+        response.sendRedirect("/swagger-ui/index.html");
     }
 
 

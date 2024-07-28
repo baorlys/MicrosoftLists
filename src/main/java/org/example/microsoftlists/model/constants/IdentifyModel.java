@@ -4,5 +4,5 @@ public enum IdentifyModel {
     LIST,
     COLUMN,
     ROW,
-    CELL
+    COLUMN_CONFIG, CELL
 }

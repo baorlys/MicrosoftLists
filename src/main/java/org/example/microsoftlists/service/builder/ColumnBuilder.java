@@ -1,9 +1,9 @@
 package org.example.microsoftlists.service.builder;
 
 import org.example.microsoftlists.model.constants.ColumnType;
-import org.example.microsoftlists.model.microsoft.list.Column;
-import org.example.microsoftlists.model.microsoft.list.Parameter;
-import org.example.microsoftlists.model.microsoft.list.type.TypeFactory;
+import org.example.microsoftlists.model.Column;
+import org.example.microsoftlists.model.Parameter;
+import org.example.microsoftlists.model.type.TypeFactory;
 
 import java.util.List;
 
@@ -22,9 +22,17 @@ public class ColumnBuilder {
 
 
     public ColumnBuilder configure(Parameter... configs) {
-        column.setConfig(List.of(configs));
+        column.setConfig(configs);
         return this;
     }
+
+    public ColumnBuilder configure(List<Parameter> configs) {
+        column.setConfig(configs);
+        return this;
+    }
+
+
+
 
     public ColumnBuilder isHidden(boolean isHide) {
         column.setHidden(isHide);
@@ -32,4 +40,8 @@ public class ColumnBuilder {
     }
 
 
+    public ColumnBuilder setDefaultValue(Object defaultValue) {
+        column.setDefaultValue(defaultValue);
+        return this;
+    }
 }

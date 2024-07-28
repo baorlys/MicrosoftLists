@@ -1,8 +1,8 @@
 package org.example.microsoftlists.service.file;
 
 import org.example.microsoftlists.config.Configuration;
-import org.example.microsoftlists.model.microsoft.list.MicrosoftList;
-import org.example.microsoftlists.model.microsoft.list.Template;
+import org.example.microsoftlists.model.MicrosoftList;
+import org.example.microsoftlists.model.Template;
 
 import java.io.File;
 import java.io.IOException;

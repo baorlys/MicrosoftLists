@@ -1,14 +1,16 @@
 package org.example.microsoftlists.service;
 
-import org.example.microsoftlists.dto.request.ListDTO;
+import org.example.microsoftlists.dto.request.ListRequest;
+import org.example.microsoftlists.dto.response.ColumnResponse;
 import org.example.microsoftlists.dto.response.ListResponse;
-import org.example.microsoftlists.model.microsoft.list.Column;
-import org.example.microsoftlists.model.microsoft.list.MicrosoftList;
+import org.example.microsoftlists.model.Column;
+import org.example.microsoftlists.model.MicrosoftList;
 import org.example.microsoftlists.repository.MicrosoftListRepository;
 import org.example.microsoftlists.config.Configuration;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -38,7 +40,7 @@ public class MicrosoftListService {
         return lists;
     }
 
-    public MicrosoftList create(ListDTO request) throws IOException {
+    public MicrosoftList create(ListRequest request) throws IOException {
         MicrosoftList list = new MicrosoftList();
         list.setName(request.getName());
         list.setDescription(request.getDescription());
@@ -65,7 +67,15 @@ public class MicrosoftListService {
         ListResponse listResponse = new ListResponse(list);
 
         List<Column> columns = colService.findAllOfList(id);
-        listResponse.setColumns(columns);
+        List<ColumnResponse> colRes = new ArrayList<>();
+
+
+        for (Column column : columns) {
+            ColumnResponse columnResponse = new ColumnResponse(column);
+            colRes.add(columnResponse);
+        }
+
+        listResponse.setColumns(colRes);
 
         return listResponse;
 

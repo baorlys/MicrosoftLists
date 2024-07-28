@@ -3,8 +3,8 @@ package org.example.microsoftlists.service.builder;
 import org.example.microsoftlists.service.ListService;
 import org.example.microsoftlists.config.Configuration;
 import org.example.microsoftlists.model.constants.ColumnType;
-import org.example.microsoftlists.model.microsoft.list.Column;
-import org.example.microsoftlists.model.microsoft.list.MicrosoftList;
+import org.example.microsoftlists.model.Column;
+import org.example.microsoftlists.model.MicrosoftList;
 import org.example.microsoftlists.service.file.SaveService;
 
 import java.io.IOException;

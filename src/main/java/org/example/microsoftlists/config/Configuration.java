@@ -6,8 +6,10 @@ import java.util.Optional;
 public class Configuration {
 
 
-
     private static final PropertiesLoader propertyLoader = PropertiesLoader.load();
+    public static final String COL_CONFIG_PATH =
+            Optional.ofNullable(getProperty(ConfigValue.COL_CONFIG_PATH.getVariableName()))
+                    .orElse("src/main/resources/columns.json");
 
     public static final String DATETIME_FORMAT =
             Optional.ofNullable(getProperty(ConfigValue.DATETIME_FORMAT.getVariableName()))
@@ -24,7 +26,7 @@ public class Configuration {
                     .orElse("src/main/resources/columns.json");
 
     public static final String DIR_TEMPLATE_PATH =
-            Optional.ofNullable(getProperty(ConfigValue.DIR_TEMPLATE_PATH.getVariableName()))
+            Optional.ofNullable(getProperty(ConfigValue.TEMPLATE_PATH.getVariableName()))
                     .orElse("src/main/resources/templates/");
     public static final String DATA_PATH =
             Optional.ofNullable(getProperty(ConfigValue.DATA_PATH.getVariableName()))
@@ -35,7 +37,7 @@ public class Configuration {
                     .orElse("src/main/resources/rows.json");
 
     public static final String VIEW_PATH =
-            Optional.ofNullable(getProperty(ConfigValue.VIEW_PATH.getVariableName()))
+            Optional.ofNullable(getProperty(ConfigValue.VIEWS_PATH.getVariableName()))
                     .orElse("src/main/resources/view.json");
 
     public static final int PAGE_SIZE =

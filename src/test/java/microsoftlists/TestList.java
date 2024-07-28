@@ -6,12 +6,12 @@ import org.example.microsoftlists.model.constants.ConfigParameter;
 import org.example.microsoftlists.model.constants.MessageType;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.example.microsoftlists.config.Configuration;
-import org.example.microsoftlists.model.microsoft.list.MicrosoftList;
-import org.example.microsoftlists.model.microsoft.list.Parameter;
-import org.example.microsoftlists.model.microsoft.list.view.BoardView;
-import org.example.microsoftlists.model.microsoft.list.view.CalendarView;
-import org.example.microsoftlists.model.microsoft.list.view.GalleryView;
-import org.example.microsoftlists.model.microsoft.list.view.ListView;
+import org.example.microsoftlists.model.MicrosoftList;
+import org.example.microsoftlists.model.Parameter;
+import org.example.microsoftlists.model.view.BoardView;
+import org.example.microsoftlists.model.view.CalendarView;
+import org.example.microsoftlists.model.view.GalleryView;
+import org.example.microsoftlists.model.view.ListView;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.example.microsoftlists.service.ListService;
@@ -21,7 +21,6 @@ import org.example.microsoftlists.service.builder.MicrosoftListBuilder;
 import org.example.microsoftlists.service.file.JsonService;
 
 import javax.swing.*;
-import java.awt.*;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -44,28 +43,9 @@ class TestList {
                 .build();
 
     }
-    @Test
-        // Add row with values
-    void testAddRow2() throws JsonProcessingException {
-        var rowsCount = ListService.getRowsCount(list);
-
-        var firstInput = new HashMap<>(Map.of(
-                "Title", "test",
-                "Column Date", "2021-01-01"
-        ));
-
-        // Convert the first input to JSON
-        String inputJson = JsonService.toJson(firstInput);
-        ListService.addRow(list, inputJson);
-    }
-
-    @Test
-        // Add row
-    void testRow() throws IOException {
-        list.getRows();
 
 
-    }
+
 
 
     @Test
@@ -347,7 +327,7 @@ class TestList {
         assertEquals(1, ListService.getRowsCount(list));
         assertEquals("text 2", ListService.getValue(list, 0, "Column Text"));
 
-        ListService.deleteColumn(list, "Column Text");
+//        ListService.deleteColumn(list, "Column Text");
         var currColsCount = ListService.getColumnsCount(list);
         assertEquals(colsCount - 1, currColsCount);
 
