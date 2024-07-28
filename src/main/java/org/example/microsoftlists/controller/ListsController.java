@@ -19,62 +19,38 @@ public class ListsController {
     MicrosoftListService listsService = new MicrosoftListService();
 
     @GetMapping("/lists")
-    public ResponseEntity<List<MicrosoftList>> getLists() {
-        try {
-            List<MicrosoftList> lists = listsService.loadLists();
-            return ResponseEntity.ok(lists);
-        } catch (IOException e) {
-            log.error("Error loading lists", e);
-            return ResponseEntity.badRequest().build();
-        }
+    public ResponseEntity<List<MicrosoftList>> getLists() throws IOException {
+        List<MicrosoftList> lists = listsService.loadLists();
+        return ResponseEntity.ok(lists);
     }
 
 
 
     @PostMapping("/lists")
-    public ResponseEntity<MicrosoftList> createList(ListRequest request) {
-        try {
-            MicrosoftList list = listsService.create(request);
-            return ResponseEntity.ok(list);
-        } catch (IOException e) {
-            log.error("Error creating list", e);
-            return ResponseEntity.badRequest().build();
-        }
+    public ResponseEntity<MicrosoftList> createList(@RequestBody ListRequest request) throws IOException {
+        MicrosoftList list = listsService.create(request);
+        return ResponseEntity.ok(list);
     }
 
     @GetMapping("/lists/{id}")
-    public ResponseEntity<ListResponse> getListById(@PathVariable String id) {
-        try {
-            ListResponse list = listsService.findById(id);
-            return ResponseEntity.ok(list);
-        } catch (IOException e) {
-            log.error("Error loading list", e);
-            return ResponseEntity.badRequest().build();
-        }
+    public ResponseEntity<ListResponse> getListById(@PathVariable String id) throws IOException {
+        ListResponse list = listsService.findById(id);
+        return ResponseEntity.ok(list);
     }
 
     @PutMapping("/lists/{id}")
-    public ResponseEntity<MicrosoftList> updateList(@PathVariable String id, MicrosoftList list) {
-        try {
-            listsService.update(id, list);
-            return ResponseEntity.ok(list);
-        } catch (IOException e) {
-            log.error("Error updating list", e);
-            return ResponseEntity.badRequest().build();
-        }
+    public ResponseEntity<MicrosoftList> updateList(@PathVariable String id,
+                                                    @RequestBody MicrosoftList list) throws IOException {
+        listsService.update(id, list);
+        return ResponseEntity.ok(list);
     }
 
 
 
 
     @DeleteMapping("/lists/{id}")
-    public ResponseEntity<Boolean> deleteList(@PathVariable String id) {
-        try {
-            return ResponseEntity.ok(listsService.delete(id));
-        } catch (IOException e) {
-            log.error("Error deleting list", e);
-            return ResponseEntity.badRequest().build();
-        }
+    public ResponseEntity<Boolean> deleteList(@PathVariable String id) throws IOException {
+        return ResponseEntity.ok(listsService.delete(id));
     }
 
 

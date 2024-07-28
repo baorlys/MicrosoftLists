@@ -1,6 +1,7 @@
 package org.example.microsoftlists.service;
 
 import org.example.microsoftlists.config.Configuration;
+import org.example.microsoftlists.dto.request.RowRequest;
 import org.example.microsoftlists.dto.response.ColumnResponse;
 import org.example.microsoftlists.dto.response.ListResponse;
 import org.example.microsoftlists.model.Cell;
@@ -42,6 +43,23 @@ public class RowService {
         return row;
     }
 
+    public Row generateRow(ListResponse list, RowRequest rowRequest) {
+        List<ColumnResponse> columns = list.getColumns();
+
+        Row row = new Row();
+
+        row.setList(MicrosoftList.of(list));
+
+        for (ColumnResponse column : columns) {
+            Optional<Object> value = Optional.ofNullable(rowRequest.getValues().get(column.getId()));
+            Optional<Object> defaultVal = Optional.ofNullable(column.getDefaultValue());
+
+            row.addCell(Cell.of(row, Column.of(column) , new SingleObject(value.orElse(defaultVal.orElse("")))));
+        }
+
+        return row;
+    }
+
     public void save(Row row) throws IOException {
         rowRepository.save(row);
     }
@@ -69,4 +87,10 @@ public class RowService {
         rowRepository.update(rowId, row);
 
     }
+
+    public void deleteRow(String rowId) throws IOException {
+        rowRepository.delete(rowId);
+    }
+
+
 }
