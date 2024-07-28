@@ -1,14 +1,11 @@
 package org.example.microsoftlists.service.builder;
 
-import org.example.microsoftlists.service.ListService;
 import org.example.microsoftlists.config.Configuration;
 import org.example.microsoftlists.model.constants.ColumnType;
-import org.example.microsoftlists.model.Column;
 import org.example.microsoftlists.model.MicrosoftList;
 import org.example.microsoftlists.service.file.SaveService;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.logging.Logger;
 
 public class MicrosoftListBuilder {
@@ -42,8 +39,4 @@ public class MicrosoftListBuilder {
         return this;
     }
 
-    public MicrosoftListBuilder addColumns(Column... columns) {
-        ListService.addColumns(list, Arrays.asList(columns));
-        return this;
-    }
 }
