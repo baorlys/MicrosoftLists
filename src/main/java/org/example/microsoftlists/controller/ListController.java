@@ -48,7 +48,7 @@ public class ListController {
         return ResponseEntity.ok(list);
     }
 
-    @PostMapping("/{id}/row")
+    @PostMapping("/{id}/row/values")
     public ResponseEntity<ListResponse> createRow(@PathVariable String id,
                                                   @RequestBody RowRequest rowRequest) throws IOException {
         ListResponse list = listService.createRow(id, rowRequest);
