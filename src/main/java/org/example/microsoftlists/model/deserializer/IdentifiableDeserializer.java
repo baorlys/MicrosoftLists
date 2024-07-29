@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.util.EnumMap;
+import java.util.Objects;
 
 public class IdentifiableDeserializer extends JsonDeserializer<Identifiable> {
     private static final EnumMap<IdentifyModel, Class<? extends Identifiable>> typeMap = new EnumMap<>(IdentifyModel.class);
@@ -19,6 +20,7 @@ public class IdentifiableDeserializer extends JsonDeserializer<Identifiable> {
         typeMap.put(IdentifyModel.COLUMN, Column.class);
         typeMap.put(IdentifyModel.COLUMN_CONFIG, ColumnConfig.class);
         typeMap.put(IdentifyModel.ROW, Row.class);
+        typeMap.put(IdentifyModel.TEMPLATE, Template.class);
     }
     @Override
     public Identifiable deserialize(JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
@@ -29,11 +31,7 @@ public class IdentifiableDeserializer extends JsonDeserializer<Identifiable> {
         IdentifyModel type = IdentifyModel.valueOf(node.get("typeIdentify").asText());
         Class<? extends Identifiable> clazz = typeMap.get(type);
 
-        if (clazz == null) {
-            throw new IllegalArgumentException("Unknown type: " + type);
-        }
-
-        // Deserialize into the specific class
+        Objects.requireNonNull(clazz, "Unknown type: " + type);
         return mapper.treeToValue(node, clazz);
     }
 }

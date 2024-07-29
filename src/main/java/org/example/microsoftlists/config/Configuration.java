@@ -20,14 +20,16 @@ public class Configuration {
     public static final String COLUMN_NAME =
             Optional.ofNullable(getProperty(ConfigValue.COLUMN_NAME.getVariableName()))
                     .orElse("Temp column name");
+    public static final String TEMPLATES_PATH =
+            Optional.ofNullable(getProperty(ConfigValue.TEMPLATES_PATH.getVariableName()))
+                    .orElse("src/main/resources/templates.json");
+
 
     public static final String COLS_PATH =
             Optional.ofNullable(getProperty(ConfigValue.COLUMNS_PATH.getVariableName()))
                     .orElse("src/main/resources/columns.json");
 
-    public static final String DIR_TEMPLATE_PATH =
-            Optional.ofNullable(getProperty(ConfigValue.TEMPLATE_PATH.getVariableName()))
-                    .orElse("src/main/resources/templates/");
+
     public static final String DATA_PATH =
             Optional.ofNullable(getProperty(ConfigValue.DATA_PATH.getVariableName()))
                     .orElse("data");

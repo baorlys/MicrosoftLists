@@ -55,46 +55,4 @@ public class MicrosoftList implements Identifiable {
     }
 
 
-    public void addColumn(Column column) {
-        this.columns.add(column);
-
-    }
-
-    public void addRow() {
-        Row row = new Row(this);
-
-        for (Column column : this.columns) {
-            Optional<Object> defaultVal = Optional.ofNullable(column.getDefaultValue());
-            row.addCell(Cell.of(row, column, new SingleObject(defaultVal.orElse(""))));
-        }
-
-        this.rows.add(row);
-
-    }
-
-    public void addRow(Row row) {
-        this.rows.add(row);
-
-    }
-
-    public void setColumns(List<Column> columns) {
-        this.columns = columns;
-
-
-    }
-
-    public void setRows(List<Row> rows) {
-        this.rows = rows;
-
-    }
-
-
-
-
-    public void createView(AbstractView view) {
-        this.views.add(view);
-
-    }
-
-
 }

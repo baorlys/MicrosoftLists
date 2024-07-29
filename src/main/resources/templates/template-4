@@ -1,9 +1,0 @@
-[ {
-  "typeIdentify" : "COLUMN",
-  "id" : "37c0916a-8601-4a3c-908f-84ef5e7639b6",
-  "list" : null,
-  "name" : "name",
-  "type" : "TEXT",
-  "defaultValue" : null,
-  "hidden" : false
-} ]

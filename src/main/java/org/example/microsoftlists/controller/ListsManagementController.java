@@ -15,7 +15,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequestMapping("/api/lists-management")
-public class ListsController {
+public class ListsManagementController {
     MicrosoftListService listsService = new MicrosoftListService();
 
     @GetMapping("/lists")
@@ -44,8 +44,6 @@ public class ListsController {
         listsService.update(id, list);
         return ResponseEntity.ok(list);
     }
-
-
 
 
     @DeleteMapping("/lists/{id}")

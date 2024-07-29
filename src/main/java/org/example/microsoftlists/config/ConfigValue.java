@@ -16,7 +16,7 @@ public enum ConfigValue {
     COLUMNS_PATH("columns.path"),
     ROWS_PATH("rows.path"),
     VIEWS_PATH("views.path"),
-    TEMPLATE_PATH("dir.template.path");
+    TEMPLATES_PATH("templates.path");
     //endregion
 
 
