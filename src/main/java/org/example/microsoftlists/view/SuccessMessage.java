@@ -1,4 +1,4 @@
-package org.example.microsoftlists.dto;
+package org.example.microsoftlists.view;
 
 import org.example.microsoftlists.model.constants.MessageType;
 import lombok.Getter;
@@ -8,7 +8,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public class SuccessMessage extends ResultMessage {
+public class SuccessMessage extends Response {
 
     private List<Object> data;
 

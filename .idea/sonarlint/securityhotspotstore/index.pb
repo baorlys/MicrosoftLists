@@ -12,22 +12,6 @@ S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 ]
 -.idea/sonarlint/securityhotspotstore/index.pb,8\8\88a9255124c95bdc913197c120a8d560edc59c8e
-U
-%src/test/temp/List three/columns.json,7\7\77ea64180d86c0c630eaf0ba8ad1c76b12bedd46
-R
-"src/test/temp/List three/data.json,1\5\1579e672343d80b25e886e842cf8b0df61e57ab4
-S
-#src/test/temp/List one/columns.json,a\d\adc696631d572c286c673cf0c2f34550eb5d8eed
-\
-,src/test/mock.data/Test Create List/row.json,d\1\d1c5f44f0883a6c6fa2f56d795881c5728e171ae
-`
-0src/test/mock.data/Test Create List/columns.json,0\4\04115822ea5f4bb2d6146ff6a681c0cee550641b
-W
-'src/test/mock.data/Blank List/view.json,a\3\a35afd60f64e2ff447edc352dbfe7e3ca1c77880
-Z
-*src/test/mock.data/Blank List/columns.json,0\a\0a608b1b3508368cb51f4d5cb8341f1e185cd5e2
-V
-&src/test/mock.data/Blank List/row.json,4\0\40e36d45d5d8a5ca1469b049e6f7083c83c87b7b
 u
 Esrc/main/java/org/example/microsoftlists/config/PropertiesLoader.java,0\1\0108ed5622164ad4b010eda7e3fa1b2f53c245c4
 v
@@ -52,18 +36,10 @@ y
 Isrc/main/java/org/example/microsoftlists/repository/ColumnRepository.java,2\5\252980294698e2e37586536648a0fd7d7325d624
 z
 Jsrc/main/java/org/example/microsoftlists/service/MicrosoftListService.java,0\3\0383b1c38579b5f22d7a7362d642ffffbeb07cac
-s
-Csrc/main/java/org/example/microsoftlists/service/ColumnService.java,3\0\304c46bf6553b692171a26233160960a144c0f5c
 a
 1src/main/java/org/example/microsoftlists/App.java,d\c\dcf822af053f9841eb4af40400a1815ecd5566f7
 w
 Gsrc/main/java/org/example/microsoftlists/controller/HomeController.java,1\d\1d92fbbc1717b449e2647f940e80a1f8958d4081
-Ç
-Rsrc/main/java/org/example/microsoftlists/service/builder/MicrosoftListBuilder.java,8\6\86d3ffc9574190a0a44bb51847ea2596893877ee
-w
-Gsrc/main/java/org/example/microsoftlists/dto/response/ListResponse.java,5\5\551b5853834741110532799645cc8b0f7058a56c
-y
-Isrc/main/java/org/example/microsoftlists/dto/response/ColumnResponse.java,a\7\a71d975023b7e218e2a71eff080c885ae2c7e806
 p
 @src/main/java/org/example/microsoftlists/model/Identifiable.java,f\7\f7cf9832e0bd8063f53c034cac85c40402419e36
 
@@ -100,18 +76,10 @@ Asrc/main/java/org/example/microsoftlists/model/MicrosoftList.java,d\e\defd7ba0
 Ksrc/main/java/org/example/microsoftlists/service/builder/ColumnBuilder.java,5\f\5fef0c9bc088bf45de5b1d62ccf982f98a274735
 m
 =src/main/java/org/example/microsoftlists/model/Parameter.java,a\f\afeedf344eadee323b5d717d60067d95b513b803
-w
-Gsrc/main/java/org/example/microsoftlists/dto/request/ColumnRequest.java,0\f\0f70dd14539ffdad7399f74be216d3ae891d4f41
-u
-Esrc/main/java/org/example/microsoftlists/dto/request/ParaRequest.java,3\8\3809de089c2e71c71cea75db09f39fca6a0f87ed
-u
-Esrc/main/java/org/example/microsoftlists/dto/request/ListRequest.java,4\7\47d768969e78f3e3989a626bff8446e231235c9d
 j
 :src/main/java/org/example/microsoftlists/model/Column.java,e\4\e4ea69da59ce5f7e4f9dc0f733b4646e9d3743af
 w
 Gsrc/main/java/org/example/microsoftlists/controller/ListController.java,3\b\3b2372ea5db10532e987911477aff3cc486d83e1
-x
-Hsrc/main/java/org/example/microsoftlists/controller/ListsController.java,e\f\ef7121c2194abed4aba57d8af186d1c8e0b4c0f3
 |
 Lsrc/main/java/org/example/microsoftlists/model/serializer/RowSerializer.java,5\c\5c802bafe410dee003e36d0bef0d33e3fcb8a51d
 v
@@ -164,15 +132,27 @@ g
 7src/main/java/org/example/microsoftlists/model/Row.java,0\6\06a90e557c23dfbe212356374bf4f0b78f3f171a
 u
 Esrc/main/java/org/example/microsoftlists/service/TemplateService.java,0\3\0323856a2040527bf9634ca013d2f23f033bade1
-w
-Gsrc/main/java/org/example/microsoftlists/dto/response/CellResponse.java,0\f\0f6e256d3f2302b4e7b52a877d3b9c4aaf157e1f
-v
-Fsrc/main/java/org/example/microsoftlists/dto/response/RowResponse.java,e\7\e70f77869e43c9b137d4ceb6a7df45131191ea61
-p
-@src/main/java/org/example/microsoftlists/service/RowService.java,5\3\53739c74343b585f62417d95bc67879dca75dda2
-u
-Esrc/main/java/org/example/microsoftlists/dto/request/SortRequest.java,8\6\863ba5f4d55522e3a8d0ec7c9d861a2a82aaa7cc
-t
-Dsrc/main/java/org/example/microsoftlists/dto/request/RowRequest.java,6\0\602cb30188459526f3871654393079b1b7fa8873
 ~
 Nsrc/main/java/org/example/microsoftlists/exception/GlobalExceptionHandler.java,9\8\98e059ef1220eb7b411c79d271b1d569bd61fbce
+Å
+Qsrc/main/java/org/example/microsoftlists/model/serializer/TemplateSerializer.java,c\d\cd05cf5bf9faa7ed49a4f083b00f871034a13f6a
+{
+Ksrc/main/java/org/example/microsoftlists/repository/TemplateRepository.java,b\c\bcfdbf13ad259c2132821d4ac7e15287b897ec42
+Ç
+Rsrc/main/java/org/example/microsoftlists/controller/ListsManagementController.java,e\b\eb4e0b2c9074b2ff5d13305a8347f209e66aae1f
+y
+Isrc/test/java/org/example/microsoftlists/service/TemplateServiceTest.java,a\1\a1a0ff11fbfd9ac74b536c8890d5f1f1cc3785bd
+o
+?src/main/java/org/example/microsoftlists/view/ErrorMessage.java,e\7\e7170a78f126969d2a654f80d940c9f86fbed01b
+q
+Asrc/main/java/org/example/microsoftlists/view/dto/MapperUtil.java,f\9\f9a3e8b5f3ea10ce8f4c2f0dfa3faf885baf4ba7
+|
+Lsrc/main/java/org/example/microsoftlists/view/dto/response/CellResponse.java,1\3\13357feed516245a4b7a09f8c8252c5f4b2bba95
+|
+Lsrc/main/java/org/example/microsoftlists/view/dto/request/ColumnRequest.java,9\b\9bea48c94aee5a550688e51d623f0b3ce19a0be0
+~
+Nsrc/main/java/org/example/microsoftlists/view/dto/response/ColumnResponse.java,2\4\24de0b5bd1db5d8ba7a8e3d3b31880a04cf4b881
+{
+Ksrc/main/java/org/example/microsoftlists/view/dto/response/RowResponse.java,9\c\9cab36b06b5c9fc6e98c8c7565225a67dcae89bc
+|
+Lsrc/main/java/org/example/microsoftlists/view/dto/response/ListResponse.java,5\b\5b6819cac1ff1582df73d01ac8adee70b02f065e

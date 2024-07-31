@@ -1,8 +1,8 @@
-package org.example.microsoftlists.dto;
+package org.example.microsoftlists.view;
 
 import org.example.microsoftlists.model.constants.MessageType;
 
-public class ErrorMessage extends ResultMessage {
+public class ErrorMessage extends Response {
 
 
     public ErrorMessage() {

@@ -1,10 +1,14 @@
 package org.example.microsoftlists.controller;
 
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
-import org.example.microsoftlists.dto.request.ColumnRequest;
-import org.example.microsoftlists.dto.request.RowRequest;
-import org.example.microsoftlists.dto.request.SortRequest;
-import org.example.microsoftlists.dto.response.ListResponse;
+import org.example.microsoftlists.service.PagingService;
+import org.example.microsoftlists.service.SearchingService;
+import org.example.microsoftlists.service.SortingService;
+import org.example.microsoftlists.view.dto.request.ColumnRequest;
+import org.example.microsoftlists.view.dto.request.RowRequest;
+import org.example.microsoftlists.view.dto.request.SortRequest;
+import org.example.microsoftlists.view.dto.response.ListResponse;
 import org.example.microsoftlists.service.ListService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,10 +21,15 @@ import java.io.IOException;
 public class ListController {
 
     ListService listService = new ListService();
+    SortingService sortingService = new SortingService();
+
+    PagingService pagingService = new PagingService();
+
+    SearchingService searchingService = new SearchingService();
 
     @PostMapping("/{id}")
     public ResponseEntity<ListResponse> createColumn(@PathVariable String id,
-                                                     @RequestBody ColumnRequest column) throws IOException {
+                                                     @Valid @RequestBody ColumnRequest column) throws IOException {
         ListResponse list = listService.createColumn(id, column);
         return ResponseEntity.ok(list);
 
@@ -29,7 +38,7 @@ public class ListController {
     @PutMapping("/{id}/column/{columnId}")
     public ResponseEntity<ListResponse> updateColumn(@PathVariable String id,
                                                      @PathVariable String columnId,
-                                                     @RequestBody ColumnRequest column) throws IOException {
+                                                     @Valid @RequestBody ColumnRequest column) throws IOException {
         ListResponse list = listService.updateColumn(id, columnId, column);
         return ResponseEntity.ok(list);
 
@@ -73,22 +82,22 @@ public class ListController {
 
     @GetMapping("/{id}/sort/{columnId}/{order}")
     public ResponseEntity<ListResponse> sortList(@PathVariable String id,
-                                                 @RequestBody SortRequest sortRequest) throws IOException {
-        ListResponse list = listService.sort(id, sortRequest);
+                                                 @Valid @RequestBody SortRequest sortRequest) throws IOException {
+        ListResponse list = sortingService.sort(id, sortRequest);
         return ResponseEntity.ok(list);
     }
 
     @GetMapping("/{id}/search/{key}")
     public ResponseEntity<ListResponse> searchList(@PathVariable String id,
                                                    @PathVariable String key) throws IOException {
-        ListResponse list = listService.search(id, key);
+        ListResponse list = searchingService.search(id, key);
         return ResponseEntity.ok(list);
     }
 
     @GetMapping("/{id}/{page}")
     public ResponseEntity<ListResponse> getList(@PathVariable String id,
                                                 @PathVariable int page) throws IOException{
-        ListResponse list = listService.getList(id, page);
+        ListResponse list = pagingService.getList(id, page);
         return ResponseEntity.ok(list);
     }
 

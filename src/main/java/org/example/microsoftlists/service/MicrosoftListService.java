@@ -1,16 +1,15 @@
 package org.example.microsoftlists.service;
 
-import org.example.microsoftlists.dto.request.ListRequest;
-import org.example.microsoftlists.dto.response.ColumnResponse;
-import org.example.microsoftlists.dto.response.ListResponse;
-import org.example.microsoftlists.model.Column;
+import org.example.microsoftlists.view.dto.MapperUtil;
+import org.example.microsoftlists.view.dto.request.ListRequest;
+
 import org.example.microsoftlists.model.MicrosoftList;
 import org.example.microsoftlists.repository.MicrosoftListRepository;
 import org.example.microsoftlists.config.Configuration;
+import org.example.microsoftlists.view.dto.response.ListResponse;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -20,30 +19,25 @@ public class MicrosoftListService {
     private static final String LISTS_PATH = Configuration.LISTS_PATH;
 
     private final MicrosoftListRepository listRepository;
-
-    private final ColumnService colService;
+    private final ListService listService;
 
     public MicrosoftListService() {
-        this.colService = new ColumnService();
         this.listRepository = new MicrosoftListRepository(DIR_PATH, LISTS_PATH);
+        this.listService = new ListService();
     }
 
+    public ListResponse findById(String id) throws IOException {
+        MicrosoftList list = listRepository.findById(id);
+        return MapperUtil.mapper.map(list, ListResponse.class);
+    }
 
     public List<MicrosoftList> loadLists() throws IOException {
-        List<MicrosoftList> lists = listRepository.findAll();
-
-        for (MicrosoftList list : lists) {
-            List<Column> columns = colService.findAllOfList(list.getId().toString());
-            list.setColumns(columns);
-        }
-
-        return lists;
+        return listRepository.findAll();
     }
 
     public MicrosoftList create(ListRequest request) throws IOException {
         MicrosoftList list = new MicrosoftList();
-        list.setName(request.getName());
-        list.setDescription(request.getDescription());
+        MapperUtil.mapper.map(request, list);
 
         listRepository.save(list);
 
@@ -51,9 +45,8 @@ public class MicrosoftListService {
     }
 
     public boolean delete(String id) throws IOException {
-        colService.deleteAllOfList(id);
-
         listRepository.delete(id);
+        listService.deleteAllColumns(id);
         return true;
     }
 
@@ -62,25 +55,6 @@ public class MicrosoftListService {
         // maybe update columns
     }
 
-    public ListResponse findById(String id) throws IOException {
-        MicrosoftList list = listRepository.findById(id);
-        ListResponse listResponse = new ListResponse(list);
-
-        List<Column> columns = colService.findAllOfList(id);
-        List<ColumnResponse> colRes = new ArrayList<>();
-
-
-        for (Column column : columns) {
-            ColumnResponse columnResponse = new ColumnResponse(column);
-            colRes.add(columnResponse);
-        }
-
-        listResponse.setColumns(colRes);
-
-        return listResponse;
-
-
-    }
 
     public MicrosoftList findByName(String listName) throws IOException {
         List<MicrosoftList> lists = loadLists();

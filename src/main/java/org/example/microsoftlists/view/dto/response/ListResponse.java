@@ -1,4 +1,4 @@
-package org.example.microsoftlists.dto.response;
+package org.example.microsoftlists.view.dto.response;
 
 import lombok.Getter;
 import lombok.Setter;

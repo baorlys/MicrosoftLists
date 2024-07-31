@@ -1,6 +1,6 @@
 package org.example.microsoftlists.model;
 
-import org.example.microsoftlists.dto.response.ColumnResponse;
+import org.example.microsoftlists.view.dto.response.ColumnResponse;
 import org.example.microsoftlists.model.constants.IdentifyModel;
 import org.example.microsoftlists.model.serializer.MicrosoftListSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;

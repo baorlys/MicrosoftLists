@@ -1,17 +1,15 @@
 package org.example.microsoftlists.model;
 
-import org.example.microsoftlists.dto.response.ListResponse;
+import org.example.microsoftlists.view.dto.response.ListResponse;
 import org.example.microsoftlists.model.constants.IdentifyModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.example.microsoftlists.model.view.AbstractView;
-import org.example.microsoftlists.model.value.SingleObject;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 

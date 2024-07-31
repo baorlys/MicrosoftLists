@@ -1,7 +1,8 @@
 package org.example.microsoftlists.controller;
 
-import org.example.microsoftlists.dto.request.ListRequest;
-import org.example.microsoftlists.dto.response.ListResponse;
+import jakarta.validation.Valid;
+import org.example.microsoftlists.view.dto.request.ListRequest;
+import org.example.microsoftlists.view.dto.response.ListResponse;
 import org.example.microsoftlists.model.MicrosoftList;
 import org.example.microsoftlists.service.MicrosoftListService;
 import lombok.extern.slf4j.Slf4j;
@@ -27,7 +28,7 @@ public class ListsManagementController {
 
 
     @PostMapping("/lists")
-    public ResponseEntity<MicrosoftList> createList(@RequestBody ListRequest request) throws IOException {
+    public ResponseEntity<MicrosoftList> createList(@Valid @RequestBody ListRequest request) throws IOException {
         MicrosoftList list = listsService.create(request);
         return ResponseEntity.ok(list);
     }
