@@ -37,7 +37,7 @@ public class MicrosoftList implements Identifiable {
 
     public static MicrosoftList of(ListResponse list) {
         MicrosoftList microsoftList = new MicrosoftList();
-        microsoftList.setId(UUID.fromString(list.getId()));
+        microsoftList.setId(list.getId());
         microsoftList.setName(list.getName());
         microsoftList.setDescription(list.getDescription());
         return microsoftList;

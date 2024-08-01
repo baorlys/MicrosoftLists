@@ -22,12 +22,12 @@ public class ColumnBuilder {
 
 
     public ColumnBuilder configure(Parameter... configs) {
-        column.setConfig(configs);
+        column.setConfigs(configs);
         return this;
     }
 
     public ColumnBuilder configure(List<Parameter> configs) {
-        column.setConfig(configs);
+        column.setConfigs(configs);
         return this;
     }
 
@@ -36,12 +36,6 @@ public class ColumnBuilder {
 
     public ColumnBuilder isHidden(boolean isHide) {
         column.setHidden(isHide);
-        return this;
-    }
-
-
-    public ColumnBuilder setDefaultValue(Object defaultValue) {
-        column.setDefaultValue(defaultValue);
         return this;
     }
 }

@@ -19,23 +19,15 @@ public class ChoiceType implements IType {
         return ColumnType.CHOICE;
     }
 
-    @Override
-    public List<Parameter> handleConfig(List<Parameter> config) {
-        return config;
-    }
 
 
     @Override
     public boolean isValueValid(List<Parameter> config, IValue value) {
         Predicate<Parameter> isMultiSelect = para -> para.getName().equals(ConfigParameter.MULTIPLE_SELECTION)
-                && para.getValue().equals(true);
+                && para.getValue().get().equals(true);
         return !(config.stream().noneMatch(isMultiSelect) && value.get() instanceof List);
     }
 
-    @Override
-    public int compare(Object o1, Object o2) {
-        return 0;
-    }
 
 
 

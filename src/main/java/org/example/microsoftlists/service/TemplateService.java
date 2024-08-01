@@ -4,6 +4,7 @@ import org.example.microsoftlists.model.Column;
 import org.example.microsoftlists.config.Configuration;
 import org.example.microsoftlists.model.Template;
 import org.example.microsoftlists.repository.TemplateRepository;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,11 +1,25 @@
 [ {
   "typeIdentify" : "COLUMN_CONFIG",
-  "id" : "ff0811d2-e17d-4284-9832-6afdbe5cec8c",
+  "id" : "c39ddaa6-7117-4591-8284-f1db02a67d18",
   "column" : {
-    "id" : "6a48fc68-5e01-46c4-908f-0681ad95fdfc"
+    "id" : "d35e63a9-5c75-4049-bde3-3fb50a980613"
   },
   "parameter" : {
-    "name" : "CHOICES",
-    "value" : [ "choice 1", "choice 2" ]
+    "name" : "DEFAULT_VALUE",
+    "value" : {
+      "object" : "default value for text col"
+    }
+  }
+}, {
+  "typeIdentify" : "COLUMN_CONFIG",
+  "id" : "1f6893c7-512f-49e4-9c00-0ca0cbedf977",
+  "column" : {
+    "id" : "3c355f85-8291-4e55-b949-b608f5dba305"
+  },
+  "parameter" : {
+    "name" : "DEFAULT_VALUE",
+    "value" : {
+      "object" : "CURRENT_DATE"
+    }
   }
 } ]

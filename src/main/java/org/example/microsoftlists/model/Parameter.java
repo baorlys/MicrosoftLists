@@ -32,9 +32,7 @@ public class Parameter {
         return new Parameter(defaultValue, value);
     }
 
-    public Object getValue() {
-        return value.get();
-    }
+
 
     public void setValue(Object... value) {
         this.value = ValueFactory.create(value);

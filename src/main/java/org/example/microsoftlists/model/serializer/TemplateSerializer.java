@@ -25,7 +25,7 @@ public class TemplateSerializer extends JsonSerializer<Template> {
                 jsonGenerator.writeStringField("type", column.getType().getColumnType().toString());
                 jsonGenerator.writeStringField("defaultValue", column.getDefaultValue().toString());
                     jsonGenerator.writeObjectFieldStart("config");
-                        column.getConfig().forEach(parameter -> {
+                        column.getConfigs().forEach(parameter -> {
                             try {
                                 jsonGenerator.writeStringField("name", parameter.getName().toString());
                                 jsonGenerator.writeStringField("value", parameter.getValue().toString());

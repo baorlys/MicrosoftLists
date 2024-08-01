@@ -2,16 +2,20 @@ package org.example.microsoftlists.view.dto.response;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.example.microsoftlists.model.Cell;
+import org.example.microsoftlists.model.Column;
+import org.example.microsoftlists.model.value.IValue;
+
+import java.util.UUID;
 
 @Getter
 @Setter
 public class CellResponse {
-    private String columnId;
-    private Object value;
+    private UUID column;
+    private IValue value;
 
-    public CellResponse(Cell cell) {
-        this.columnId = cell.getColumn().getId().toString();
-        this.value = cell.getValue().get();
+
+    public void setColumn(Column column) {
+        this.column = column.getId();
     }
+
 }

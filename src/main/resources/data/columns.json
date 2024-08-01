@@ -7,28 +7,35 @@
   },
   "name" : "Column Number",
   "type" : "NUMBER",
-  "defaultValue" : null,
   "hidden" : false
 }, {
   "typeIdentify" : "COLUMN",
-  "id" : "b474481c-3805-4ff4-a21d-744448961225",
+  "id" : "d35e63a9-5c75-4049-bde3-3fb50a980613",
   "list" : {
     "id" : "e278ad52-45e8-4c68-9f72-1965c8528086",
     "name" : "List API"
   },
-  "name" : "Colum Text",
+  "name" : "Text Column",
   "type" : "TEXT",
-  "defaultValue" : "default text",
   "hidden" : false
 }, {
   "typeIdentify" : "COLUMN",
-  "id" : "6a48fc68-5e01-46c4-908f-0681ad95fdfc",
+  "id" : "9b925fc6-2ce3-4a1b-9b25-e402ad7c79d5",
   "list" : {
     "id" : "e278ad52-45e8-4c68-9f72-1965c8528086",
     "name" : "List API"
   },
-  "name" : "Colum Choice",
-  "type" : "CHOICE",
-  "defaultValue" : null,
+  "name" : "Checkbox Column",
+  "type" : "CHECKBOX",
+  "hidden" : false
+}, {
+  "typeIdentify" : "COLUMN",
+  "id" : "3c355f85-8291-4e55-b949-b608f5dba305",
+  "list" : {
+    "id" : "e278ad52-45e8-4c68-9f72-1965c8528086",
+    "name" : "List API"
+  },
+  "name" : "Date Column",
+  "type" : "DATE",
   "hidden" : false
 } ]

@@ -1,6 +1,6 @@
 package org.example.microsoftlists.model.constants;
 
-public enum DateTime {
+public enum DateDefault {
     CURRENT_DATE,
-    SELECTED_DATE
+    CHOSEN_DATE,
 }

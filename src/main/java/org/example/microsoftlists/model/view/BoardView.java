@@ -23,9 +23,9 @@ public class BoardView extends AbstractView {
     }
 
     private boolean isOrganizeValid(Column column) {
-        return column.getConfig().stream()
+        return column.getConfigs().stream()
                 .filter(parameter -> parameter.getName().equals(ConfigParameter.MULTIPLE_SELECTION))
-                .anyMatch(parameter -> parameter.getValue().equals(false));
+                .anyMatch(parameter -> parameter.getValue().get().equals(false));
     }
 
 }

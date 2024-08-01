@@ -25,4 +25,15 @@ public class ColumnRepository extends Repository<Column> {
         return columns;
     }
 
+    public void deleteAllOfList(String listId) throws IOException {
+        List<Column> columns = findAll();
+        columns = columns.stream()
+                .filter(c -> Objects.equals(Optional.ofNullable(c.getList())
+                        .map(t -> t.getId().toString())
+                        .orElse(null), listId))
+                .collect(Collectors.toList());
+        for (Column column : columns) {
+            delete(column.getId().toString());
+        }
+    }
 }

@@ -14,16 +14,15 @@ public class NumberType implements IType {
         return ColumnType.NUMBER;
     }
 
-    @Override
-    public List<Parameter> handleConfig(List<Parameter> config) {
-        return config;
-    }
-
 
     @Override
     public boolean isValueValid(List<Parameter> config, IValue value) {
-        return value.get() instanceof Integer || value.get() instanceof BigDecimal;
-
+        try {
+            new BigDecimal(value.get().toString());
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     @Override

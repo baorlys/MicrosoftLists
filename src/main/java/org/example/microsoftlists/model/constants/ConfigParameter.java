@@ -5,5 +5,5 @@ public enum ConfigParameter {
     NUMBER_SYMBOL,
     MULTIPLE_SELECTION,
     CHOICES,
-    MAX_LENGTH;
+    MAX_LENGTH, DEFAULT_VALUE;
 }

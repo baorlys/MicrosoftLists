@@ -4,15 +4,17 @@ import org.example.microsoftlists.model.Parameter;
 import org.example.microsoftlists.config.Configuration;
 import org.example.microsoftlists.model.constants.ConfigParameter;
 import org.example.microsoftlists.model.constants.ColumnType;
+import org.example.microsoftlists.model.constants.DateDefault;
 import org.example.microsoftlists.model.value.IValue;
 
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
 public class DateType implements IType {
     private final SimpleDateFormat dateFormat;
@@ -30,16 +32,30 @@ public class DateType implements IType {
         this.dateFormat = new SimpleDateFormat(Configuration.DATETIME_FORMAT);
     }
 
-    private Parameter handleDefault(List<Parameter> config) {
-        Parameter defaultValue = config.stream()
+    @Override
+    public List<Parameter> handleConfig(List<Parameter> configs) {
+        return configs;
+    }
+
+
+    @Override
+    public IValue handleDefault(List<Parameter> configs) {
+        IValue defaultVal = configs.stream()
                 .filter(para -> para.getName().equals(ConfigParameter.DEFAULT_VALUE))
+                .map(Parameter::getValue)
                 .findFirst().orElse(null);
-        Optional.ofNullable(defaultValue)
-                .ifPresent(para -> {
-                    Optional<Object> result = ValueTypeFactory.getValue(para.getValue());
-                    para.setValue(result.orElse(para.getValue()));
-                });
-        return defaultValue;
+        Optional.ofNullable(defaultVal)
+                .filter(val -> val.get().equals(DateDefault.CURRENT_DATE))
+                .ifPresent(val -> defaultVal.set(getCurrentDate()));
+
+        return defaultVal;
+    }
+
+    private Object getCurrentDate() {
+        LocalDateTime currentDate = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(Configuration.DATETIME_FORMAT);
+
+        return currentDate.format(formatter);
     }
 
     private boolean isDateValid(String dateStr) {
@@ -72,16 +88,6 @@ public class DateType implements IType {
         return ColumnType.DATE;
     }
 
-    @Override
-    public List<Parameter> handleConfig(List<Parameter> config) {
-        List<Parameter> configList = config.stream()
-                .filter(para -> !para.getName().equals(ConfigParameter.DEFAULT_VALUE))
-                .collect(Collectors.toList());
-        Parameter defaultValue = handleDefault(config);
-        Optional.ofNullable(defaultValue)
-                .ifPresent(configList::add);
-        return configList;
-    }
 
     @Override
     public boolean isValueValid(List<Parameter> config, IValue value) {

@@ -17,5 +17,4 @@ public class ColumnRequest {
     private ColumnType type;
 
     private List<ParaRequest> config = new ArrayList<>(); // Nullable
-    private String defaultValue = ""; // Nullable
 }
