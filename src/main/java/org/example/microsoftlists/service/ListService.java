@@ -39,19 +39,18 @@ public class ListService {
         this.rowRepository = new RowRepository(Configuration.DATA_PATH, Configuration.ROWS_PATH);
     }
 
-
     public boolean isColumnExists(String id, String colName) throws IOException {
         ListResponse list = listsService.findById(id);
         return list.getColumns().stream()
-                .anyMatch(existingColumn -> existingColumn.getName().equals(colName));
+                .anyMatch(column -> column.getName().equals(colName));
     }
+
 
     public ListResponse createColumn(String id, ColumnRequest column) throws IOException, NameExistsException {
         ListResponse list = listsService.findById(id);
 
-        Optional.of(isColumnExists(id, column.getName()))
-                .filter(exists -> !exists)
-                .orElseThrow(() -> new NameExistsException("Column's name already exists"));
+        boolean isExists = isColumnExists(id, column.getName());
+        CommonService.throwIsExists(isExists, "Column name already exists");
 
         Column col = generateColumn(column);
         MicrosoftList listObj = MapperUtil.mapper.map(list, MicrosoftList.class);
@@ -84,17 +83,17 @@ public class ListService {
     }
 
 
-    public ListResponse createRow(String id) throws IOException {
+    public ListResponse createRow(String id) throws IOException, InvalidValueException {
         return createRow(id, null);
     }
 
-    public ListResponse createRow(String id, RowRequest rowRequest) throws IOException {
+    public ListResponse createRow(String id, RowRequest rowRequest) throws IOException, InvalidValueException {
         ListResponse list = listsService.findById(id);
         Row row = generateRow(list, rowRequest);
         save(row);
         return listsService.findById(id);
     }
-    public ListResponse updateRow(String id, String rowId, String columnId, Object value)
+    public ListResponse updateRow(String id, String rowId, String columnId, String value)
             throws IOException, InvalidValueException {
         updateCell(rowId, columnId, value);
         return listsService.findById(id);
@@ -106,7 +105,7 @@ public class ListService {
         return listsService.findById(id);
     }
 
-    public Object getValue(RowResponse rowRes, String columnId) {
+    public String getValue(RowResponse rowRes, String columnId) {
         return rowRes.getCells().stream()
                 .filter(cell -> cell.getColumn().equals(UUID.fromString(columnId)))
                 .findFirst()
@@ -117,10 +116,10 @@ public class ListService {
 
     //region Column
     public Column generateColumn(ColumnRequest column) {
-        List<ParaRequest> config = column.getConfig();
+        List<ParaRequest> configs = column.getConfigs();
 
         List<Parameter> paras = new ArrayList<>();
-        for (ParaRequest para : config) {
+        for (ParaRequest para : configs) {
             paras.add(new Parameter(para.getName(), para.getValue()));
         }
 
@@ -143,7 +142,7 @@ public class ListService {
 
         List<Row> rows = rowRepository.findAllByListId(column.getList().getId().toString());
         for (Row row : rows) {
-            Optional<Object> defaultVal = Optional.ofNullable(column.getDefaultValue());
+            Optional<String> defaultVal = Optional.ofNullable(column.getDefaultValue());
             row.addCell(Cell.of(row, column, new SingleObject(defaultVal.orElse(""))));
             rowRepository.update(row.getId().toString(), row);
         }
@@ -193,7 +192,7 @@ public class ListService {
 
     //region Row
 
-    public Row generateRow(ListResponse list, RowRequest rowRequest) {
+    public Row generateRow(ListResponse list, RowRequest rowRequest) throws InvalidValueException {
         List<ColumnResponse> columns = list.getColumns();
 
         Row row = new Row();
@@ -201,12 +200,16 @@ public class ListService {
         row.setList(MapperUtil.mapper.map(list, MicrosoftList.class));
 
         for (ColumnResponse column : columns) {
-            Optional<Object> value = Optional.ofNullable(rowRequest)
+            Optional<String> value = Optional.ofNullable(rowRequest)
                     .map(r -> r.getValues().get(column.getId()));
 
-            Optional<Object> defaultVal = Optional.ofNullable(column.getDefaultValue());
+            Optional<String> defaultVal = Optional.ofNullable(column.getDefaultValue());
 
             Column col = MapperUtil.mapper.map(column, Column.class);
+
+            boolean isInvalid = isValueInvalid(col, ValueFactory.create(value.orElse(defaultVal.orElse(""))));
+            CommonService.throwIsInvalidValue(isInvalid, "Invalid value");
+
             row.addCell(Cell.of(row, col, new SingleObject(value.orElse(defaultVal.orElse("")))));
         }
 
@@ -221,14 +224,16 @@ public class ListService {
         return rowRepository.findById(rowId);
     }
 
+    public boolean isValueInvalid(Column col, IValue value) {
+        return !col.isValidValue(value);
+    }
 
-    public void updateCell(String rowId, String columnId, Object value) throws IOException, InvalidValueException {
+    public void updateCell(String rowId, String columnId, String value) throws IOException, InvalidValueException {
         IValue val = ValueFactory.create(value);
         Column col = findColumnById(columnId);
 
-        Optional.of(col.isValidValue(val))
-                .filter(valid -> valid)
-                .orElseThrow(() -> new InvalidValueException("Invalid value"));
+        boolean isInvalid = isValueInvalid(col, val);
+        CommonService.throwIsInvalidValue(isInvalid, "Invalid value");
 
         Row row = findRowById(rowId);
         List<Cell> cells = row.getCells();

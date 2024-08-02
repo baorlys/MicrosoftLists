@@ -16,8 +16,10 @@ public enum ConfigValue {
     COLUMNS_PATH("columns.path"),
     ROWS_PATH("rows.path"),
     VIEWS_PATH("views.path"),
-    TEMPLATES_PATH("templates.path");
+    TEMPLATES_PATH("templates.path"),
     //endregion
+
+    DELIMITER("delimiter"); // default delimiter
 
 
     private final String variableName;

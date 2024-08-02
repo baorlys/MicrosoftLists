@@ -14,7 +14,6 @@ import org.example.microsoftlists.view.dto.response.ListResponse;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class MicrosoftListService {
@@ -76,9 +75,8 @@ public class MicrosoftListService {
 
     public MicrosoftList create(ListRequest listReq) throws IOException, NameExistsException {
 
-        Optional.of(isListExists(listReq.getName()))
-                .filter(exists -> !exists)
-                .orElseThrow(() -> new NameExistsException("List's name already exists"));
+        boolean isExists = isListExists(listReq.getName());
+        CommonService.throwIsExists(isExists, "List name already exists");
 
         MicrosoftList list = new MicrosoftList();
         MapperUtil.mapper.map(listReq, list);
@@ -88,10 +86,9 @@ public class MicrosoftListService {
         return list;
     }
 
-    public boolean delete(String id) throws IOException {
+    public void delete(String id) throws IOException {
         listRepository.delete(id);
         colRepository.deleteAllOfList(id);
-        return true;
     }
 
     public void update(String id, MicrosoftList list) throws IOException {

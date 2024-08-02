@@ -9,5 +9,5 @@ import java.util.UUID;
 @Getter
 @Setter
 public class RowRequest {
-    Map<UUID,Object> values;
+    Map<UUID,String> values;
 }

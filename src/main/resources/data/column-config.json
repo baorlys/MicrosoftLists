@@ -1,25 +1,41 @@
 [ {
   "typeIdentify" : "COLUMN_CONFIG",
-  "id" : "c39ddaa6-7117-4591-8284-f1db02a67d18",
+  "id" : "ee369914-24f8-4cd2-9551-1c0f309a150e",
   "column" : {
-    "id" : "d35e63a9-5c75-4049-bde3-3fb50a980613"
+    "id" : "aadb17a1-6733-42f9-8e4f-5a905e9d7ce4"
   },
   "parameter" : {
     "name" : "DEFAULT_VALUE",
-    "value" : {
-      "object" : "default value for text col"
-    }
+    "value" : "default value is working"
   }
 }, {
   "typeIdentify" : "COLUMN_CONFIG",
-  "id" : "1f6893c7-512f-49e4-9c00-0ca0cbedf977",
+  "id" : "39900353-85b9-4def-a976-2255cca17efe",
   "column" : {
-    "id" : "3c355f85-8291-4e55-b949-b608f5dba305"
+    "id" : "b997f6dd-0e05-42e1-957e-b5181b4e4e1d"
   },
   "parameter" : {
     "name" : "DEFAULT_VALUE",
-    "value" : {
-      "object" : "CURRENT_DATE"
-    }
+    "value" : "5"
+  }
+}, {
+  "typeIdentify" : "COLUMN_CONFIG",
+  "id" : "3bcf787e-ce39-4f53-ba61-db8a9366b52c",
+  "column" : {
+    "id" : "e47fc974-fa51-45c2-b853-a622791b8c19"
+  },
+  "parameter" : {
+    "name" : "CHOICES",
+    "value" : "Choice 1;#Choice 2;#Choice 3"
+  }
+}, {
+  "typeIdentify" : "COLUMN_CONFIG",
+  "id" : "dfcb8557-2712-477e-b0e7-f5e38130591b",
+  "column" : {
+    "id" : "e47fc974-fa51-45c2-b853-a622791b8c19"
+  },
+  "parameter" : {
+    "name" : "MULTIPLE_SELECTION",
+    "value" : "true"
   }
 } ]

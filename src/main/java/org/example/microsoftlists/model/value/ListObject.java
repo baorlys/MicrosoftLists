@@ -2,6 +2,7 @@ package org.example.microsoftlists.model.value;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.example.microsoftlists.config.Configuration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,22 +10,18 @@ import java.util.List;
 @Setter
 public class ListObject implements IValue {
 
-    private List<Object> objects;
+    private List<String> objects;
     public ListObject() {
         this.objects = new ArrayList<>();
     }
-    public ListObject(Object... objects) {
-        this.objects = List.of(objects);
+    @Override
+    public String get() {
+        return String.join(Configuration.DELIMITER, objects);
     }
 
     @Override
-    public List<Object> get() {
-        return objects;
-    }
-
-    @Override
-    public void set(Object... object) {
-        this.objects = List.of(object);
+    public void set(String object) {
+        this.objects = List.of(object.split((String) Configuration.DELIMITER));
     }
 
     @Override

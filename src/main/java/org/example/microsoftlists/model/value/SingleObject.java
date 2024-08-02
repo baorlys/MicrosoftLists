@@ -2,15 +2,16 @@ package org.example.microsoftlists.model.value;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.example.microsoftlists.config.Configuration;
 
 
 @Getter
 @Setter
 public class SingleObject implements IValue {
-    private Object object;
+    private String object;
 
 
-    public SingleObject(Object object) {
+    public SingleObject(String object) {
         this.object = object;
     }
     public SingleObject() {
@@ -18,13 +19,13 @@ public class SingleObject implements IValue {
     }
 
     @Override
-    public Object get() {
+    public String get() {
         return object;
     }
 
     @Override
-    public void set(Object... object) {
-        this.object = object[0];
+    public void set(String object) {
+        this.object = object.split((String) Configuration.DELIMITER)[0];
     }
 
     @Override

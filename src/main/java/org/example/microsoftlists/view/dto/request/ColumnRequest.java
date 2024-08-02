@@ -16,5 +16,5 @@ public class ColumnRequest {
     @NotNull
     private ColumnType type;
 
-    private List<ParaRequest> config = new ArrayList<>(); // Nullable
+    private List<ParaRequest> configs = new ArrayList<>(); // Nullable
 }

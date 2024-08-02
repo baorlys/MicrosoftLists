@@ -11,11 +11,14 @@ import java.util.UUID;
 @Setter
 public class CellResponse {
     private UUID column;
-    private IValue value;
+    private String value;
 
 
     public void setColumn(Column column) {
         this.column = column.getId();
     }
 
+    public void setValue(IValue value) {
+        this.value = value.get();
+    }
 }

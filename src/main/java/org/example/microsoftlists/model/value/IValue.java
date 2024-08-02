@@ -3,9 +3,9 @@ package org.example.microsoftlists.model.value;
 
 public interface IValue {
 
-    Object get();
+    String get();
 
-    void set(Object... object);
+    void set(String object);
 
     void set(IValue value);
 

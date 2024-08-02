@@ -1,115 +1,55 @@
 [ {
   "typeIdentify" : "ROW",
-  "id" : "c407a158-e1ca-4649-acce-522d15ca50fa",
+  "id" : "cfda7623-7fe8-43cf-b130-b135e5e18c9f",
   "list" : {
     "id" : "e278ad52-45e8-4c68-9f72-1965c8528086",
     "name" : "List API"
   },
   "cells" : [ {
     "column" : {
-      "id" : "b7395aa7-e0ef-4461-81b1-5b6b2f272c3c",
-      "name" : "Column Number"
-    },
-    "value" : "3.5"
-  }, {
-    "column" : {
-      "id" : "d35e63a9-5c75-4049-bde3-3fb50a980613",
+      "id" : "aadb17a1-6733-42f9-8e4f-5a905e9d7ce4",
       "name" : "Text Column"
     },
-    "value" : "default value for text col"
+    "value" : "default value is working"
   }, {
     "column" : {
-      "id" : "3c355f85-8291-4e55-b949-b608f5dba305",
-      "name" : "Date Column"
-    },
-    "value" : "org.example.microsoftlists.model.value.SingleObject@71717718"
-  } ],
-  "createdAt" : "2024-08-01T13:34"
-}, {
-  "typeIdentify" : "ROW",
-  "id" : "d52aa0e1-8372-4a9a-9504-fc4bc38903d2",
-  "list" : {
-    "id" : "e278ad52-45e8-4c68-9f72-1965c8528086",
-    "name" : "List API"
-  },
-  "cells" : [ {
-    "column" : {
-      "id" : "b7395aa7-e0ef-4461-81b1-5b6b2f272c3c",
-      "name" : "Column Number"
+      "id" : "b997f6dd-0e05-42e1-957e-b5181b4e4e1d",
+      "name" : "Number Column"
     },
     "value" : "5"
   }, {
     "column" : {
-      "id" : "d35e63a9-5c75-4049-bde3-3fb50a980613",
-      "name" : "Text Column"
+      "id" : "e47fc974-fa51-45c2-b853-a622791b8c19",
+      "name" : "Choice Column"
     },
-    "value" : "hihi"
-  }, {
-    "column" : {
-      "id" : "3c355f85-8291-4e55-b949-b608f5dba305",
-      "name" : "Date Column"
-    },
-    "value" : "org.example.microsoftlists.model.value.SingleObject@71717718"
+    "value" : ""
   } ],
-  "createdAt" : "2024-08-01T13:55"
+  "createdAt" : "2024-08-02T13:13"
 }, {
   "typeIdentify" : "ROW",
-  "id" : "d6a25ac6-1203-4155-bbc7-153a5ac237b4",
+  "id" : "31587b1d-dd27-43c2-bf34-a59a2a8dbec9",
   "list" : {
     "id" : "e278ad52-45e8-4c68-9f72-1965c8528086",
     "name" : "List API"
   },
   "cells" : [ {
     "column" : {
-      "id" : "b7395aa7-e0ef-4461-81b1-5b6b2f272c3c",
-      "name" : "Column Number"
-    },
-    "value" : ""
-  }, {
-    "column" : {
-      "id" : "d35e63a9-5c75-4049-bde3-3fb50a980613",
+      "id" : "aadb17a1-6733-42f9-8e4f-5a905e9d7ce4",
       "name" : "Text Column"
     },
-    "value" : "hihi"
+    "value" : "default value is working"
   }, {
     "column" : {
-      "id" : "3c355f85-8291-4e55-b949-b608f5dba305",
-      "name" : "Date Column"
+      "id" : "b997f6dd-0e05-42e1-957e-b5181b4e4e1d",
+      "name" : "Number Column"
     },
-    "value" : "org.example.microsoftlists.model.value.SingleObject@71717718"
+    "value" : "5"
+  }, {
+    "column" : {
+      "id" : "e47fc974-fa51-45c2-b853-a622791b8c19",
+      "name" : "Choice Column"
+    },
+    "value" : "Choice 1;#Choice 2"
   } ],
-  "createdAt" : "2024-08-01T13:56"
-}, {
-  "typeIdentify" : "ROW",
-  "id" : "6413d15c-3fa4-4f43-9d96-363c97582293",
-  "list" : {
-    "id" : "e278ad52-45e8-4c68-9f72-1965c8528086",
-    "name" : "List API"
-  },
-  "cells" : [ {
-    "column" : {
-      "id" : "b7395aa7-e0ef-4461-81b1-5b6b2f272c3c",
-      "name" : "Column Number"
-    },
-    "value" : ""
-  }, {
-    "column" : {
-      "id" : "d35e63a9-5c75-4049-bde3-3fb50a980613",
-      "name" : "Text Column"
-    },
-    "value" : "default value for text col"
-  }, {
-    "column" : {
-      "id" : "9b925fc6-2ce3-4a1b-9b25-e402ad7c79d5",
-      "name" : "Checkbox Column"
-    },
-    "value" : ""
-  }, {
-    "column" : {
-      "id" : "3c355f85-8291-4e55-b949-b608f5dba305",
-      "name" : "Date Column"
-    },
-    "value" : "org.example.microsoftlists.model.value.SingleObject@71717718"
-  } ],
-  "createdAt" : "2024-08-01T14:58"
+  "createdAt" : "2024-08-02T13:42"
 } ]

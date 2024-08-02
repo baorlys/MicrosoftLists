@@ -29,8 +29,8 @@ public class SortingService {
         SortOrder order = sortReq.getOrder();
 
         rows.sort((r1, r2) -> {
-            Object cell1 = listService.getValue(r1, columnId);
-            Object cell2 = listService.getValue(r2, columnId);
+            String cell1 = listService.getValue(r1, columnId);
+            String cell2 = listService.getValue(r2, columnId);
 
             return compare(cell1, cell2, column, order);
         });
@@ -41,7 +41,7 @@ public class SortingService {
 
 
 
-    private int compare(Object cell1, Object cell2, Column column, SortOrder order) {
+    private int compare(String cell1, String cell2, Column column, SortOrder order) {
         return Optional.of(order)
                 .filter(o -> o == SortOrder.ASCENDING)
                 .map(o -> column.compare(cell1, cell2))

@@ -1,5 +1,7 @@
 package org.example.microsoftlists.model.value;
 
+import org.example.microsoftlists.config.Configuration;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
@@ -14,8 +16,8 @@ public class ValueFactory {
         valueMap.put(false, ListObject::new);
     }
 
-    public static IValue create(Object... objects) {
-        boolean isSingle = objects.length == 1;
+    public static IValue create(String objects) {
+        boolean isSingle = objects.split((String) Configuration.DELIMITER).length == 1;
         IValue value = valueMap.get(isSingle).get();
         value.set(objects);
         return value;

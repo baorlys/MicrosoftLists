@@ -15,7 +15,7 @@ public class ColumnResponse {
     private String name;
     private IType type;
 
-    private Object defaultValue;
+    private String defaultValue;
 
     private List<Parameter> configs;
 

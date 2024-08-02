@@ -57,14 +57,18 @@ public class ListController {
     }
 
     @PostMapping("/{id}/row")
-    public ResponseEntity<ApiSuccess> createRow(@PathVariable String id) throws IOException {
+    public ResponseEntity<ApiSuccess> createRow(@PathVariable String id)
+            throws IOException, InvalidValueException {
+
         ListResponse list = listService.createRow(id);
         return ResponseEntity.ok(new ApiSuccess("Row created successfully", list));
     }
 
     @PostMapping("/{id}/row/values")
     public ResponseEntity<ApiSuccess> createRow(@PathVariable String id,
-                                                  @RequestBody RowRequest rowRequest) throws IOException {
+                                                  @RequestBody RowRequest rowRequest)
+            throws IOException, InvalidValueException {
+
         ListResponse list = listService.createRow(id, rowRequest);
         return ResponseEntity.ok(new ApiSuccess("Row created successfully", list));
     }
@@ -73,7 +77,7 @@ public class ListController {
     public ResponseEntity<ApiSuccess> updateRow(@PathVariable String id,
                                                   @PathVariable String rowId,
                                                   @PathVariable String columnId,
-                                                  @RequestBody Object value)
+                                                  @RequestBody String value)
             throws IOException, InvalidValueException {
 
             ListResponse list = listService.updateRow(id, rowId, columnId, value);

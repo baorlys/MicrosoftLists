@@ -44,14 +44,15 @@ public class DateType implements IType {
                 .filter(para -> para.getName().equals(ConfigParameter.DEFAULT_VALUE))
                 .map(Parameter::getValue)
                 .findFirst().orElse(null);
+
         Optional.ofNullable(defaultVal)
-                .filter(val -> val.get().equals(DateDefault.CURRENT_DATE))
+                .filter(val -> val.get() .equals(DateDefault.CURRENT_DATE.name()))
                 .ifPresent(val -> defaultVal.set(getCurrentDate()));
 
         return defaultVal;
     }
 
-    private Object getCurrentDate() {
+    private String getCurrentDate() {
         LocalDateTime currentDate = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(Configuration.DATETIME_FORMAT);
 
@@ -91,7 +92,7 @@ public class DateType implements IType {
 
     @Override
     public boolean isValueValid(List<Parameter> config, IValue value) {
-        Predicate<Object> isDate = obj -> obj instanceof String && isDateValid((String) obj);
+        Predicate<Object> isDate = obj -> obj != null && isDateValid((String) obj);
         return isDate.test(value.get());
     }
 

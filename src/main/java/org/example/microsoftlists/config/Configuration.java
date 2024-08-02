@@ -11,6 +11,11 @@ public class Configuration {
             Optional.ofNullable(getProperty(ConfigValue.COL_CONFIG_PATH.getVariableName()))
                     .orElse("src/main/resources/columns.json");
 
+    public static final CharSequence DELIMITER =
+            Optional.ofNullable(getProperty(ConfigValue.DELIMITER.getVariableName()))
+                    .orElse(",");
+
+
     public static final String DATETIME_FORMAT =
             Optional.ofNullable(getProperty(ConfigValue.DATETIME_FORMAT.getVariableName()))
                     .orElse("dd-MM-yyyy");

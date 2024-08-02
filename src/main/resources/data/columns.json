@@ -1,16 +1,6 @@
 [ {
   "typeIdentify" : "COLUMN",
-  "id" : "b7395aa7-e0ef-4461-81b1-5b6b2f272c3c",
-  "list" : {
-    "id" : "e278ad52-45e8-4c68-9f72-1965c8528086",
-    "name" : "List API"
-  },
-  "name" : "Column Number",
-  "type" : "NUMBER",
-  "hidden" : false
-}, {
-  "typeIdentify" : "COLUMN",
-  "id" : "d35e63a9-5c75-4049-bde3-3fb50a980613",
+  "id" : "aadb17a1-6733-42f9-8e4f-5a905e9d7ce4",
   "list" : {
     "id" : "e278ad52-45e8-4c68-9f72-1965c8528086",
     "name" : "List API"
@@ -20,22 +10,22 @@
   "hidden" : false
 }, {
   "typeIdentify" : "COLUMN",
-  "id" : "9b925fc6-2ce3-4a1b-9b25-e402ad7c79d5",
+  "id" : "b997f6dd-0e05-42e1-957e-b5181b4e4e1d",
   "list" : {
     "id" : "e278ad52-45e8-4c68-9f72-1965c8528086",
     "name" : "List API"
   },
-  "name" : "Checkbox Column",
-  "type" : "CHECKBOX",
+  "name" : "Number Column",
+  "type" : "NUMBER",
   "hidden" : false
 }, {
   "typeIdentify" : "COLUMN",
-  "id" : "3c355f85-8291-4e55-b949-b608f5dba305",
+  "id" : "e47fc974-fa51-45c2-b853-a622791b8c19",
   "list" : {
     "id" : "e278ad52-45e8-4c68-9f72-1965c8528086",
     "name" : "List API"
   },
-  "name" : "Date Column",
-  "type" : "DATE",
+  "name" : "Choice Column",
+  "type" : "CHOICE",
   "hidden" : false
 } ]

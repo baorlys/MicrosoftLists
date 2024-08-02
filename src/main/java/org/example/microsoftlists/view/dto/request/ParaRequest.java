@@ -12,5 +12,5 @@ public class ParaRequest {
     @NotNull
     ConfigParameter name;
     @NotNull
-    Object value;
+    String value;
 }

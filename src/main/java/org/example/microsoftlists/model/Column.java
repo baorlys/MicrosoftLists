@@ -1,6 +1,5 @@
 package org.example.microsoftlists.model;
 
-import org.example.microsoftlists.model.constants.ConfigParameter;
 import org.example.microsoftlists.model.constants.IdentifyModel;
 import org.example.microsoftlists.model.serializer.MicrosoftListSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -15,6 +14,7 @@ import org.example.microsoftlists.model.value.IValue;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Getter
@@ -56,17 +56,15 @@ public class Column implements Identifiable {
         return this.type.isValueValid(configs, value);
     }
 
-    public int compare(Object o1, Object o2) {
+    public int compare(String o1, String o2) {
         return this.type.compare(o1, o2);
     }
 
     @JsonIgnore
-    public Object getDefaultValue() {
-        return type.handleConfig(configs).stream()
-                .filter(para -> para.getName().equals(ConfigParameter.DEFAULT_VALUE))
-                .findFirst()
-                .map(para -> para.getValue().get())
-                .orElse(null);
+    public String getDefaultValue() {
+        return Optional.ofNullable(this.type.handleDefault(configs))
+                .map(IValue::get)
+                .orElse("");
     }
 
 }
