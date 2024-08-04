@@ -10,6 +10,9 @@ public class Configuration {
     public static final String COL_CONFIG_PATH =
             Optional.ofNullable(getProperty(ConfigValue.COL_CONFIG_PATH.getVariableName()))
                     .orElse("src/main/resources/columns.json");
+    public static final String DEFAULT_GROUP_NAME =
+            Optional.ofNullable(getProperty(ConfigValue.DEFAULT_GROUP_NAME.getVariableName()))
+                    .orElse("Default group name");
 
     public static final CharSequence DELIMITER =
             Optional.ofNullable(getProperty(ConfigValue.DELIMITER.getVariableName()))

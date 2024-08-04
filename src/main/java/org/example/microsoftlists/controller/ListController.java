@@ -3,15 +3,12 @@ package org.example.microsoftlists.controller;
 import jakarta.validation.Valid;
 import org.example.microsoftlists.exception.NameExistsException;
 import org.example.microsoftlists.exception.InvalidValueException;
-import org.example.microsoftlists.service.PagingService;
-import org.example.microsoftlists.service.SearchingService;
-import org.example.microsoftlists.service.SortingService;
+import org.example.microsoftlists.service.*;
 import org.example.microsoftlists.view.ApiSuccess;
 import org.example.microsoftlists.view.dto.request.ColumnRequest;
 import org.example.microsoftlists.view.dto.request.RowRequest;
 import org.example.microsoftlists.view.dto.request.SortRequest;
 import org.example.microsoftlists.view.dto.response.ListResponse;
-import org.example.microsoftlists.service.ListService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,6 +24,8 @@ public class ListController {
     PagingService pagingService = new PagingService();
 
     SearchingService searchingService = new SearchingService();
+
+    GroupService groupService = new GroupService();
 
     @PostMapping("/{id}")
     public ResponseEntity<ApiSuccess> createColumn(@PathVariable String id,
@@ -94,6 +93,12 @@ public class ListController {
                                                  @Valid @RequestBody SortRequest sortRequest) throws IOException {
         ListResponse list = sortingService.sort(id, sortRequest);
         return ResponseEntity.ok(new ApiSuccess("List sorted successfully", list));
+    }
+
+    @GetMapping("/{id}/group/{columnId}")
+    public ResponseEntity<ApiSuccess> groupList(@PathVariable String id,
+                                                 @PathVariable String columnId) throws IOException {
+        return ResponseEntity.ok(new ApiSuccess("List grouped successfully", groupService.groupBy(id, columnId)));
     }
 
     @GetMapping("/{id}/search/{key}")

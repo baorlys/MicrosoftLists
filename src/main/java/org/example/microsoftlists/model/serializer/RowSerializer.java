@@ -27,7 +27,7 @@ public class RowSerializer extends JsonSerializer<Row> {
                     jsonGenerator.writeStringField("id", cell.getColumn().getId().toString());
                     jsonGenerator.writeStringField("name", cell.getColumn().getName());
                     jsonGenerator.writeEndObject();
-                jsonGenerator.writeStringField("value", cell.getValue().get().toString());
+                jsonGenerator.writeStringField("value", cell.getValue().get());
                 jsonGenerator.writeEndObject();
             } catch (IOException e) {
                 e.printStackTrace();

@@ -49,8 +49,6 @@ public class MicrosoftListService {
         list.setColumns(findAllColsOfList(id));
         list.setRows(findAllRowsOfList(id));
 
-
-
         return MapperUtil.mapper.map(list, ListResponse.class);
     }
 

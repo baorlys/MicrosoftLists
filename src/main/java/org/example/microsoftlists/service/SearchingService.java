@@ -18,7 +18,7 @@ public class SearchingService {
         List<RowResponse> rows = list.getRows();
 
         rows.removeIf(row -> row.getCells().stream()
-                .noneMatch(cell -> cell.getValue().toString().contains(key)));
+                .noneMatch(cell -> cell.getValue().contains(key)));
 
         list.setRows(rows);
         return list;

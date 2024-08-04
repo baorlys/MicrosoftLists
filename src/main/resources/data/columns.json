@@ -1,61 +1,21 @@
 [ {
   "typeIdentify" : "COLUMN",
-  "id" : "aadb17a1-6733-42f9-8e4f-5a905e9d7ce4",
+  "id" : "297b515b-e212-4398-866d-722a6a8a674e",
   "list" : {
     "id" : "e278ad52-45e8-4c68-9f72-1965c8528086",
     "name" : "List API"
   },
-  "name" : "Text Column",
+  "name" : "Column Text",
   "type" : "TEXT",
   "hidden" : false
 }, {
   "typeIdentify" : "COLUMN",
-  "id" : "b997f6dd-0e05-42e1-957e-b5181b4e4e1d",
+  "id" : "99cc1343-3355-4798-87cc-f9da8e91b5c7",
   "list" : {
     "id" : "e278ad52-45e8-4c68-9f72-1965c8528086",
     "name" : "List API"
   },
-  "name" : "Number Column",
+  "name" : "Column Number",
   "type" : "NUMBER",
-  "hidden" : false
-}, {
-  "typeIdentify" : "COLUMN",
-  "id" : "e47fc974-fa51-45c2-b853-a622791b8c19",
-  "list" : {
-    "id" : "e278ad52-45e8-4c68-9f72-1965c8528086",
-    "name" : "List API"
-  },
-  "name" : "Choice Column",
-  "type" : "CHOICE",
-  "hidden" : false
-}, {
-  "typeIdentify" : "COLUMN",
-  "id" : "9f391e64-e477-49f4-9d76-63762ac4f044",
-  "list" : {
-    "id" : "cecffe81-762f-42dd-a512-0974d963c2da",
-    "name" : "From Template"
-  },
-  "name" : "Text Column",
-  "type" : "TEXT",
-  "hidden" : false
-}, {
-  "typeIdentify" : "COLUMN",
-  "id" : "d284506d-ad37-4bba-ad7b-8c977e47d6ac",
-  "list" : {
-    "id" : "cecffe81-762f-42dd-a512-0974d963c2da",
-    "name" : "From Template"
-  },
-  "name" : "Number Column",
-  "type" : "NUMBER",
-  "hidden" : false
-}, {
-  "typeIdentify" : "COLUMN",
-  "id" : "16e95991-dd4a-4561-8010-05cde8bdab9c",
-  "list" : {
-    "id" : "cecffe81-762f-42dd-a512-0974d963c2da",
-    "name" : "From Template"
-  },
-  "name" : "Choice Column",
-  "type" : "CHOICE",
   "hidden" : false
 } ]

@@ -1,81 +1,21 @@
 [ {
   "typeIdentify" : "COLUMN_CONFIG",
-  "id" : "ee369914-24f8-4cd2-9551-1c0f309a150e",
+  "id" : "ef255b4e-1eb0-4ac4-b66b-db6cf53dbcf1",
   "column" : {
-    "id" : "aadb17a1-6733-42f9-8e4f-5a905e9d7ce4"
+    "id" : "297b515b-e212-4398-866d-722a6a8a674e"
   },
   "parameter" : {
     "name" : "DEFAULT_VALUE",
-    "value" : "default value is working"
+    "value" : "hihi"
   }
 }, {
   "typeIdentify" : "COLUMN_CONFIG",
-  "id" : "39900353-85b9-4def-a976-2255cca17efe",
+  "id" : "a7e4874c-94c9-4a52-b6bd-cc3065d0ea67",
   "column" : {
-    "id" : "b997f6dd-0e05-42e1-957e-b5181b4e4e1d"
+    "id" : "99cc1343-3355-4798-87cc-f9da8e91b5c7"
   },
   "parameter" : {
     "name" : "DEFAULT_VALUE",
-    "value" : "5"
-  }
-}, {
-  "typeIdentify" : "COLUMN_CONFIG",
-  "id" : "3bcf787e-ce39-4f53-ba61-db8a9366b52c",
-  "column" : {
-    "id" : "e47fc974-fa51-45c2-b853-a622791b8c19"
-  },
-  "parameter" : {
-    "name" : "CHOICES",
-    "value" : "Choice 1;#Choice 2;#Choice 3"
-  }
-}, {
-  "typeIdentify" : "COLUMN_CONFIG",
-  "id" : "dfcb8557-2712-477e-b0e7-f5e38130591b",
-  "column" : {
-    "id" : "e47fc974-fa51-45c2-b853-a622791b8c19"
-  },
-  "parameter" : {
-    "name" : "MULTIPLE_SELECTION",
-    "value" : "true"
-  }
-}, {
-  "typeIdentify" : "COLUMN_CONFIG",
-  "id" : "c06ee628-263e-443c-a457-e9ece2426303",
-  "column" : {
-    "id" : "9f391e64-e477-49f4-9d76-63762ac4f044"
-  },
-  "parameter" : {
-    "name" : "DEFAULT_VALUE",
-    "value" : "from template 1"
-  }
-}, {
-  "typeIdentify" : "COLUMN_CONFIG",
-  "id" : "80af2db3-39ca-49a8-9a81-9fe8419f43b3",
-  "column" : {
-    "id" : "d284506d-ad37-4bba-ad7b-8c977e47d6ac"
-  },
-  "parameter" : {
-    "name" : "DEFAULT_VALUE",
-    "value" : "4"
-  }
-}, {
-  "typeIdentify" : "COLUMN_CONFIG",
-  "id" : "f7265587-c50d-4d40-9975-0b48b34aeaa8",
-  "column" : {
-    "id" : "16e95991-dd4a-4561-8010-05cde8bdab9c"
-  },
-  "parameter" : {
-    "name" : "CHOICES",
-    "value" : "Choice 1;#Choice 2;#Choice 3"
-  }
-}, {
-  "typeIdentify" : "COLUMN_CONFIG",
-  "id" : "b947919d-412b-4106-94dc-9b5e9dd08ec2",
-  "column" : {
-    "id" : "16e95991-dd4a-4561-8010-05cde8bdab9c"
-  },
-  "parameter" : {
-    "name" : "MULTIPLE_SELECTION",
-    "value" : "true"
+    "value" : "3"
   }
 } ]

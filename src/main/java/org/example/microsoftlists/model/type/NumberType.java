@@ -18,7 +18,7 @@ public class NumberType implements IType {
     @Override
     public boolean isValueValid(List<Parameter> config, IValue value) {
         try {
-            new BigDecimal(value.get().toString());
+            new BigDecimal(value.get());
             return true;
         } catch (Exception e) {
             return false;

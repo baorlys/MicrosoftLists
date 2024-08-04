@@ -19,7 +19,8 @@ public enum ConfigValue {
     TEMPLATES_PATH("templates.path"),
     //endregion
 
-    DELIMITER("delimiter"); // default delimiter
+    DELIMITER("delimiter"),
+    DEFAULT_GROUP_NAME("group.name");
 
 
     private final String variableName;

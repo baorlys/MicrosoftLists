@@ -43,5 +43,6 @@ public class MicrosoftList implements Identifiable {
         for (Column column : columns) {
             column.setList(this);
         }
+        this.columns = columns;
     }
 }
