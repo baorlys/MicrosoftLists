@@ -34,11 +34,6 @@ public class Parameter {
     }
 
 
-    public static Parameter of(ConfigParameter defaultValue, String value) {
-        return new Parameter(defaultValue, value);
-    }
-
-
 
     public void setValue(String value) {
         this.value = ValueFactory.create(value);

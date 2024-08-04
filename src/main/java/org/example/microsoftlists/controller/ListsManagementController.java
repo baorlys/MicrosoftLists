@@ -21,6 +21,7 @@ import java.util.List;
 public class ListsManagementController {
     MicrosoftListService listsService = new MicrosoftListService();
 
+
     @GetMapping("/lists")
     public ResponseEntity<ApiSuccess> getLists() throws IOException {
         List<MicrosoftList> lists = listsService.loadLists();
@@ -33,6 +34,14 @@ public class ListsManagementController {
     public ResponseEntity<ApiSuccess> createList(@Valid @RequestBody ListRequest request)
             throws IOException, NameExistsException {
         MicrosoftList list = listsService.create(request);
+        return ResponseEntity.ok(new ApiSuccess("List created successfully", list));
+    }
+
+    @PostMapping("/lists/{templateId}")
+    public ResponseEntity<ApiSuccess> createList(@PathVariable String templateId,
+                                                 @Valid @RequestBody ListRequest listReq)
+            throws IOException, NameExistsException {
+        MicrosoftList list = listsService.create(templateId, listReq);
         return ResponseEntity.ok(new ApiSuccess("List created successfully", list));
     }
 

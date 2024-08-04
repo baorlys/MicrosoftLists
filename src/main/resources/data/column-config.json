@@ -38,4 +38,44 @@
     "name" : "MULTIPLE_SELECTION",
     "value" : "true"
   }
+}, {
+  "typeIdentify" : "COLUMN_CONFIG",
+  "id" : "c06ee628-263e-443c-a457-e9ece2426303",
+  "column" : {
+    "id" : "9f391e64-e477-49f4-9d76-63762ac4f044"
+  },
+  "parameter" : {
+    "name" : "DEFAULT_VALUE",
+    "value" : "from template 1"
+  }
+}, {
+  "typeIdentify" : "COLUMN_CONFIG",
+  "id" : "80af2db3-39ca-49a8-9a81-9fe8419f43b3",
+  "column" : {
+    "id" : "d284506d-ad37-4bba-ad7b-8c977e47d6ac"
+  },
+  "parameter" : {
+    "name" : "DEFAULT_VALUE",
+    "value" : "4"
+  }
+}, {
+  "typeIdentify" : "COLUMN_CONFIG",
+  "id" : "f7265587-c50d-4d40-9975-0b48b34aeaa8",
+  "column" : {
+    "id" : "16e95991-dd4a-4561-8010-05cde8bdab9c"
+  },
+  "parameter" : {
+    "name" : "CHOICES",
+    "value" : "Choice 1;#Choice 2;#Choice 3"
+  }
+}, {
+  "typeIdentify" : "COLUMN_CONFIG",
+  "id" : "b947919d-412b-4106-94dc-9b5e9dd08ec2",
+  "column" : {
+    "id" : "16e95991-dd4a-4561-8010-05cde8bdab9c"
+  },
+  "parameter" : {
+    "name" : "MULTIPLE_SELECTION",
+    "value" : "true"
+  }
 } ]

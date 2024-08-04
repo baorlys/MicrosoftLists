@@ -13,4 +13,9 @@
   "id" : "1bc0dbd3-f3a4-432d-8e3e-093438bbcab2",
   "name" : "Planing",
   "description" : "plan list"
+}, {
+  "typeIdentify" : "LIST",
+  "id" : "cecffe81-762f-42dd-a512-0974d963c2da",
+  "name" : "From Template",
+  "description" : "template work"
 } ]

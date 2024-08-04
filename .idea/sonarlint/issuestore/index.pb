@@ -136,8 +136,6 @@ Qsrc/main/java/org/example/microsoftlists/model/serializer/TemplateSerializer.ja
 Ksrc/main/java/org/example/microsoftlists/repository/TemplateRepository.java,b\c\bcfdbf13ad259c2132821d4ac7e15287b897ec42
 ‚
 Rsrc/main/java/org/example/microsoftlists/controller/ListsManagementController.java,e\b\eb4e0b2c9074b2ff5d13305a8347f209e66aae1f
-y
-Isrc/test/java/org/example/microsoftlists/service/TemplateServiceTest.java,a\1\a1a0ff11fbfd9ac74b536c8890d5f1f1cc3785bd
 q
 Asrc/main/java/org/example/microsoftlists/view/dto/MapperUtil.java,f\9\f9a3e8b5f3ea10ce8f4c2f0dfa3faf885baf4ba7
 |
@@ -178,3 +176,9 @@ Isrc/main/java/org/example/microsoftlists/model/constants/DateDefault.java,d\c\
 Ksrc/main/java/org/example/microsoftlists/exception/NameExistsException.java,d\d\dda88819e973834fb5b73bb9412f2ba77474edfe
 }
 Msrc/main/java/org/example/microsoftlists/exception/InvalidValueException.java,0\4\04f2d06c1cbcb9d6fe225000f1bce0fd2dc79fde
+s
+Csrc/main/java/org/example/microsoftlists/service/CommonService.java,e\2\e2086f4f4c3b60e74f5982bee25e0f3c2667f26b
+~
+Nsrc/main/java/org/example/microsoftlists/view/dto/request/TemplateRequest.java,2\5\2563cdbcbaed30e5738a5f5dd88593914f43b5cc
+{
+Ksrc/main/java/org/example/microsoftlists/controller/TemplateController.java,e\0\e064c591f779f5e4659922d23126f6909cb7d7be

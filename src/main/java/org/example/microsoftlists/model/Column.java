@@ -67,4 +67,14 @@ public class Column implements Identifiable {
                 .orElse("");
     }
 
+    public Column copy()  {
+        Column cloned = new Column();
+
+        cloned.name = this.name;
+        cloned.type = this.type;
+        cloned.configs = new ArrayList<>(this.configs);
+
+
+        return cloned;
+    }
 }

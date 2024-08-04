@@ -1,6 +1,5 @@
 package org.example.microsoftlists.model;
 
-import org.example.microsoftlists.view.dto.response.ListResponse;
 import org.example.microsoftlists.model.constants.IdentifyModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
@@ -35,22 +34,14 @@ public class MicrosoftList implements Identifiable {
         this.views = new ArrayList<>();
     }
 
-    public static MicrosoftList of(ListResponse list) {
-        MicrosoftList microsoftList = new MicrosoftList();
-        microsoftList.setId(list.getId());
-        microsoftList.setName(list.getName());
-        microsoftList.setDescription(list.getDescription());
-        return microsoftList;
-    }
-
     public UUID getId() {
         return id;
     }
 
-    public MicrosoftList(String name) {
-        this();
-        this.name = name;
+
+    public void setColumns(List<Column> columns) {
+        for (Column column : columns) {
+            column.setList(this);
+        }
     }
-
-
 }

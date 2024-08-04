@@ -1,7 +1,6 @@
 package org.example.microsoftlists.controller;
 
 import jakarta.validation.Valid;
-import lombok.extern.slf4j.Slf4j;
 import org.example.microsoftlists.exception.NameExistsException;
 import org.example.microsoftlists.exception.InvalidValueException;
 import org.example.microsoftlists.service.PagingService;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
-@Slf4j
 @RestController
 @RequestMapping("/api/list")
 public class ListController {

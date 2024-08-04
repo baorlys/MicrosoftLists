@@ -10,28 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TemplateService {
-    private static final String DIR_PATH = Configuration.DATA_PATH;
-    private static final String TEMPLATES_PATH = Configuration.TEMPLATES_PATH;
     private final TemplateRepository templateRepository;
 
     public TemplateService() {
-        this.templateRepository = new TemplateRepository(DIR_PATH,TEMPLATES_PATH);
+        this.templateRepository = new TemplateRepository(Configuration.DATA_PATH,Configuration.TEMPLATES_PATH);
     }
 
-    public TemplateService(String dirPath, String templatesPath) {
-        this.templateRepository = new TemplateRepository(dirPath,templatesPath);
-    }
 
-    public List<Template> loadTemplates() throws IOException {
-        List<Template> templates = templateRepository.findAll();
-
-        for (Template template : templates) {
-            List<Column> columns = template.getColumns();
-            template.setColumns(columns);
-        }
-
-        return templates;
-    }
 
     public Template create(Template template) throws IOException {
         templateRepository.save(template);
@@ -39,13 +24,30 @@ public class TemplateService {
         return template;
     }
 
+
+
+    public Template save(String displayName, List<Column> cols) throws IOException {
+        Template template = new Template();
+
+        template.setDisplayName(displayName);
+        template.setColumns(cloneColumns(cols));
+
+        templateRepository.save(template);
+        return template;
+    }
+
+    private List<Column> cloneColumns(List<Column> cols)  {
+        List<Column> colsClone = new ArrayList<>();
+        for (Column col : cols) {
+            Column clone = col.copy();
+            colsClone.add(clone);
+        }
+        return colsClone;
+    }
+
     public boolean delete(String id) throws IOException {
         templateRepository.delete(id);
         return true;
-    }
-
-    public void update(String id, Template template) throws IOException {
-        templateRepository.update(id, template);
     }
 
     public Template find(String id) throws IOException {

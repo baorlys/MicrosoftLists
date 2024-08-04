@@ -23,17 +23,18 @@ public class TemplateSerializer extends JsonSerializer<Template> {
                 jsonGenerator.writeStartObject();
                 jsonGenerator.writeStringField("name", column.getName());
                 jsonGenerator.writeStringField("type", column.getType().getColumnType().toString());
-                jsonGenerator.writeStringField("defaultValue", column.getDefaultValue().toString());
-                    jsonGenerator.writeObjectFieldStart("config");
+                    jsonGenerator.writeArrayFieldStart("configs");
                         column.getConfigs().forEach(parameter -> {
                             try {
+                                jsonGenerator.writeStartObject();
                                 jsonGenerator.writeStringField("name", parameter.getName().toString());
-                                jsonGenerator.writeStringField("value", parameter.getValue().toString());
+                                jsonGenerator.writeStringField("value", parameter.getValue().get());
+                                jsonGenerator.writeEndObject();
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
                         });
-                    jsonGenerator.writeEndObject();
+                    jsonGenerator.writeEndArray();
                 jsonGenerator.writeEndObject();
             } catch (IOException e) {
                 e.printStackTrace();

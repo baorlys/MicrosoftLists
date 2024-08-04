@@ -24,7 +24,7 @@ public class SortingService {
         List<RowResponse> rows = list.getRows();
 
         String columnId = sortReq.getColumnId();
-        Column column = listService.findColumnById(columnId);
+        Column column = listsService.findColumnById(columnId);
 
         SortOrder order = sortReq.getOrder();
 
