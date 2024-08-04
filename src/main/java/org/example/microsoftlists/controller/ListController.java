@@ -88,7 +88,7 @@ public class ListController {
         return ResponseEntity.ok(new ApiSuccess("Row deleted successfully", list));
     }
 
-    @GetMapping("/{id}/sort/{columnId}/{order}")
+    @GetMapping("/{id}/sort")
     public ResponseEntity<ApiSuccess> sortList(@PathVariable String id,
                                                  @Valid @RequestBody SortRequest sortRequest) throws IOException {
         ListResponse list = sortingService.sort(id, sortRequest);
