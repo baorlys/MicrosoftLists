@@ -6,7 +6,7 @@ import org.example.microsoftlists.exception.InvalidValueException;
 import org.example.microsoftlists.model.value.IValue;
 import org.example.microsoftlists.model.value.SingleObject;
 import org.example.microsoftlists.model.value.ValueFactory;
-import org.example.microsoftlists.repository.RowRepository;
+import org.example.microsoftlists.repository.json.RowRepository;
 import org.example.microsoftlists.view.dto.MapperUtil;
 import org.example.microsoftlists.view.dto.request.ColumnRequest;
 import org.example.microsoftlists.view.dto.request.RowRequest;

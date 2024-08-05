@@ -1,4 +1,4 @@
-package org.example.microsoftlists.repository;
+package org.example.microsoftlists.repository.json;
 
 import org.example.microsoftlists.model.ColumnConfig;
 
