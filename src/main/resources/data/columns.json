@@ -1,0 +1,21 @@
+[ {
+  "typeIdentify" : "COLUMN",
+  "id" : "297b515b-e212-4398-866d-722a6a8a674e",
+  "list" : {
+    "id" : "e278ad52-45e8-4c68-9f72-1965c8528086",
+    "name" : "List API"
+  },
+  "name" : "Column Text",
+  "type" : "TEXT",
+  "hidden" : false
+}, {
+  "typeIdentify" : "COLUMN",
+  "id" : "99cc1343-3355-4798-87cc-f9da8e91b5c7",
+  "list" : {
+    "id" : "e278ad52-45e8-4c68-9f72-1965c8528086",
+    "name" : "List API"
+  },
+  "name" : "Column Number",
+  "type" : "NUMBER",
+  "hidden" : false
+} ]

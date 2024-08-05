@@ -1,0 +1,21 @@
+[ {
+  "typeIdentify" : "COLUMN_CONFIG",
+  "id" : "ef255b4e-1eb0-4ac4-b66b-db6cf53dbcf1",
+  "column" : {
+    "id" : "297b515b-e212-4398-866d-722a6a8a674e"
+  },
+  "parameter" : {
+    "name" : "DEFAULT_VALUE",
+    "value" : "hihi"
+  }
+}, {
+  "typeIdentify" : "COLUMN_CONFIG",
+  "id" : "a7e4874c-94c9-4a52-b6bd-cc3065d0ea67",
+  "column" : {
+    "id" : "99cc1343-3355-4798-87cc-f9da8e91b5c7"
+  },
+  "parameter" : {
+    "name" : "DEFAULT_VALUE",
+    "value" : "3"
+  }
+} ]

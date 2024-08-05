@@ -1,0 +1,59 @@
+[ {
+  "typeIdentify" : "TEMPLATE",
+  "id" : "e8a043b2-2d22-4004-8d76-a3175358bb43",
+  "displayName" : "Template 1",
+  "columns" : [ {
+    "name" : "Text Column",
+    "type" : "TEXT",
+    "configs" : [ {
+      "name" : "DEFAULT_VALUE",
+      "value" : "from template 1"
+    } ]
+  }, {
+    "name" : "Number Column",
+    "type" : "NUMBER",
+    "configs" : [ {
+      "name" : "DEFAULT_VALUE",
+      "value" : "4"
+    } ]
+  }, {
+    "name" : "Choice Column",
+    "type" : "CHOICE",
+    "configs" : [ {
+      "name" : "CHOICES",
+      "value" : "Choice 1;#Choice 2;#Choice 3"
+    }, {
+      "name" : "MULTIPLE_SELECTION",
+      "value" : "true"
+    } ]
+  } ]
+}, {
+  "typeIdentify" : "TEMPLATE",
+  "id" : "0e4e83be-26a8-44dc-816b-7e63c586ca76",
+  "displayName" : "template 2",
+  "columns" : [ {
+    "name" : "Text Column",
+    "type" : "TEXT",
+    "configs" : [ {
+      "name" : "DEFAULT_VALUE",
+      "value" : "default value is working"
+    } ]
+  }, {
+    "name" : "Number Column",
+    "type" : "NUMBER",
+    "configs" : [ {
+      "name" : "DEFAULT_VALUE",
+      "value" : "5"
+    } ]
+  }, {
+    "name" : "Choice Column",
+    "type" : "CHOICE",
+    "configs" : [ {
+      "name" : "CHOICES",
+      "value" : "Choice 1;#Choice 2;#Choice 3"
+    }, {
+      "name" : "MULTIPLE_SELECTION",
+      "value" : "true"
+    } ]
+  } ]
+} ]

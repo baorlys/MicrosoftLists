@@ -1,0 +1,11 @@
+[ {
+  "typeIdentify" : "COLUMN_CONFIG",
+  "id" : "ff0811d2-e17d-4284-9832-6afdbe5cec8c",
+  "column" : {
+    "id" : "6a48fc68-5e01-46c4-908f-0681ad95fdfc"
+  },
+  "parameter" : {
+    "name" : "CHOICES",
+    "value" : [ "choice 1", "choice 2" ]
+  }
+} ]
