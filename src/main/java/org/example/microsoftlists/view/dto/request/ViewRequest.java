@@ -2,6 +2,7 @@ package org.example.microsoftlists.view.dto.request;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.example.microsoftlists.model.constants.ViewConfig;
 import org.example.microsoftlists.model.constants.ViewType;
 
 import java.util.Map;
@@ -11,5 +12,5 @@ import java.util.Map;
 public class ViewRequest {
     private String name;
     private ViewType type;
-    private Map<String, String> data;
+    private Map<ViewConfig, String> configs;
 }

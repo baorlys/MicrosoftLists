@@ -7,14 +7,15 @@ import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 import java.util.Collections;
 import lombok.extern.slf4j.Slf4j;
+import org.example.microsoftlists.model.constants.ViewConfig;
 
 import java.util.Map;
 @Converter(autoApply = true)
 @Slf4j
-public class DataViewConverter implements AttributeConverter<Map<String,String>, String> {
+public class DataViewConverter implements AttributeConverter<Map<ViewConfig,String>, String> {
     private static final ObjectMapper objectMapper = new ObjectMapper();
     @Override
-    public String convertToDatabaseColumn(Map<String, String> attribute) {
+    public String convertToDatabaseColumn(Map<ViewConfig, String> attribute) {
         try {
             return objectMapper.writeValueAsString(attribute);
         } catch (JsonProcessingException e) {
@@ -24,9 +25,9 @@ public class DataViewConverter implements AttributeConverter<Map<String,String>,
     }
 
     @Override
-    public Map<String, String> convertToEntityAttribute(String s) {
+    public Map<ViewConfig, String> convertToEntityAttribute(String s) {
         try {
-            return objectMapper.readValue(s, new TypeReference<Map<String, String>>() {});
+            return objectMapper.readValue(s, new TypeReference<>() {});
         } catch (JsonProcessingException e) {
             log.error("Failed to convert json to map", e);
         }

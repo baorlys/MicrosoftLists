@@ -19,21 +19,13 @@ import javax.swing.*;
 @RestController
 @RequestMapping("/api/list")
 public class ListController {
-
+    private final ListService listService;
+    private final FilterService filterService;
     @Autowired
-    ListService listService;
-    @Autowired
-
-    SortingService sortingService;
-    @Autowired
-
-    PagingService pagingService;
-    @Autowired
-
-    SearchingService searchingService;
-    @Autowired
-
-    GroupService groupService;
+    public ListController(ListService listService, FilterService filterService) {
+        this.listService = listService;
+        this.filterService = filterService;
+    }
 
     @PostMapping("/{id}")
     public ResponseEntity<ApiSuccess> createColumn(@PathVariable String id,
@@ -103,33 +95,44 @@ public class ListController {
         return ResponseEntity.ok(new ApiSuccess("View created successfully", list));
     }
 
+    @DeleteMapping("{id}/view")
+    public ResponseEntity<ApiSuccess> deleteView(@PathVariable String id,
+                                                 @RequestBody String viewId) {
+        ListResponse list = listService.deleteView(id, viewId);
+        return ResponseEntity.ok(new ApiSuccess("View deleted successfully", list));
+    }
+
+    @PutMapping("/{id}/view/{viewId}")
+    public ResponseEntity<ApiSuccess> updateView(@PathVariable String id,
+                                                 @PathVariable String viewId,
+                                                 @RequestBody ViewRequest req) {
+        ListResponse list = listService.updateView(id, viewId, req);
+        return ResponseEntity.ok(new ApiSuccess("View updated successfully", list));
+    }
+
+
+
     @GetMapping("/{id}/sort/{columnId}/{order}")
     public ResponseEntity<ApiSuccess> sortList(@PathVariable String id,
                                                @PathVariable String columnId,
                                                @PathVariable SortOrder order) {
-        ListResponse list = sortingService.sort(id, columnId, order);
+        ListResponse list = filterService.sort(id, columnId, order);
         return ResponseEntity.ok(new ApiSuccess("List sorted successfully", list));
     }
 
     @GetMapping("/{id}/group/{columnId}")
     public ResponseEntity<ApiSuccess> groupList(@PathVariable String id,
                                                  @PathVariable String columnId) {
-        return ResponseEntity.ok(new ApiSuccess("List grouped successfully", groupService.groupBy(id, columnId)));
+        return ResponseEntity.ok(new ApiSuccess("List grouped successfully", filterService.groupBy(id, columnId)));
     }
 
     @GetMapping("/{id}/search/{key}")
     public ResponseEntity<ApiSuccess> searchList(@PathVariable String id,
                                                    @PathVariable String key)  {
-        ListResponse list = searchingService.search(id, key);
+        ListResponse list = filterService.search(id, key);
         return ResponseEntity.ok(new ApiSuccess("List searched successfully", list));
     }
 
-    @GetMapping("/{id}/{page}")
-    public ResponseEntity<ApiSuccess> getList(@PathVariable String id,
-                                                @PathVariable int page){
-        ListResponse list = pagingService.getList(id, page);
-        return ResponseEntity.ok(new ApiSuccess("List fetched successfully", list));
-    }
 
 
 }

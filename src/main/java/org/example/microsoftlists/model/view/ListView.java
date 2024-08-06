@@ -1,12 +1,12 @@
 package org.example.microsoftlists.model.view;
 
 
-import java.util.Map;
+import org.example.microsoftlists.model.constants.ViewType;
 
-public class ListView extends View {
+public class ListView implements IView {
 
-    public ListView(Map<String,String> data) {
-        this.setData(data);
+    @Override
+    public ViewType getViewType() {
+        return ViewType.LIST;
     }
-
 }

@@ -36,6 +36,7 @@ public class Row {
     }
 
     public void addCell(Cell cell) {
+        cell.setRow(this);
         cells.add(cell);
     }
 

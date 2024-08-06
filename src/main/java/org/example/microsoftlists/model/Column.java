@@ -8,6 +8,7 @@ import org.example.microsoftlists.model.converter.ITypeConverter;
 import org.example.microsoftlists.model.type.IType;
 import org.example.microsoftlists.model.value.IValue;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -35,6 +36,7 @@ public class Column  {
 
     public Column() {
         this.id = UUID.randomUUID().toString();
+        this.configs = new ArrayList<>();
         this.isHidden = false;
     }
 

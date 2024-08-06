@@ -1,12 +1,14 @@
 package org.example.microsoftlists.model.view;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
 import org.example.microsoftlists.model.MicrosoftList;
 import lombok.Getter;
 import lombok.Setter;
-import org.example.microsoftlists.model.constants.ViewType;
+import org.example.microsoftlists.model.constants.ViewConfig;
 import org.example.microsoftlists.model.converter.DataViewConverter;
+import org.example.microsoftlists.model.converter.IViewConverter;
 
 import java.util.Map;
 import java.util.UUID;
@@ -20,19 +22,20 @@ public class View {
     @Id
     private String id;
     @ManyToOne
+    @JsonIgnore
     private MicrosoftList list;
     private String name;
-    @Enumerated(EnumType.STRING)
-    private ViewType type;
+    @Convert(converter = IViewConverter.class)
+    private IView type;
 
     @Convert(converter = DataViewConverter.class)
-    Map<String,String> data;
+    Map<ViewConfig,String> configs;
 
-    public View(String name, ViewType type, Map<String, String> data) {
+    public View(String name, IView type, Map<ViewConfig, String> configs) {
         this.id = UUID.randomUUID().toString();
         this.name = name;
         this.type = type;
-        this.data = data;
+        this.configs = configs;
 
     }
 }

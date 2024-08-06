@@ -23,4 +23,8 @@ public class ColumnResponse {
     public void setType(IType type) {
         this.type = type.getColumnType();
     }
+
+    public void setType(ColumnType type) {
+        this.type = type;
+    }
 }

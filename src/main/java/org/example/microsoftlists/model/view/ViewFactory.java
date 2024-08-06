@@ -1,17 +1,16 @@
 package org.example.microsoftlists.model.view;
 
 import org.example.microsoftlists.model.constants.ViewType;
-import org.example.microsoftlists.view.dto.request.ViewRequest;
 
 import java.util.EnumMap;
 import java.util.Map;
-import java.util.function.Function;
+import java.util.function.Supplier;
 
 public class ViewFactory {
     private ViewFactory() {
         // Empty constructor
     }
-    private static final Map<ViewType, Function<Map<String,String>,View>> viewMap = new EnumMap<>(ViewType.class);
+    private static final Map<ViewType, Supplier<IView>> viewMap = new EnumMap<>(ViewType.class);
     static {
         viewMap.put(ViewType.LIST, ListView::new);
         viewMap.put(ViewType.BOARD, BoardView::new);
@@ -20,7 +19,7 @@ public class ViewFactory {
 
     }
 
-    public static View create(ViewRequest viewReq) {
-        return viewMap.get(viewReq.getType()).apply(viewReq.getData());
+    public static IView create(ViewType viewType) {
+        return viewMap.get(viewType).get();
     }
 }

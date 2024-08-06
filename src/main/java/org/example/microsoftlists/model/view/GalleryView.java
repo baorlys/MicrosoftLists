@@ -1,12 +1,14 @@
 package org.example.microsoftlists.model.view;
 
 
-import java.util.Map;
+import org.example.microsoftlists.model.constants.ViewType;
 
-public class GalleryView extends View {
 
-    public GalleryView(Map<String,String> data) {
-        this.setData(data);
+public class GalleryView implements IView {
 
+
+    @Override
+    public ViewType getViewType() {
+        return ViewType.GALLERY;
     }
 }

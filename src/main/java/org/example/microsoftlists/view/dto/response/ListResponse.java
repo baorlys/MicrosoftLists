@@ -3,6 +3,7 @@ package org.example.microsoftlists.view.dto.response;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -12,10 +13,12 @@ public class ListResponse {
     private String name;
     private String description;
 
-    List<ColumnResponse> columns;
+    List<ColumnResponse> columns = new ArrayList<>();
 
-    List<RowResponse> rows;
+    List<RowResponse> rows = new ArrayList<>();
 
-    List<ViewResponse> views;
+    List<ViewResponse> views = new ArrayList<>();
+
+
 
 }

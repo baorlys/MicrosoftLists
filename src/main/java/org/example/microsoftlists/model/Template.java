@@ -1,5 +1,6 @@
 package org.example.microsoftlists.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,9 +21,8 @@ public class Template  {
     private String displayName;
 
     @OneToMany(mappedBy = "template",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<Column> columns;
-
-
 
     public Template() {
         this.id = UUID.randomUUID().toString();

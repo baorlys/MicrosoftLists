@@ -2,10 +2,12 @@ package org.example.microsoftlists.service;
 
 import org.example.microsoftlists.exception.NameExistsException;
 import org.example.microsoftlists.exception.InvalidValueException;
+import org.example.microsoftlists.model.type.TypeFactory;
 import org.example.microsoftlists.model.value.IValue;
 import org.example.microsoftlists.model.value.SingleObject;
 import org.example.microsoftlists.model.value.ValueFactory;
 import org.example.microsoftlists.model.view.View;
+import org.example.microsoftlists.model.view.ViewFactory;
 import org.example.microsoftlists.repository.CellRepository;
 import org.example.microsoftlists.repository.RowRepository;
 import org.example.microsoftlists.repository.ViewRepository;
@@ -24,17 +26,23 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 @Service
 public class ListService {
-    @Autowired
-    private MicrosoftListService listsService;
+    private final ListsManagementService listsService;
 
-    @Autowired
-    private RowRepository rowRepository;
+    private final RowRepository rowRepository;
 
-    @Autowired
-    private CellRepository cellRepository;
+    private final CellRepository cellRepository;
 
+    private final ViewRepository viewRepository;
     @Autowired
-    private ViewRepository viewRepository;
+    public ListService(ListsManagementService listsService,
+                       RowRepository rowRepository,
+                       CellRepository cellRepository,
+                       ViewRepository viewRepository) {
+        this.listsService = listsService;
+        this.rowRepository = rowRepository;
+        this.cellRepository = cellRepository;
+        this.viewRepository = viewRepository;
+    }
 
     public boolean isColumnExists(ListResponse list, String colName)  {
         return list.getColumns().stream()
@@ -53,7 +61,7 @@ public class ListService {
         listObj.setId(id);
         col.setList(listObj);
 
-        listsService.save(col);
+        listsService.saveColumn(col);
 
         return listsService.findById(id);
     }
@@ -123,6 +131,7 @@ public class ListService {
 
         for (ColumnResponse column : columns) {
             Column col = MapperUtil.mapper.map(column, Column.class);
+            col.setType(TypeFactory.getType(column.getType()));
 
             Optional<String> value = Optional.ofNullable(rowRequest)
                     .map(r -> r.getValues().get(column.getId()));
@@ -182,10 +191,32 @@ public class ListService {
     //region View
     public ListResponse createView(String id, ViewRequest viewReq) {
         ListResponse list = listsService.findById(id);
-        View view = new View(viewReq.getName(), viewReq.getType(), viewReq.getData());
+        View view = new View();
+        view.setName(viewReq.getName());
+        view.setType(ViewFactory.create(viewReq.getType()));
         view.setList(MapperUtil.mapper.map(list, MicrosoftList.class));
         save(view);
         return listsService.findById(id);
+    }
+
+    public ListResponse updateView(String id, String viewId, ViewRequest viewReq) {
+        View view = findViewById(viewId);
+        view.setName(viewReq.getName());
+        view.setType(ViewFactory.create(viewReq.getType()));
+        save(view);
+        return listsService.findById(id);
+    }
+
+    public ListResponse deleteView(String id, String viewId) {
+        viewRepository.deleteById(viewId);
+        return listsService.findById(id);
+    }
+
+
+    public View findViewById(String viewId) {
+        View view = Optional.of(viewRepository.findById(viewId)).get().orElse(null);
+        CommonService.throwIsNull(view, "View not found");
+        return view;
     }
 
 
