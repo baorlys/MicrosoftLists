@@ -70,4 +70,7 @@ public class TemplateService {
     }
 
 
+    public List<Template> findAll() {
+        return templateRepository.findAll();
+    }
 }

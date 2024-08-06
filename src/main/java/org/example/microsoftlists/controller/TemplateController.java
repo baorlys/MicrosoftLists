@@ -27,6 +27,11 @@ public class TemplateController {
         return ResponseEntity.ok(new ApiSuccess("Template saved successfully", res));
     }
 
+    @GetMapping("/templates")
+    public ResponseEntity<List<Template>> getAllTemplates() {
+        return ResponseEntity.ok(templateService.findAll());
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<ApiSuccess> deleteTemplate(@PathVariable String id) {
         return ResponseEntity.ok(new ApiSuccess("Template deleted successfully", templateService.delete(id)));
