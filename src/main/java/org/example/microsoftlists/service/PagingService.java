@@ -3,18 +3,17 @@ package org.example.microsoftlists.service;
 import org.example.microsoftlists.config.Configuration;
 import org.example.microsoftlists.view.dto.response.ListResponse;
 import org.example.microsoftlists.view.dto.response.RowResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.util.List;
-
+@Service
 public class PagingService {
-    private final MicrosoftListService listsService;
+    @Autowired
+    MicrosoftListService listsService;
 
-    public PagingService() {
-        this.listsService = new MicrosoftListService();
-    }
 
-    public ListResponse getList(String id, int page) throws IOException {
+    public ListResponse getList(String id, int page)  {
         ListResponse list = listsService.findById(id);
         List<RowResponse> rows = list.getRows();
 

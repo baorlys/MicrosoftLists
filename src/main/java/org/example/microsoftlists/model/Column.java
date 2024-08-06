@@ -1,62 +1,55 @@
 package org.example.microsoftlists.model;
 
-import org.example.microsoftlists.model.constants.IdentifyModel;
-import org.example.microsoftlists.model.serializer.MicrosoftListSerializer;
+import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Getter;
 import lombok.Setter;
-import org.example.microsoftlists.model.deserializer.TypeDeserializer;
-import org.example.microsoftlists.model.serializer.TypeSerializer;
+import org.example.microsoftlists.model.converter.ITypeConverter;
 import org.example.microsoftlists.model.type.IType;
 import org.example.microsoftlists.model.value.IValue;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 @Getter
 @Setter
-public class Column implements Identifiable {
-    private final String typeIdentify = IdentifyModel.COLUMN.name();
-    private UUID id;
-
-    @JsonSerialize(using = MicrosoftListSerializer.class)
+@Entity
+@Table(name = "columns")
+public class Column  {
+    @Id
+    private String id;
+    @ManyToOne
     private MicrosoftList list;
     private String name;
-    @JsonDeserialize(using = TypeDeserializer.class)
-    @JsonSerialize(using = TypeSerializer.class)
+    @Convert(converter = ITypeConverter.class)
     private IType type;
+    @OneToMany(mappedBy = "column", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Config> configs;
 
+    @ManyToOne
     @JsonIgnore
-    private List<Parameter> configs;
-
+    private Template template;
     private boolean isHidden;
 
 
     public Column() {
-        this.id = UUID.randomUUID();
-        this.configs = new ArrayList<>();
+        this.id = UUID.randomUUID().toString();
         this.isHidden = false;
     }
 
-    public void setConfigs(Parameter... configs) {
-        this.configs = List.of(configs);
-    }
 
-
-
-    public void setConfigs(List<Parameter> configs) {
+    public void setConfigs(List<Config> configs) {
         this.configs = configs;
     }
 
     public boolean isValidValue(IValue value) {
-        return this.type.isValueValid(configs, value);
+        return this.type.isValueValid(configs, value)
+                || value.get().isEmpty()
+                || value.get().equals("");
     }
 
-    public int compare(String o1, String o2) {
+    public int compare(IValue o1, IValue o2) {
         return this.type.compare(o1, o2);
     }
 
@@ -72,7 +65,7 @@ public class Column implements Identifiable {
 
         cloned.name = this.name;
         cloned.type = this.type;
-        cloned.configs = new ArrayList<>(this.configs);
+        cloned.configs = this.configs;
 
 
         return cloned;

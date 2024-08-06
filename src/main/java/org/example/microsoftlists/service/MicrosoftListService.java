@@ -1,86 +1,77 @@
 package org.example.microsoftlists.service;
 
+import jakarta.transaction.Transactional;
 import org.example.microsoftlists.exception.NameExistsException;
 import org.example.microsoftlists.model.*;
 import org.example.microsoftlists.model.value.SingleObject;
-import org.example.microsoftlists.repository.json.ColumnConfigRepository;
-import org.example.microsoftlists.repository.json.ColumnRepository;
-import org.example.microsoftlists.repository.json.RowRepository;
+import org.example.microsoftlists.repository.*;
 import org.example.microsoftlists.service.builder.ColumnBuilder;
 import org.example.microsoftlists.view.dto.MapperUtil;
 import org.example.microsoftlists.view.dto.request.ColumnRequest;
 import org.example.microsoftlists.view.dto.request.ListRequest;
 
-import org.example.microsoftlists.repository.json.MicrosoftListRepository;
-import org.example.microsoftlists.config.Configuration;
 import org.example.microsoftlists.view.dto.request.ParaRequest;
 import org.example.microsoftlists.view.dto.response.ListResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
-import java.util.stream.Collectors;
-
+@Service
 public class MicrosoftListService {
+    @Autowired
+    private MicrosoftListRepository listRepository;
+    @Autowired
+    private ColumnRepository colRepository;
+    @Autowired
+    private ConfigRepository configRepository;
+    @Autowired
+    private RowRepository rowRepository;
+    @Autowired
+    private TemplateService templateService;
 
+    @Autowired
+    private CellRepository cellRepository;
 
-    private final MicrosoftListRepository listRepository;
+    public ListResponse findById(String id) {
+        MicrosoftList list = Optional.of(listRepository.findById(id)).get().orElse(null);
+        CommonService.throwIsNull(list, "List not found");
 
-    private final ColumnRepository colRepository;
-
-    private final ColumnConfigRepository colConfigRepository;
-
-    private final RowRepository rowRepository;
-
-    TemplateService templateService = new TemplateService();
-
-
-    public MicrosoftListService() {
-        this.listRepository = new MicrosoftListRepository(Configuration.DATA_PATH, Configuration.LISTS_PATH);
-        this.colRepository = new ColumnRepository(Configuration.DATA_PATH, Configuration.COLS_PATH);
-        this.colConfigRepository = new ColumnConfigRepository(Configuration.DATA_PATH, Configuration.COL_CONFIG_PATH);
-        this.rowRepository = new RowRepository(Configuration.DATA_PATH, Configuration.ROWS_PATH);
-    }
-
-    public ListResponse findById(String id) throws IOException {
-        MicrosoftList list = listRepository.findById(id);
-
+        Objects.requireNonNull(list);
         list.setColumns(findAllColsOfList(id));
         list.setRows(findAllRowsOfList(id));
 
         return MapperUtil.mapper.map(list, ListResponse.class);
     }
 
-    public List<Column> findAllColsOfList(String listId) throws IOException {
+    public List<Column> findAllColsOfList(String listId) {
         List<Column> columns = colRepository.findAllByListId(listId);
 
         for (Column column : columns) {
-            List<ColumnConfig> columnConfigs = colConfigRepository.findAllByColumnId(column.getId().toString());
-            List<Parameter> parameters = columnConfigs.stream()
-                    .map(ColumnConfig::getParameter)
-                    .collect(Collectors.toList());
-            column.setConfigs(parameters);
+            List<Config> configs = configRepository.findAllByColumnId(column.getId());
+            column.setConfigs(configs);
         }
 
         return columns;
     }
 
-    public List<Row> findAllRowsOfList(String listId) throws IOException {
+    public List<Row> findAllRowsOfList(String listId) {
         return rowRepository.findAllByListId(listId);
     }
 
-    public List<MicrosoftList> loadLists() throws IOException {
+    public List<MicrosoftList> loadLists() {
         return listRepository.findAll();
     }
 
-    public boolean isListExists(String listName) throws IOException {
+    public boolean isListExists(String listName)  {
         return loadLists().stream()
                 .anyMatch(list -> list.getName().equals(listName));
 
     }
 
-    public MicrosoftList create(ListRequest listReq) throws IOException, NameExistsException {
+    public MicrosoftList create(ListRequest listReq) throws NameExistsException {
         CommonService.throwIsExists(isListExists(listReq.getName()), "List name already exists");
 
         MicrosoftList list = new MicrosoftList();
@@ -91,35 +82,40 @@ public class MicrosoftListService {
         return list;
     }
 
-    public MicrosoftList create(String templateId, ListRequest listReq) throws IOException, NameExistsException {
+    public ListResponse create(String templateId, ListRequest listReq) throws NameExistsException {
         CommonService.throwIsExists(isListExists(listReq.getName()), "List name already exists");
 
         MicrosoftList list = new MicrosoftList();
 
         Template template = templateService.find(templateId);
         MapperUtil.mapper.map(listReq, list);
+
         list.setColumns(template.getColumns());
 
         listRepository.save(list);
         saveAll(template.getColumns());
 
-        return list;
+        return MapperUtil.mapper.map(list, ListResponse.class);
     }
 
 
 
-    public void delete(String id) throws IOException {
-        listRepository.delete(id);
-        colRepository.deleteAllOfList(id);
+    public void delete(String id) {
+        listRepository.deleteById(id);
     }
 
-    public void update(String id, MicrosoftList list) throws IOException {
-        listRepository.update(id, list);
-        // maybe update columns
+    public void update(String id, MicrosoftList list) {
+        MicrosoftList oldList = Optional.of(listRepository.findById(id)).get().orElse(null);
+        CommonService.throwIsNull(oldList, "List not found");
+
+        Objects.requireNonNull(oldList);
+        list.setId(oldList.getId());
+        listRepository.save(list);
     }
 
 
-    public ListResponse findByName(String listName) throws IOException {
+
+    public ListResponse findByName(String listName) {
         List<MicrosoftList> lists = loadLists();
         MicrosoftList list = lists.stream()
                 .filter(i -> i.getName().equals(listName))
@@ -131,80 +127,67 @@ public class MicrosoftListService {
 
     //region Column
     public Column generateColumn(ColumnRequest column) {
-        List<ParaRequest> configs = column.getConfigs();
+        List<ParaRequest> pars = column.getConfigs();
 
-        List<Parameter> paras = new ArrayList<>();
-        for (ParaRequest para : configs) {
-            paras.add(new Parameter(para.getName(), para.getValue()));
-        }
+        List<Config> configs = new ArrayList<>();
 
-        return new ColumnBuilder(column.getType(), column.getName())
-                .configure(paras)
+        Column res = new ColumnBuilder(column.getType(), column.getName())
                 .build();
+
+        for (ParaRequest para : pars) {
+            configs.add(new Config(res, para.getName(), para.getValue()));
+        }
+        res.setConfigs(configs);
+
+        return res;
     }
 
-    public void save(Column column) throws IOException {
-
-
+    public void save(Column column) {
         colRepository.save(column);
 
-        List<ColumnConfig> columnConfigs = new ArrayList<>();
+        List<Config> columnConfigs = column.getConfigs();
+        configRepository.saveAll(columnConfigs);
 
-        for (Parameter para : column.getConfigs()) {
-            ColumnConfig columnConfig = new ColumnConfig(column, para);
-            columnConfigs.add(columnConfig);
-        }
 
-        List<Row> rows = rowRepository.findAllByListId(column.getList().getId().toString());
+        List<Row> rows = rowRepository.findAllByListId(column.getList().getId());
         for (Row row : rows) {
             Optional<String> defaultVal = Optional.ofNullable(column.getDefaultValue());
             row.addCell(Cell.of(row, column, new SingleObject(defaultVal.orElse(""))));
-            rowRepository.update(row.getId().toString(), row);
+            cellRepository.save(row.getCells().get(row.getCells().size() - 1));
         }
 
-        colConfigRepository.saveAll(columnConfigs);
     }
 
-    public void saveAll(List<Column> columns) throws IOException {
+    public void saveAll(List<Column> columns) {
         for (Column column : columns) {
             save(column);
         }
     }
 
-    public void deleteColumn(String id) throws IOException {
-        colRepository.delete(id);
-
-        colConfigRepository.deleteAllByColumnId(id);
-
-        rowRepository.deleteCellsByColumnId(id);
+    @Transactional
+    public void deleteColumn(String id) {
+        cellRepository.deleteAllByColumnId(id);
+        configRepository.deleteAllByColumnId(id);
+        colRepository.deleteById(id);
     }
 
-    public void updateColumn(String id, Column column) throws IOException {
-        colRepository.update(id, column);
+    public void updateColumn(String id, Column column)  {
+        Column oldColumn = Optional.of(colRepository.findById(id)).get().orElse(null);
+        CommonService.throwIsNull(oldColumn, "Column not found");
 
+        Objects.requireNonNull(oldColumn);
+        column.setId(oldColumn.getId());
+        colRepository.save(column);
 
-        colConfigRepository.deleteAllByColumnId(id);
-
-        List<ColumnConfig> columnConfigs = new ArrayList<>();
-
-        for (Parameter para : column.getConfigs()) {
-            ColumnConfig columnConfig = new ColumnConfig(column, para);
-            columnConfigs.add(columnConfig);
-        }
-
-        colConfigRepository.saveAll(columnConfigs);
     }
 
-    public Column findColumnById(String id) throws IOException {
-        Column column = colRepository.findById(id);
+    public Column findColumnById(String id) {
+        Column column = Optional.of(colRepository.findById(id)).get().orElse(null);
+        CommonService.throwIsNull(column, "Column not found");
 
-        List<ColumnConfig> columnConfigs = colConfigRepository.findAllByColumnId(id);
-
-        List<Parameter> parameters = columnConfigs.stream()
-                .map(ColumnConfig::getParameter)
-                .collect(Collectors.toList());
-
-        column.setConfigs(parameters);
+        Objects.requireNonNull(column);
+        List<Config> configs = configRepository.findAllByColumnId(id);
+        column.setConfigs(configs);
 
         return column;
     }

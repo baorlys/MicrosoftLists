@@ -5,12 +5,11 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Getter
 @Setter
 public class RowResponse {
-    private UUID id;
+    private String id;
     private List<CellResponse> cells = new ArrayList<>();
 
 }

@@ -1,13 +1,10 @@
 package org.example.microsoftlists.service.file;
 
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import org.example.microsoftlists.model.Identifiable;
-import org.example.microsoftlists.model.deserializer.IdentifiableDeserializer;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.databind.module.SimpleModule;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,12 +19,6 @@ public class JsonService {
     static {
         objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
         objectMapper.registerModule(new JavaTimeModule());
-
-        SimpleModule moduleId = new SimpleModule();
-        moduleId.addDeserializer(Identifiable.class, new IdentifiableDeserializer());
-        objectMapper.registerModule(moduleId);
-
-
     }
 
     public static String toJson(Object object) throws JsonProcessingException {
