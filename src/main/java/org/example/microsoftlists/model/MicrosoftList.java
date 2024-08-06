@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.example.microsoftlists.model.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,9 @@ public class MicrosoftList {
     private List<Column> columns;
     @OneToMany(mappedBy = "list",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Row> rows;
+
+    @OneToMany(mappedBy = "list",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<View> views;
     public MicrosoftList() {
         this.id = UUID.randomUUID().toString();
         this.columns = new ArrayList<>();

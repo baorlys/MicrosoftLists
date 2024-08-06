@@ -4,21 +4,21 @@ import org.example.microsoftlists.model.constants.CalendarLayout;
 import org.example.microsoftlists.model.Column;
 import lombok.Getter;
 import lombok.Setter;
-import org.example.microsoftlists.model.constants.ViewType;
+
+import java.util.Map;
 
 
 @Getter
 @Setter
-public class CalendarView extends AbstractView {
+public class CalendarView extends View {
     private CalendarLayout layout;
 
     private Column startDate;
     private Column endDate;
 
-    public CalendarView(String name, CalendarLayout layout, Column startDate, Column endDate) {
-        super(name, ViewType.CALENDAR);
-        this.layout = layout;
-        this.startDate = startDate;
-        this.endDate = endDate;
+
+    public CalendarView(Map<String,String> data) {
+        this.setData(data);
+
     }
 }

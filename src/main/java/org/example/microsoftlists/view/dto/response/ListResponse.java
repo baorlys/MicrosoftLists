@@ -16,4 +16,6 @@ public class ListResponse {
 
     List<RowResponse> rows;
 
+    List<ViewResponse> views;
+
 }

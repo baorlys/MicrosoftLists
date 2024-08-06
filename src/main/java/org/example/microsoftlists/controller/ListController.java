@@ -7,6 +7,7 @@ import org.example.microsoftlists.service.*;
 import org.example.microsoftlists.view.ApiSuccess;
 import org.example.microsoftlists.view.dto.request.ColumnRequest;
 import org.example.microsoftlists.view.dto.request.RowRequest;
+import org.example.microsoftlists.view.dto.request.ViewRequest;
 import org.example.microsoftlists.view.dto.response.ListResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -93,6 +94,13 @@ public class ListController {
                                                   @PathVariable String rowId) {
         ListResponse list = listService.deleteRow(id, rowId);
         return ResponseEntity.ok(new ApiSuccess("Row deleted successfully", list));
+    }
+
+    @PostMapping("/{id}/view")
+    public ResponseEntity<ApiSuccess> createView(@PathVariable String id,
+                                                 @RequestBody ViewRequest req) {
+        ListResponse list = listService.createView(id, req);
+        return ResponseEntity.ok(new ApiSuccess("View created successfully", list));
     }
 
     @GetMapping("/{id}/sort/{columnId}/{order}")

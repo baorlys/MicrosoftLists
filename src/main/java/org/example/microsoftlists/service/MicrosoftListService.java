@@ -65,6 +65,15 @@ public class MicrosoftListService {
         return listRepository.findAll();
     }
 
+    public List<ListResponse> loadListsResponse() {
+        List<MicrosoftList> lists = loadLists();
+        List<ListResponse> listResponses = new ArrayList<>();
+        for (MicrosoftList list : lists) {
+            listResponses.add(MapperUtil.mapper.map(list, ListResponse.class));
+        }
+        return listResponses;
+    }
+
     public boolean isListExists(String listName)  {
         return loadLists().stream()
                 .anyMatch(list -> list.getName().equals(listName));

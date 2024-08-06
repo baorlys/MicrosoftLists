@@ -1,9 +1,12 @@
 package org.example.microsoftlists.model.view;
 
-import org.example.microsoftlists.model.constants.ViewType;
 
-public class GalleryView extends AbstractView {
-    public GalleryView(String name) {
-        super(name, ViewType.GALLERY);
+import java.util.Map;
+
+public class GalleryView extends View {
+
+    public GalleryView(Map<String,String> data) {
+        this.setData(data);
+
     }
 }

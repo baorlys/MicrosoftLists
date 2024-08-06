@@ -2,7 +2,7 @@ package org.example.microsoftlists.view.dto.response;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.example.microsoftlists.model.Config;
+import org.example.microsoftlists.model.constants.ColumnType;
 import org.example.microsoftlists.model.type.IType;
 
 import java.util.List;
@@ -12,14 +12,15 @@ import java.util.List;
 public class ColumnResponse {
     private String id;
     private String name;
-    private IType type;
+    private ColumnType type;
 
     private String defaultValue;
 
-    private List<Config> configs;
+    private List<ConfigResponse> configs;
 
     private boolean isHidden;
 
-
-
+    public void setType(IType type) {
+        this.type = type.getColumnType();
+    }
 }

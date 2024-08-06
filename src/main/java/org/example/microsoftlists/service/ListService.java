@@ -1,16 +1,18 @@
 package org.example.microsoftlists.service;
 
-import jakarta.transaction.Transactional;
 import org.example.microsoftlists.exception.NameExistsException;
 import org.example.microsoftlists.exception.InvalidValueException;
 import org.example.microsoftlists.model.value.IValue;
 import org.example.microsoftlists.model.value.SingleObject;
 import org.example.microsoftlists.model.value.ValueFactory;
+import org.example.microsoftlists.model.view.View;
 import org.example.microsoftlists.repository.CellRepository;
 import org.example.microsoftlists.repository.RowRepository;
+import org.example.microsoftlists.repository.ViewRepository;
 import org.example.microsoftlists.view.dto.MapperUtil;
 import org.example.microsoftlists.view.dto.request.ColumnRequest;
 import org.example.microsoftlists.view.dto.request.RowRequest;
+import org.example.microsoftlists.view.dto.request.ViewRequest;
 import org.example.microsoftlists.view.dto.response.CellResponse;
 import org.example.microsoftlists.view.dto.response.ColumnResponse;
 import org.example.microsoftlists.view.dto.response.ListResponse;
@@ -30,6 +32,9 @@ public class ListService {
 
     @Autowired
     private CellRepository cellRepository;
+
+    @Autowired
+    private ViewRepository viewRepository;
 
     public boolean isColumnExists(ListResponse list, String colName)  {
         return list.getColumns().stream()
@@ -168,10 +173,25 @@ public class ListService {
     }
 
 
-    @Transactional
     public void deleteRow(String rowId) {
         cellRepository.deleteByRowId(rowId);
         rowRepository.deleteById(rowId);
+    }
+    //endregion
+
+    //region View
+    public ListResponse createView(String id, ViewRequest viewReq) {
+        ListResponse list = listsService.findById(id);
+        View view = new View(viewReq.getName(), viewReq.getType(), viewReq.getData());
+        view.setList(MapperUtil.mapper.map(list, MicrosoftList.class));
+        save(view);
+        return listsService.findById(id);
+    }
+
+
+
+    public void save(View view) {
+        viewRepository.save(view);
     }
     //endregion
 }

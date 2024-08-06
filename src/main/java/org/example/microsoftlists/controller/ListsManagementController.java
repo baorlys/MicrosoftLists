@@ -25,7 +25,7 @@ public class ListsManagementController {
 
     @GetMapping("/lists")
     public ResponseEntity<ApiSuccess> getLists()  {
-        List<MicrosoftList> lists = listsService.loadLists();
+        List<ListResponse> lists = listsService.loadListsResponse();
         return ResponseEntity.ok(new ApiSuccess("Lists loaded successfully", lists));
     }
 

@@ -4,22 +4,17 @@ import org.example.microsoftlists.model.Column;
 import lombok.Getter;
 import lombok.Setter;
 import org.example.microsoftlists.model.constants.ConfigParameter;
-import org.example.microsoftlists.model.constants.ViewType;
 
-import java.util.Optional;
+import java.util.Map;
 
 @Setter
 @Getter
-public class BoardView extends AbstractView {
+public class BoardView extends View {
     private Column organize;
-    public BoardView(String name, Column organize) {
-        super(name,ViewType.BOARD);
-        this.setName(name);
-        this.organize = Optional.ofNullable(organize)
-                .filter(this::isOrganizeValid)
-                .orElseThrow(
-                        () -> new IllegalArgumentException("Organize column must be single selection column.")
-                );
+
+
+    public BoardView(Map<String,String> data) {
+        this.setData(data);
     }
 
     private boolean isOrganizeValid(Column column) {
