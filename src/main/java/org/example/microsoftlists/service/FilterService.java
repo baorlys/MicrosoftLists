@@ -28,14 +28,14 @@ public class FilterService {
         this.listService = listService;
     }
 
-    public Map<String, List<RowResponse>> groupBy(String id, String colId) {
+    public Map<String, List<RowResponse>> groupBy(String id, String colName) {
         ListResponse list = listsService.findById(id);
         List<RowResponse> rows = list.getRows();
 
         return rows.stream()
                 .collect(Collectors.groupingBy(row ->
                                 row.getCells().stream()
-                                        .filter(cell -> cell.getColumn().equals(colId))
+                                        .filter(cell -> cell.getColumn().equals(colName))
                                         .map(CellResponse::getValue)
                                         .findFirst()
                                         .filter(value -> !value.isBlank())
