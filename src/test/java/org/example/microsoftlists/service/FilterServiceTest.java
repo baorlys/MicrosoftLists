@@ -2,7 +2,6 @@ package org.example.microsoftlists.service;
 
 import org.example.microsoftlists.model.Column;
 import org.example.microsoftlists.model.constants.ColumnType;
-import org.example.microsoftlists.model.value.ValueFactory;
 import org.example.microsoftlists.service.builder.ColumnBuilder;
 import org.example.microsoftlists.view.dto.MapperUtil;
 import org.example.microsoftlists.view.dto.response.CellResponse;
