@@ -34,6 +34,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -185,7 +186,7 @@ class ListServiceTest {
         ColumnResponse columnResponse = new ColumnResponse();
         columnResponse.setId("col1");
         columnResponse.setName("Column 1");
-        columnResponse.setType(ColumnType.TEXT);
+        columnResponse.setType(TypeFactory.getType(ColumnType.TEXT));
 
         ListResponse listResponse = new ListResponse();
         listResponse.setId(listId);
@@ -273,20 +274,6 @@ class ListServiceTest {
 
         // Assert
         verify(cellRepository).saveAll(anyList());  // Verify that saveAll was called
-    }
-
-    private void setUpMocks(Column column, String rowId, String columnId, String value) {
-        Row row = new Row();
-        row.setId(rowId);
-        Cell cell = new Cell();
-        cell.setRow(row);
-        cell.setColumn(column);
-        cell.setValue(ValueFactory.create(value));
-        row.setCells(Collections.singletonList(cell));
-
-        when(listsService.findColumnById(columnId)).thenReturn(column);
-        when(rowRepository.findById(rowId)).thenReturn(Optional.of(row));
-        when(cellRepository.saveAll(any())).thenReturn(Collections.singletonList(cell));
     }
 
     @Test

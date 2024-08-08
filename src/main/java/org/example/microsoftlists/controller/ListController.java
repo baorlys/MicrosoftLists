@@ -12,8 +12,10 @@ import org.example.microsoftlists.view.dto.response.ListResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.swing.*;
+import java.io.IOException;
 
 
 @RestController
@@ -21,10 +23,13 @@ import javax.swing.*;
 public class ListController {
     private final ListService listService;
     private final FilterService filterService;
+
+    private final CloudinaryService cloudinaryService;
     @Autowired
-    public ListController(ListService listService, FilterService filterService) {
+    public ListController(ListService listService, FilterService filterService, CloudinaryService cloudinaryService) {
         this.listService = listService;
         this.filterService = filterService;
+        this.cloudinaryService = cloudinaryService;
     }
 
     @PostMapping("/{id}")
@@ -131,6 +136,12 @@ public class ListController {
                                                    @PathVariable String key)  {
         ListResponse list = filterService.search(id, key);
         return ResponseEntity.ok(new ApiSuccess("List searched successfully", list));
+    }
+
+    @PostMapping("/{id}/upload/image")
+    public ResponseEntity<String> uploadImage(@RequestParam("file") MultipartFile file,
+                                              @PathVariable String id) throws IOException {
+        return ResponseEntity.ok(cloudinaryService.uploadFile(file, id));
     }
 
 

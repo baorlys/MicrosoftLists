@@ -40,7 +40,7 @@ public class MicrosoftList {
 
 
 
-    public void setColumns(List<Column> columns) {
+    public void setColumnsCopy(List<Column> columns) {
         List<Column> cols = new ArrayList<>();
         for (Column column : columns) {
             Column col = column.copy();

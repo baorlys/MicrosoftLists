@@ -21,8 +21,5 @@ public class ViewResponse {
         this.type = type.getViewType();
     }
 
-    public void setType(ViewType type) {
-        this.type = type;
-    }
 
 }

@@ -1,7 +1,11 @@
 package org.example.microsoftlists.service;
 
-import org.example.microsoftlists.exception.NameExistsException;
 import org.example.microsoftlists.exception.InvalidValueException;
+import org.example.microsoftlists.exception.NameExistsException;
+import org.example.microsoftlists.model.Cell;
+import org.example.microsoftlists.model.Column;
+import org.example.microsoftlists.model.MicrosoftList;
+import org.example.microsoftlists.model.Row;
 import org.example.microsoftlists.model.type.TypeFactory;
 import org.example.microsoftlists.model.value.IValue;
 import org.example.microsoftlists.model.value.SingleObject;
@@ -19,11 +23,12 @@ import org.example.microsoftlists.view.dto.response.CellResponse;
 import org.example.microsoftlists.view.dto.response.ColumnResponse;
 import org.example.microsoftlists.view.dto.response.ListResponse;
 import org.example.microsoftlists.view.dto.response.RowResponse;
-import org.example.microsoftlists.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 @Service
 public class ListService {
     private final ListsManagementService listsService;
@@ -195,6 +200,7 @@ public class ListService {
         view.setName(viewReq.getName());
         view.setType(ViewFactory.create(viewReq.getType()));
         view.setList(MapperUtil.mapper.map(list, MicrosoftList.class));
+        view.setConfigs(viewReq.getConfigs());
         save(view);
         return listsService.findById(id);
     }

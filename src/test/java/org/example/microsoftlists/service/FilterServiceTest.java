@@ -2,6 +2,7 @@ package org.example.microsoftlists.service;
 
 import org.example.microsoftlists.model.Column;
 import org.example.microsoftlists.model.constants.ColumnType;
+import org.example.microsoftlists.model.value.ValueFactory;
 import org.example.microsoftlists.service.builder.ColumnBuilder;
 import org.example.microsoftlists.view.dto.MapperUtil;
 import org.example.microsoftlists.view.dto.response.CellResponse;
@@ -21,7 +22,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.when;
 
 class FilterServiceTest {
     @Mock
@@ -42,17 +43,19 @@ class FilterServiceTest {
     void testGroupBy() {
         String id = "list1";
         String colName = "column name";
+        Column column = new ColumnBuilder(ColumnType.TEXT, colName).build();
+        column.setId("col1");
 
         CellResponse cellResponse1 = new CellResponse();
-        cellResponse1.setValue("value1");
-        cellResponse1.setColumn(colName);
+        cellResponse1.setValue(ValueFactory.create("value1"));
+        cellResponse1.setColumn(column);
 
         RowResponse rowResponse1 = new RowResponse();
         rowResponse1.setCells(List.of(cellResponse1));
 
         CellResponse cellResponse2 = new CellResponse();
-        cellResponse2.setValue("value2");
-        cellResponse2.setColumn(colName);
+        cellResponse2.setValue(ValueFactory.create("value2"));
+        cellResponse2.setColumn(column);
 
         RowResponse rowResponse2 = new RowResponse();
         rowResponse2.setCells(List.of(cellResponse2));
@@ -83,14 +86,14 @@ class FilterServiceTest {
         ColumnResponse columnResponse = MapperUtil.mapper.map(column, ColumnResponse.class);
         // Create mock Rows
         CellResponse cellResponse1 = new CellResponse();
-        cellResponse1.setValue("b");
+        cellResponse1.setValue(ValueFactory.create("b"));
         cellResponse1.setColumn(column);
 
         RowResponse rowResponse1 = new RowResponse();
         rowResponse1.setCells(List.of(cellResponse1));
 
         CellResponse cellResponse2 = new CellResponse();
-        cellResponse2.setValue("a");
+        cellResponse2.setValue(ValueFactory.create("a"));
         cellResponse2.setColumn(column);
 
         RowResponse rowResponse2 = new RowResponse();
@@ -125,13 +128,13 @@ class FilterServiceTest {
         String key = "1";
 
         CellResponse cellResponse1 = new CellResponse();
-        cellResponse1.setValue("value1");
+        cellResponse1.setValue(ValueFactory.create("value1"));
 
         RowResponse rowResponse1 = new RowResponse();
         rowResponse1.setCells(List.of(cellResponse1));
 
         CellResponse cellResponse2 = new CellResponse();
-        cellResponse2.setValue("value2");
+        cellResponse2.setValue(ValueFactory.create("value2"));
 
         RowResponse rowResponse2 = new RowResponse();
         rowResponse2.setCells(List.of(cellResponse2));

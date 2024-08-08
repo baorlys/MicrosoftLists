@@ -206,3 +206,9 @@ Lsrc/main/java/org/example/microsoftlists/model/converter/IViewConverter.java,b
 Psrc/main/java/org/example/microsoftlists/view/dto/response/TemplateResponse.java,8\a\8a976b3910d6d40b5c226e49536cfdaa66917fce
 u
 Esrc/test/java/org/example/microsoftlists/service/ListServiceTest.java,0\8\087fd753df91d499df7bac6020e2627a0709651b
+u
+Esrc/main/java/org/example/microsoftlists/config/CloudinaryConfig.java,c\1\c10a96e0fa3a6d0050c29b79ef6fbef3581c11dd
+w
+Gsrc/test/java/org/example/microsoftlists/service/FilterServiceTest.java,f\2\f2fe3de9ed3b3506dbb5dc17510af84788e4383a
+w
+Gsrc/main/java/org/example/microsoftlists/service/CloudinaryService.java,f\6\f6765e8b3e7ecfd468bb0ae3d7d15bee62033170

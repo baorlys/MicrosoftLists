@@ -17,15 +17,8 @@ public class CellResponse {
         this.column = column.getName();
     }
 
-    public void setColumn(String column) {
-        this.column = column;
-    }
-
     public void setValue(IValue value) {
         this.value = value.get();
     }
 
-    public void setValue(String value) {
-        this.value = value;
-    }
 }

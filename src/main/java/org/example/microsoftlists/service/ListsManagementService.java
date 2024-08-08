@@ -1,6 +1,5 @@
 package org.example.microsoftlists.service;
 
-import org.example.microsoftlists.config.Configuration;
 import org.example.microsoftlists.exception.NameExistsException;
 import org.example.microsoftlists.model.*;
 import org.example.microsoftlists.model.value.SingleObject;
@@ -9,14 +8,12 @@ import org.example.microsoftlists.service.builder.ColumnBuilder;
 import org.example.microsoftlists.view.dto.MapperUtil;
 import org.example.microsoftlists.view.dto.request.ColumnRequest;
 import org.example.microsoftlists.view.dto.request.ListRequest;
-
 import org.example.microsoftlists.view.dto.request.ParaRequest;
 import org.example.microsoftlists.view.dto.response.ListResponse;
 import org.example.microsoftlists.view.dto.response.RowResponse;
 import org.example.microsoftlists.view.dto.response.TemplateResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -53,9 +50,6 @@ public class ListsManagementService {
         CommonService.throwIsNull(list, "List not found");
 
         Objects.requireNonNull(list);
-        list.setColumns(findAllColsOfList(id));
-        list.setRows(findAllRowsOfList(id, PageRequest.of(0,Configuration.PAGE_SIZE)));
-
         return MapperUtil.mapper.map(list, ListResponse.class);
     }
 
@@ -115,7 +109,7 @@ public class ListsManagementService {
         Template template = findTemplateById(templateId);
         MapperUtil.mapper.map(listReq, list);
 
-        list.setColumns(template.getColumns());
+        list.setColumnsCopy(template.getColumns());
 
         listRepository.save(list);
         saveAllColumn(template.getColumns());
