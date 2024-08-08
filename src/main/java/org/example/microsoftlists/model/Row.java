@@ -1,47 +1,42 @@
 package org.example.microsoftlists.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.microsoftlists.config.Configuration;
-import org.example.microsoftlists.model.constants.IdentifyModel;
-import org.example.microsoftlists.model.serializer.MicrosoftListSerializer;
-import org.example.microsoftlists.model.serializer.RowSerializer;
-
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Getter
 @Setter
-@JsonSerialize(using = RowSerializer.class)
-public class Row implements Identifiable {
-    private final String typeIdentify = IdentifyModel.ROW.name();
-    private UUID id;
+@Entity
+public class Row {
+    @Id
+    private String id;
+    @ManyToOne
     private MicrosoftList list;
 
+    @OneToMany(mappedBy = "row",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Cell> cells;
     private LocalDateTime createdAt;
 
     public Row() {
-        this.id = UUID.randomUUID();
+        this.id = UUID.randomUUID().toString();
         this.cells = new ArrayList<>();
         this.createdAt = getCurrentDate();
     }
 
 
     public Row(MicrosoftList list) {
-        this.id = UUID.randomUUID();
+        this.id = UUID.randomUUID().toString();
         this.list = list;
         this.cells = new ArrayList<>();
         this.createdAt = getCurrentDate();
     }
 
     public void addCell(Cell cell) {
+        cell.setRow(this);
         cells.add(cell);
     }
 

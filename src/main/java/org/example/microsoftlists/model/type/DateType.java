@@ -1,6 +1,6 @@
 package org.example.microsoftlists.model.type;
 
-import org.example.microsoftlists.model.Parameter;
+import org.example.microsoftlists.model.Config;
 import org.example.microsoftlists.config.Configuration;
 import org.example.microsoftlists.model.constants.ConfigParameter;
 import org.example.microsoftlists.model.constants.ColumnType;
@@ -33,16 +33,16 @@ public class DateType implements IType {
     }
 
     @Override
-    public List<Parameter> handleConfig(List<Parameter> configs) {
+    public List<Config> handleConfig(List<Config> configs) {
         return configs;
     }
 
 
     @Override
-    public IValue handleDefault(List<Parameter> configs) {
+    public IValue handleDefault(List<Config> configs) {
         IValue defaultVal = configs.stream()
                 .filter(para -> para.getName().equals(ConfigParameter.DEFAULT_VALUE))
-                .map(Parameter::getValue)
+                .map(Config::getValue)
                 .findFirst().orElse(null);
 
         Optional.ofNullable(defaultVal)
@@ -91,21 +91,21 @@ public class DateType implements IType {
 
 
     @Override
-    public boolean isValueValid(List<Parameter> config, IValue value) {
+    public boolean isValueValid(List<Config> config, IValue value) {
         Predicate<Object> isDate = obj -> obj != null && isDateValid((String) obj);
         return isDate.test(value.get());
     }
 
     @Override
-    public int compare(Object o1, Object o2) {
+    public int compare(IValue o1, IValue o2) {
         try {
             return Optional.ofNullable(o1)
-                    .map(Object::toString)
+                    .map(IValue::get)
                     .filter(dateStr -> dateStr.length() > 1)
                     .map(dateStr1 -> {
                         try {
                             Date date1 = dateFormat.parse(dateStr1);
-                            Date date2 = dateFormat.parse((String) o2);
+                            Date date2 = dateFormat.parse(o2.get());
                             return date1.compareTo(date2);
                         } catch (Exception e) {
                             Logger.getAnonymousLogger().warning("Failed to parse date: " + dateStr1);
@@ -114,8 +114,8 @@ public class DateType implements IType {
                     })
                     .orElseGet(() -> {
                         try {
-                            Date date1 = formatDate.parse((String) o1);
-                            Date date2 = formatDate.parse((String) o2);
+                            Date date1 = formatDate.parse(Objects.requireNonNull(o1).get());
+                            Date date2 = formatDate.parse(o2.get());
                             return date1.compareTo(date2);
                         } catch (Exception e) {
                             Logger.getAnonymousLogger().warning("Failed to parse date: " + o1);

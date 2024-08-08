@@ -1,6 +1,6 @@
 package org.example.microsoftlists.model.type;
 
-import org.example.microsoftlists.model.Parameter;
+import org.example.microsoftlists.model.Config;
 import lombok.Getter;
 import org.example.microsoftlists.model.constants.ColumnType;
 import org.example.microsoftlists.model.constants.ConfigParameter;
@@ -23,8 +23,8 @@ public class ChoiceType implements IType {
 
 
     @Override
-    public boolean isValueValid(List<Parameter> config, IValue value) {
-        Predicate<Parameter> isMultiSelect = para -> para.getName().equals(ConfigParameter.MULTIPLE_SELECTION)
+    public boolean isValueValid(List<Config> config, IValue value) {
+        Predicate<Config> isMultiSelect = para -> para.getName().equals(ConfigParameter.MULTIPLE_SELECTION)
                 && para.getValue().get().equalsIgnoreCase(Boolean.TRUE.toString());
         return !(config.stream().noneMatch(isMultiSelect) && value instanceof ListObject);
     }

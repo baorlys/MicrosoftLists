@@ -1,28 +1,36 @@
 package org.example.microsoftlists.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import jakarta.persistence.Convert;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.example.microsoftlists.model.deserializer.ValueDeserializer;
+import org.example.microsoftlists.model.converter.IValueConverter;
 import org.example.microsoftlists.model.value.IValue;
+
+import java.util.UUID;
 
 
 @Getter
 @Setter
 @NoArgsConstructor
+@Entity
 public class Cell {
-    @JsonIgnore
+    @Id
+    private String id;
+    @ManyToOne
     private Row row;
 
+    @ManyToOne
     private Column column;
 
-
-    @JsonDeserialize(using = ValueDeserializer.class)
+    @Convert(converter  = IValueConverter.class)
     private IValue value;
 
     public Cell(Row row, Column column, IValue value) {
+        this.id = UUID.randomUUID().toString();
         this.row = row;
         this.column = column;
         this.value = value;

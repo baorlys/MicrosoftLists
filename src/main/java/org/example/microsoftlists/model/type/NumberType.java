@@ -1,6 +1,6 @@
 package org.example.microsoftlists.model.type;
 
-import org.example.microsoftlists.model.Parameter;
+import org.example.microsoftlists.model.Config;
 import org.example.microsoftlists.model.constants.ColumnType;
 import org.example.microsoftlists.model.value.IValue;
 
@@ -16,7 +16,7 @@ public class NumberType implements IType {
 
 
     @Override
-    public boolean isValueValid(List<Parameter> config, IValue value) {
+    public boolean isValueValid(List<Config> config, IValue value) {
         try {
             new BigDecimal(value.get());
             return true;
@@ -26,10 +26,18 @@ public class NumberType implements IType {
     }
 
     @Override
-    public int compare(Object o1, Object o2) {
-        BigDecimal numberO1 = new BigDecimal((Integer) o1);
-        BigDecimal numberO2 = new BigDecimal((Integer) o2);
-        return numberO1.compareTo(numberO2);
+    public int compare(IValue o1, IValue o2) {
+        try {
+            new BigDecimal(o1.get());
+        } catch (Exception e) {
+            return 1;
+        }
+        try {
+            new BigDecimal(o2.get());
+        } catch (Exception e) {
+            return -1;
+        }
+        return new BigDecimal(o1.get()).compareTo(new BigDecimal(o2.get()));
     }
 
 

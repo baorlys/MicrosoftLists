@@ -1,3 +1,6 @@
+# Secret key
+src/main/resources/.env
+
 # General ignore rules for target directories
 target/
 !.mvn/wrapper/maven-wrapper.jar
@@ -5,6 +8,7 @@ target/
 !**/src/test/**/target/
 
 ### IntelliJ IDEA ###
+.idea/dataSources/
 .idea/sonarlint/
 .idea/modules.xml
 .idea/jarRepositories.xml

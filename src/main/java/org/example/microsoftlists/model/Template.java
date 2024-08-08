@@ -1,13 +1,10 @@
 package org.example.microsoftlists.model;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-import org.example.microsoftlists.model.constants.IdentifyModel;
-import org.example.microsoftlists.model.deserializer.TemplateDeserializer;
-import org.example.microsoftlists.model.serializer.TemplateSerializer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,18 +13,19 @@ import java.util.UUID;
 @Getter
 @Setter
 @AllArgsConstructor
-@JsonSerialize(using = TemplateSerializer.class)
-@JsonDeserialize(using = TemplateDeserializer.class)
-public class Template implements Identifiable {
-    private final String typeIdentify = IdentifyModel.TEMPLATE.name();
+@Entity
+public class Template  {
 
-    private UUID id;
+    @Id
+    private String id;
     private String displayName;
 
+    @OneToMany(mappedBy = "template",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private List<Column> columns;
 
     public Template() {
-        this.id = UUID.randomUUID();
+        this.id = UUID.randomUUID().toString();
         this.columns = new ArrayList<>();
     }
 
